@@ -44,6 +44,7 @@ function sendMessage() {
             id="messageInput"
             placeholder="Type a message..."
         >
+            
 
         <button onclick="sendMessage()">
             Send
@@ -59,4 +60,48 @@ function sendMessage() {
     chatBox.appendChild(newMessage);
 
     input.value = "";
+    const memoryInput = document.getElementById("memoryInput");
+const memoryGallery = document.getElementById("memoryGallery");
+
+memoryInput.addEventListener("change", function () {
+
+    const files = memoryInput.files;
+
+    for (const file of files) {
+
+        const memoryCard = document.createElement("div");
+        memoryCard.className = "memory-card";
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "🗑️ Remove";
+
+        deleteButton.onclick = function () {
+            memoryCard.remove();
+        };
+
+        if (file.type.startsWith("image/")) {
+
+            const image = document.createElement("img");
+
+            image.src = URL.createObjectURL(file);
+            image.alt = "NLC Collection Memory";
+
+            memoryCard.appendChild(image);
+
+        } else if (file.type.startsWith("video/")) {
+
+            const video = document.createElement("video");
+
+            video.src = URL.createObjectURL(file);
+            video.controls = true;
+
+            memoryCard.appendChild(video);
+        }
+
+        memoryCard.appendChild(deleteButton);
+        memoryGallery.appendChild(memoryCard);
+    }
+
+    memoryInput.value = "";
+});
 }
