@@ -1,841 +1,712 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NLC Collection</title>
+  <title>NLC Collection</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        body {
-            background: #fff5fb;
-            color: #333;
-        }
+    body {
+      background: #f8f3f3;
+      color: #333;
+    }
 
-        header {
-            background: #ff8fc7;
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
+    header {
+      background: linear-gradient(135deg, #4a091b, #7b1735, #9b294b);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 0 0 30px 30px;
+    }
 
-        header h1 {
-            font-size: 34px;
-        }
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
 
-        header p {
-            margin-top: 8px;
-        }
+    header p {
+      font-size: 14px;
+    }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 15px;
-            background: white;
-            box-shadow: 0 2px 8px #ddd;
-        }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 15px;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #ff5eaa;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 20px;
-        }
+    nav button {
+      border: none;
+      background: white;
+      color: #6b1028;
+      padding: 10px 15px;
+      border-radius: 20px;
+      box-shadow: 0 3px 10px #d8caca;
+      cursor: pointer;
+    }
 
-        nav a:hover {
-            background: #ffe0ef;
-        }
+    nav button:hover {
+      background: #6b1028;
+      color: white;
+    }
 
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-        }
+    section {
+      padding: 25px 18px;
+      max-width: 900px;
+      margin: auto;
+    }
 
-        .hero h2 {
-            font-size: 36px;
-            color: #ff5eaa;
-            margin-bottom: 15px;
-        }
+    .title {
+      text-align: center;
+      color: #6b1028;
+      margin-bottom: 20px;
+    }
 
-        .hero p {
-            font-size: 18px;
-            max-width: 650px;
-            margin: 0 auto 25px;
-            line-height: 1.6;
-        }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
 
-        .button {
-            display: inline-block;
-            background: #ff69b4;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-        }
+    .card {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px #d8caca;
+      text-align: center;
+    }
 
-        .button:hover {
-            background: #ff4fa7;
-        }
+    .card .emoji {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
 
-        section {
-            padding: 45px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
+    .card h3 {
+      color: #6b1028;
+      margin-bottom: 8px;
+    }
 
-        section h2 {
-            text-align: center;
-            color: #ff5eaa;
-            margin-bottom: 25px;
-        }
+    .memory-box {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px #d8caca;
+    }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(200px, 1fr)
-            );
-            gap: 20px;
-        }
+    input,
+    textarea {
+      width: 100%;
+      border: 2px solid #c58a98;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 7px 0;
+      outline: none;
+    }
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px #ddd;
-        }
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
 
-        .card h3 {
-            margin: 10px 0;
-            color: #ff69b4;
-        }
+    input:focus,
+    textarea:focus {
+      border-color: #6b1028;
+    }
 
-        .card p {
-            line-height: 1.5;
-        }
+    .btn {
+      border: none;
+      background: #6b1028;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
 
-        /* MEMORIES */
+    .btn:hover {
+      background: #4a091b;
+    }
 
-        .memory-box {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            border: 2px dashed #ff9dca;
-        }
+    .memory {
+      background: #f3e6e8;
+      padding: 15px;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
 
-        .memory-box input {
-            margin-top: 20px;
-        }
+    .memory strong {
+      color: #6b1028;
+    }
 
-        .memory-gallery {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(200px, 1fr)
-            );
-            gap: 20px;
-            margin-top: 25px;
-        }
+    .chat-message {
+      background: #f3e6e8;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 15px;
+    }
 
-        .memory-card {
-            background: white;
-            padding: 15px;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px #ddd;
-            text-align: center;
-        }
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b1028;
+    }
 
-        .memory-card img,
-        .memory-card video {
-            width: 100%;
-            max-height: 250px;
-            object-fit: cover;
-            border-radius: 15px;
-        }
+    .hidden {
+      display: none;
+    }
 
-        .memory-card button {
-            margin-top: 10px;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 20px;
-            background: #ff69b4;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* CHAT */
-
-        .chat-box {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0 4px 12px #ddd;
-        }
-
-        .chat-messages {
-            max-height: 350px;
-            overflow-y: auto;
-            padding: 10px;
-            margin-bottom: 15px;
-        }
-
-        .message {
-            background: #ffe0ef;
-            padding: 12px;
-            border-radius: 15px;
-            margin-bottom: 10px;
-            width: fit-content;
-            max-width: 80%;
-        }
-
-        .message.you {
-            background: #ff8fc7;
-            color: white;
-            margin-left: auto;
-        }
-
-        .chat-input {
-            display: flex;
-            gap: 10px;
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            outline: none;
-        }
-
-        .chat-input button {
-            border: none;
-            background: #ff69b4;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .chat-input button:hover {
-            background: #ff4fa7;
-        }
-
-        /* ADD BOX */
-
-        .add-box {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px #ddd;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .add-box input,
-        .add-box select {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            margin: 5px;
-            outline: none;
-        }
-
-        .add-box .button {
-            margin: 5px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #ff8fc7;
-            color: white;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 600px) {
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            .hero h2 {
-                font-size: 28px;
-            }
-
-            nav a {
-                font-size: 14px;
-                padding: 8px 10px;
-            }
-        }
-    </style>
+    #status {
+      text-align: center;
+      margin: 10px;
+      font-size: 13px;
+      color: #6b1028;
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
+  <header>
+    <h1>♡ NLC Collection ♡</h1>
+    <p>A place for memories, music, shows and moments together.</p>
+  </header>
 
-    <header>
-        <h1>💗 NLC Collection</h1>
-        <p>Where our memories stay forever.</p>
-    </header>
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('memories')">Memories</button>
+    <button onclick="showSection('music')">Music</button>
+    <button onclick="showSection('shows')">K-Drama & Anime</button>
+    <button onclick="showSection('chat')">Chat</button>
+  </nav>
 
+  <div id="status">Connecting to NLC Collection...</div>
 
-    <!-- NAVIGATION -->
+  <!-- HOME -->
+  <section id="home">
 
-    <nav>
-        <a href="#home">🏠 Home</a>
-        <a href="#memories">📸 Memories</a>
-        <a href="#chat">💬 Chat</a>
-        <a href="#calls">📞 Calls</a>
-        <a href="#music">🎵 Music</a>
-        <a href="#shows">🎬 K-Drama & Anime</a>
-    </nav>
+    <h2 class="title">Welcome to NLC Collection ♡</h2>
 
+    <div class="cards">
 
-    <!-- HOME -->
+      <div class="card">
+        <div class="emoji">📸</div>
+        <h3>Memories</h3>
+        <p>Save special memories and messages.</p>
+      </div>
 
-    <div class="hero" id="home">
+      <div class="card">
+        <div class="emoji">🎵</div>
+        <h3>Music</h3>
+        <p>Share your favorite songs.</p>
+      </div>
 
-        <h2>Welcome to NLC Collection! 💕</h2>
+      <div class="card">
+        <div class="emoji">🎬</div>
+        <h3>K-Drama & Anime</h3>
+        <p>Keep your favorite shows and recommendations.</p>
+      </div>
 
-        <p>
-            A free space where friends can save memories,
-            chat, call, video call, share music, and recommend
-            their favorite K-dramas and anime.
-        </p>
-
-        <a href="#memories" class="button">
-            Start Making Memories ✨
-        </a>
+      <div class="card">
+        <div class="emoji">💬</div>
+        <h3>Chat</h3>
+        <p>Send messages to your collection.</p>
+      </div>
 
     </div>
 
+  </section>
 
-    <!-- MEMORIES -->
 
-    <section id="memories">
+  <!-- MEMORIES -->
+  <section id="memories" class="hidden">
 
-        <h2>📸 Our Memories</h2>
+    <h2 class="title">📸 Our Memories</h2>
 
-        <div class="memory-box">
+    <div class="memory-box">
 
-            <h3>Save Your Favorite Moments 💗</h3>
+      <input
+        type="text"
+        id="memoryTitle"
+        placeholder="Memory title">
 
-            <p>
-                Choose your favorite pictures and videos
-                to add to your collection.
-            </p>
+      <textarea
+        id="memoryText"
+        placeholder="Write your memory here..."></textarea>
 
-            <input
-                type="file"
-                id="memoryInput"
-                accept="image/*,video/*"
-                multiple
-            >
+      <button class="btn" onclick="saveMemory()">
+        💾 Save Memory
+      </button>
 
-        </div>
+    </div>
 
-        <div
-            id="memoryGallery"
-            class="memory-gallery">
-        </div>
+    <div id="memoryList"></div>
 
-    </section>
+  </section>
 
 
-    <!-- CHAT -->
+  <!-- MUSIC -->
+  <section id="music" class="hidden">
 
-    <section id="chat">
+    <h2 class="title">🎵 Music Collection</h2>
 
-        <h2>💬 NLC Chat</h2>
+    <div class="memory-box">
 
-        <div class="chat-box">
+      <input
+        type="text"
+        id="songName"
+        placeholder="Song title">
 
-            <div
-                id="chatMessages"
-                class="chat-messages">
+      <input
+        type="text"
+        id="songArtist"
+        placeholder="Artist">
 
-                <div class="message">
-                    Hii! Welcome to NLC Collection! 💗
-                </div>
+      <button class="btn" onclick="saveSong()">
+        🎵 Add Song
+      </button>
 
-            </div>
+    </div>
 
-            <div class="chat-input">
+    <div id="songList"></div>
 
-                <input
-                    type="text"
-                    id="messageInput"
-                    placeholder="Type a message..."
-                    autocomplete="off"
-                >
+  </section>
 
-                <button id="sendButton">
-                    Send
-                </button>
 
-            </div>
+  <!-- SHOWS -->
+  <section id="shows" class="hidden">
 
-        </div>
+    <h2 class="title">🎬 K-Drama & Anime</h2>
 
-    </section>
+    <div class="memory-box">
 
+      <input
+        type="text"
+        id="showName"
+        placeholder="K-Drama or Anime title">
 
-    <!-- CALLS -->
+      <input
+        type="text"
+        id="showType"
+        placeholder="K-Drama or Anime">
 
-    <section id="calls">
+      <button class="btn" onclick="saveShow()">
+        🎬 Add Show
+      </button>
 
-        <h2>📞 Calls</h2>
+    </div>
 
-        <div class="cards">
+    <div id="showList"></div>
 
-            <div class="card">
+  </section>
 
-                <h3>📞 Voice Call</h3>
 
-                <p>
-                    Talk with your friends anytime.
-                </p>
+  <!-- CHAT -->
+  <section id="chat" class="hidden">
 
-                <br>
+    <h2 class="title">💬 NLC Chat</h2>
 
-                <button class="button"
-                    onclick="alert('Voice calling will be added soon! 📞')">
-                    Call
-                </button>
+    <div class="memory-box">
 
-            </div>
+      <input
+        type="text"
+        id="chatName"
+        placeholder="Your name">
 
+      <textarea
+        id="chatMessage"
+        placeholder="Type your message..."></textarea>
 
-            <div class="card">
+      <button class="btn" onclick="sendMessage()">
+        💌 Send
+      </button>
 
-                <h3>📹 Video Call</h3>
+    </div>
 
-                <p>
-                    See and talk to your friends.
-                </p>
+    <div id="chatList"></div>
 
-                <br>
+  </section>
 
-                <button class="button"
-                    onclick="alert('Video calling will be added soon! 📹')">
-                    Video Call
-                </button>
 
-            </div>
+  <footer>
+    Made with ♡ for NLC Collection
+  </footer>
 
-        </div>
 
-    </section>
+  <!-- FIREBASE -->
+  <script type="module">
 
+    import { initializeApp }
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-    <!-- MUSIC -->
+    import {
+      getDatabase,
+      ref,
+      push,
+      onValue
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-    <section id="music">
 
-        <h2>🎵 Shared Music</h2>
+    // ==========================================
+    // 🔥 YOUR FIREBASE CONFIG
+    // ==========================================
 
-        <div class="add-box">
+    const firebaseConfig = {
 
-            <input
-                type="text"
-                id="songInput"
-                placeholder="Enter a song title"
-            >
+      apiKey: "PASTE_YOUR_API_KEY_HERE",
 
-            <button
-                class="button"
-                onclick="addSong()">
-                Add Song 🎵
-            </button>
+      authDomain: "PASTE_YOUR_PROJECT_ID.firebaseapp.com",
 
-        </div>
+      databaseURL: "https://PASTE_YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
 
-        <div
-            id="songList"
-            class="cards">
-        </div>
+      projectId: "PASTE_YOUR_PROJECT_ID",
 
-    </section>
+      storageBucket: "PASTE_YOUR_PROJECT_ID.firebasestorage.app",
 
+      messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID",
 
-    <!-- K-DRAMA AND ANIME -->
+      appId: "PASTE_YOUR_APP_ID"
 
-    <section id="shows">
+    };
 
-        <h2>🎬 K-Drama & Anime</h2>
 
-        <div class="add-box">
+    // Initialize Firebase
 
-            <input
-                type="text"
-                id="showInput"
-                placeholder="Enter K-drama or anime"
-            >
+    const app = initializeApp(firebaseConfig);
 
-            <select id="showType">
+    const database = getDatabase(app);
 
-                <option value="K-Drama">
-                    🇰🇷 K-Drama
-                </option>
 
-                <option value="Anime">
-                    🇯🇵 Anime
-                </option>
+    document.getElementById("status").innerText =
+      "✓ NLC Collection is connected";
 
-            </select>
 
-            <button
-                class="button"
-                onclick="addShow()">
-                Add 🎬
-            </button>
+    // ==========================================
+    // NAVIGATION
+    // ==========================================
 
-        </div>
+    window.showSection = function(sectionId) {
 
-        <div
-            id="showList"
-            class="cards">
-        </div>
+      const sections = [
+        "home",
+        "memories",
+        "music",
+        "shows",
+        "chat"
+      ];
 
-    </section>
+      sections.forEach(function(id) {
 
+        document.getElementById(id)
+          .classList.add("hidden");
 
-    <!-- FEATURES -->
+      });
 
-    <section>
+      document.getElementById(sectionId)
+        .classList.remove("hidden");
 
-        <h2>✨ Why NLC Collection?</h2>
+    };
 
-        <div class="cards">
 
-            <div class="card">
+    // ==========================================
+    // SAVE MEMORY
+    // ==========================================
 
-                <h3>📸 Memories</h3>
+    window.saveMemory = function() {
 
-                <p>
-                    Keep your favorite moments together.
-                </p>
+      const title =
+        document.getElementById("memoryTitle").value.trim();
 
-            </div>
+      const text =
+        document.getElementById("memoryText").value.trim();
 
-            <div class="card">
 
-                <h3>👯 Friends</h3>
+      if (!title || !text) {
 
-                <p>
-                    Stay connected with your friends.
-                </p>
+        alert("Please complete the memory.");
 
-            </div>
+        return;
+      }
 
-            <div class="card">
 
-                <h3>🆓 Free</h3>
+      push(ref(database, "memories"), {
 
-                <p>
-                    Enjoy NLC Collection for free.
-                </p>
+        title: title,
 
-            </div>
+        text: text,
 
-        </div>
+        date: new Date().toLocaleString()
 
-    </section>
+      });
 
 
-    <!-- FOOTER -->
+      document.getElementById("memoryTitle").value = "";
 
-    <footer>
+      document.getElementById("memoryText").value = "";
 
-        <p>
-            Made with 💗 for unforgettable memories.
-        </p>
+      alert("Memory saved! ♡");
 
-        <p>
-            © 2026 NLC Collection
-        </p>
+    };
 
-    </footer>
 
+    // ==========================================
+    // LOAD MEMORIES
+    // ==========================================
 
-    <!-- JAVASCRIPT -->
+    onValue(ref(database, "memories"), function(snapshot) {
 
-    <script>
+      const list =
+        document.getElementById("memoryList");
 
-        /* =========================
-           CHAT
-        ========================= */
+      list.innerHTML = "";
 
-        const messageInput =
-            document.getElementById("messageInput");
+      snapshot.forEach(function(child) {
 
-        const sendButton =
-            document.getElementById("sendButton");
+        const data = child.val();
 
-        const chatMessages =
-            document.getElementById("chatMessages");
+        list.innerHTML += `
 
+          <div class="memory">
 
-        function sendMessage() {
+            <strong>${data.title}</strong>
 
-            const text =
-                messageInput.value.trim();
+            <p>${data.text}</p>
 
-            if (text === "") {
-                return;
-            }
+            <small>${data.date}</small>
 
-            const message =
-                document.createElement("div");
+          </div>
 
-            message.className =
-                "message you";
+        `;
 
-            message.textContent =
-                text;
+      });
 
-            chatMessages.appendChild(message);
+    });
 
-            messageInput.value = "";
 
-            chatMessages.scrollTop =
-                chatMessages.scrollHeight;
+    // ==========================================
+    // SAVE SONG
+    // ==========================================
 
-            messageInput.focus();
-        }
+    window.saveSong = function() {
 
+      const name =
+        document.getElementById("songName").value.trim();
 
-        sendButton.addEventListener(
-            "click",
-            sendMessage
-        );
+      const artist =
+        document.getElementById("songArtist").value.trim();
 
 
-        messageInput.addEventListener(
-            "keydown",
-            function(event) {
+      if (!name || !artist) {
 
-                if (event.key === "Enter") {
-                    sendMessage();
-                }
+        alert("Please enter the song and artist.");
 
-            }
-        );
+        return;
+      }
 
 
-        /* =========================
-           PHOTOS AND VIDEOS
-        ========================= */
+      push(ref(database, "music"), {
 
-        const memoryInput =
-            document.getElementById("memoryInput");
+        name: name,
 
-        const memoryGallery =
-            document.getElementById("memoryGallery");
+        artist: artist
 
+      });
 
-        memoryInput.addEventListener(
-            "change",
-            function() {
 
-                const files =
-                    memoryInput.files;
+      document.getElementById("songName").value = "";
 
-                for (const file of files) {
+      document.getElementById("songArtist").value = "";
 
-                    const card =
-                        document.createElement("div");
+      alert("Song added! 🎵");
 
-                    card.className =
-                        "memory-card";
+    };
 
 
-                    if (file.type.startsWith("image/")) {
+    // ==========================================
+    // LOAD SONGS
+    // ==========================================
 
-                        const image =
-                            document.createElement("img");
+    onValue(ref(database, "music"), function(snapshot) {
 
-                        image.src =
-                            URL.createObjectURL(file);
+      const list =
+        document.getElementById("songList");
 
-                        card.appendChild(image);
+      list.innerHTML = "";
 
-                    }
+      snapshot.forEach(function(child) {
 
+        const data = child.val();
 
-                    else if (
-                        file.type.startsWith("video/")
-                    ) {
+        list.innerHTML += `
 
-                        const video =
-                            document.createElement("video");
+          <div class="memory">
 
-                        video.src =
-                            URL.createObjectURL(file);
+            <strong>🎵 ${data.name}</strong>
 
-                        video.controls = true;
+            <p>Artist: ${data.artist}</p>
 
-                        card.appendChild(video);
+          </div>
 
-                    }
+        `;
 
+      });
 
-                    const removeButton =
-                        document.createElement("button");
+    });
 
-                    removeButton.textContent =
-                        "🗑️ Remove";
 
+    // ==========================================
+    // SAVE SHOW
+    // ==========================================
 
-                    removeButton.onclick =
-                        function() {
+    window.saveShow = function() {
 
-                            card.remove();
+      const name =
+        document.getElementById("showName").value.trim();
 
-                        };
+      const type =
+        document.getElementById("showType").value.trim();
 
 
-                    card.appendChild(
-                        removeButton
-                    );
+      if (!name || !type) {
 
-                    memoryGallery.appendChild(
-                        card
-                    );
-                }
+        alert("Please complete the information.");
 
-                memoryInput.value = "";
-            }
-        );
+        return;
+      }
 
 
-        /* =========================
-           MUSIC
-        ========================= */
+      push(ref(database, "shows"), {
 
-        function addSong() {
+        name: name,
 
-            const input =
-                document.getElementById("songInput");
+        type: type
 
-            const list =
-                document.getElementById("songList");
+      });
 
-            const song =
-                input.value.trim();
 
+      document.getElementById("showName").value = "";
 
-            if (song === "") {
+      document.getElementById("showType").value = "";
 
-                alert(
-                    "Please enter a song title."
-                );
+      alert("Show added! 🎬");
 
-                return;
-            }
+    };
 
 
-            const card =
-                document.createElement("div");
+    // ==========================================
+    // LOAD SHOWS
+    // ==========================================
 
-            card.className = "card";
+    onValue(ref(database, "shows"), function(snapshot) {
 
+      const list =
+        document.getElementById("showList");
 
-            card.innerHTML = `
-                <h3>🎵 ${song}</h3>
-                <p>Added to NLC Collection</p>
-                <br>
-                <button
-                    class="button"
-                    onclick="this.parentElement.remove()">
-                    Remove
-                </button>
-            `;
+      list.innerHTML = "";
 
+      snapshot.forEach(function(child) {
 
-            list.appendChild(card);
+        const data = child.val();
 
-            input.value = "";
-        }
+        list.innerHTML += `
 
+          <div class="memory">
 
-        /* =========================
-           K-DRAMA AND ANIME
-        ========================= */
+            <strong>🎬 ${data.name}</strong>
 
-        function addShow() {
+            <p>${data.type}</p>
 
-            const input =
-                document.getElementById("showInput");
+          </div>
 
-            const type =
-                document.getElementById("showType");
+        `;
 
-            const list =
-                document.getElementById("showList");
+      });
 
-            const show =
-                input.value.trim();
+    });
 
 
-            if (show === "") {
+    // ==========================================
+    // SEND CHAT MESSAGE
+    // ==========================================
 
-                alert(
-                    "Please enter a title."
-                );
+    window.sendMessage = function() {
 
-                return;
-            }
+      const name =
+        document.getElementById("chatName").value.trim();
 
+      const message =
+        document.getElementById("chatMessage").value.trim();
 
-            const card =
-                document.createElement("div");
 
-            card.className = "card";
+      if (!name || !message) {
 
+        alert("Please enter your name and message.");
 
-            const emoji =
-                type.value === "K-Drama"
-                ? "🇰🇷"
-                : "🇯🇵";
+        return;
+      }
 
 
-            card.innerHTML = `
-                <h3>${emoji} ${show}</h3>
-                <p>${type.value}</p>
-                <br>
-                <button
-                    class="button"
-                    onclick="this.parentElement.remove()">
-                    Remove
-                </button>
-            `;
+      push(ref(database, "messages"), {
 
+        name: name,
 
-            list.appendChild(card);
+        message: message,
 
-            input.value = "";
-        }
+        date: new Date().toLocaleString()
 
-    </script>
+      });
+
+
+      document.getElementById("chatMessage").value = "";
+
+    };
+
+
+    // ==========================================
+    // LOAD CHAT
+    // ==========================================
+
+    onValue(ref(database, "messages"), function(snapshot) {
+
+      const list =
+        document.getElementById("chatList");
+
+      list.innerHTML = "";
+
+      snapshot.forEach(function(child) {
+
+        const data = child.val();
+
+        list.innerHTML += `
+
+          <div class="chat-message">
+
+            <strong>${data.name}</strong>
+
+            <p>${data.message}</p>
+
+            <small>${data.date}</small>
+
+          </div>
+
+        `;
+
+      });
+
+    });
+
+  </script>
 
 </body>
-    </html>
+    </html>             
+                                
+                
+            
