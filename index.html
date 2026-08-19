@@ -3,275 +3,839 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>NLC Collection</title>
 
-    <style>.memory-gallery {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(200px, 1fr)
-    );
-    gap: 20px;
-    margin-top: 25px;
-}
-
-.memory-card {
-    background: white;
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px #ddd;
-    text-align: center;
-}
-
-.memory-card img,
-.memory-card video {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.memory-card button {
-    margin-top: 10px;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 20px;
-    background: #ff69b4;
-    color: white;
-    cursor: pointer;
-}
-        body {
+    <style>
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
-            background: #f7f3ff;
+        }
+
+        body {
+            background: #fff5fb;
             color: #333;
-            text-align: center;
         }
 
         header {
-            background: #8e7cc3;
+            background: #ff8fc7;
             color: white;
-            padding: 40px 20px;
+            padding: 25px;
+            text-align: center;
         }
 
         header h1 {
-            font-size: 40px;
-            margin: 0;
+            font-size: 34px;
         }
 
         header p {
-            font-size: 18px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
-        .container {
-            padding: 40px 20px;
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ff5eaa;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: #ffe0ef;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            color: #ff5eaa;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 25px;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            background: #ff69b4;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #ff4fa7;
+        }
+
+        section {
+            padding: 45px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        section h2 {
+            text-align: center;
+            color: #ff5eaa;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(200px, 1fr)
+            );
+            gap: 20px;
         }
 
         .card {
             background: white;
-            max-width: 700px;
-            margin: 20px auto;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px #ddd;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            color: #ff69b4;
+        }
+
+        .card p {
+            line-height: 1.5;
+        }
+
+        /* MEMORIES */
+
+        .memory-box {
+            background: white;
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px dashed #ff9dca;
         }
 
-        .card h2 {
-            color: #8e7cc3;
+        .memory-box input {
+            margin-top: 20px;
         }
 
-        .features {
+        .memory-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            max-width: 900px;
-            margin: auto;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(200px, 1fr)
+            );
+            gap: 20px;
+            margin-top: 25px;
         }
 
-        .feature {
+        .memory-card {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px #ddd;
+            text-align: center;
+        }
+
+        .memory-card img,
+        .memory-card video {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .memory-card button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background: #ff69b4;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* CHAT */
+
+        .chat-box {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 4px 12px #ddd;
+        }
+
+        .chat-messages {
+            max-height: 350px;
+            overflow-y: auto;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .message {
+            background: #ffe0ef;
+            padding: 12px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            width: fit-content;
+            max-width: 80%;
+        }
+
+        .message.you {
+            background: #ff8fc7;
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-input button {
+            border: none;
+            background: #ff69b4;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .chat-input button:hover {
+            background: #ff4fa7;
+        }
+
+        /* ADD BOX */
+
+        .add-box {
             background: white;
             padding: 25px;
-            border-radius: 18px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            box-shadow: 0 4px 12px #ddd;
+            text-align: center;
+            margin-bottom: 25px;
         }
 
-        .feature h3 {
-            color: #8e7cc3;
+        .add-box input,
+        .add-box select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin: 5px;
+            outline: none;
+        }
+
+        .add-box .button {
+            margin: 5px;
         }
 
         footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: #8e7cc3;
+            text-align: center;
+            padding: 25px;
+            background: #ff8fc7;
             color: white;
+            margin-top: 30px;
         }
-    </style>.add-box {
-    background: white;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px #ddd;
-    text-align: center;
-    margin-bottom: 25px;
-}
 
-.add-box input,
-.add-box select {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    margin: 5px;
-    outline: none;
-}
+        @media (max-width: 600px) {
 
-.add-box .button {
-    margin: 5px;
-}
+            header h1 {
+                font-size: 28px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 8px 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- HEADER -->
+
     <header>
-        <h1>♡ NLC Collection ♡</h1>
-        <p>Our little place for memories, stories, and everything we love.</p>
+        <h1>💗 NLC Collection</h1>
+        <p>Where our memories stay forever.</p>
     </header>
 
-    <div class="container">
 
-        <div class="card">
-            <h2>Welcome to NLC Collection!</h2>
-            <p>
-                A place to make memories through photos and videos,
-                chat and video call with each other, and share music,
-                K-dramas, and anime — all for free!
-            </p>
-        </div>
+    <!-- NAVIGATION -->
 
-        <div class="features">
+    <nav>
+        <a href="#home">🏠 Home</a>
+        <a href="#memories">📸 Memories</a>
+        <a href="#chat">💬 Chat</a>
+        <a href="#calls">📞 Calls</a>
+        <a href="#music">🎵 Music</a>
+        <a href="#shows">🎬 K-Drama & Anime</a>
+    </nav>
 
-            <div class="feature">
-                <h3>📸 Memories</h3>
-                <p>Keep our favorite pictures and video compilations in one place.</p>
-            </div><section id="memories">
 
-    <h2>📸 Our Memories</h2>
+    <!-- HOME -->
 
-    <div class="memory-box">
+    <div class="hero" id="home">
 
-        <h3>Save Your Favorite Moments 💗</h3>
+        <h2>Welcome to NLC Collection! 💕</h2>
 
         <p>
-            Choose your favorite pictures and videos
-            to add them to your collection.
+            A free space where friends can save memories,
+            chat, call, video call, share music, and recommend
+            their favorite K-dramas and anime.
         </p>
 
-        <input
-            type="file"
-            id="memoryInput"
-            accept="image/*,video/*"
-            multiple
-        >
+        <a href="#memories" class="button">
+            Start Making Memories ✨
+        </a>
 
     </div>
 
-    <div id="memoryGallery" class="memory-gallery"></div>
 
-</section>
+    <!-- MEMORIES -->
 
-            <div class="feature">
-                <h3>💬 Chat</h3>
-                <p>Talk and share messages with each other anytime.</p>
-            </div><section id="chat">
+    <section id="memories">
 
-    <h2>💬 NLC Chat</h2>
+        <h2>📸 Our Memories</h2>
 
-    <div class="chat-box">
+        <div class="memory-box">
 
-        <div id="chatMessages" class="chat-messages">
+            <h3>Save Your Favorite Moments 💗</h3>
 
-            <div class="message">
-                Hii! Welcome to NLC Collection! 💗
+            <p>
+                Choose your favorite pictures and videos
+                to add to your collection.
+            </p>
+
+            <input
+                type="file"
+                id="memoryInput"
+                accept="image/*,video/*"
+                multiple
+            >
+
+        </div>
+
+        <div
+            id="memoryGallery"
+            class="memory-gallery">
+        </div>
+
+    </section>
+
+
+    <!-- CHAT -->
+
+    <section id="chat">
+
+        <h2>💬 NLC Chat</h2>
+
+        <div class="chat-box">
+
+            <div
+                id="chatMessages"
+                class="chat-messages">
+
+                <div class="message">
+                    Hii! Welcome to NLC Collection! 💗
+                </div>
+
+            </div>
+
+            <div class="chat-input">
+
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Type a message..."
+                    autocomplete="off"
+                >
+
+                <button id="sendButton">
+                    Send
+                </button>
+
             </div>
 
         </div>
 
-        <div class="chat-input">
+    </section>
+
+
+    <!-- CALLS -->
+
+    <section id="calls">
+
+        <h2>📞 Calls</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>📞 Voice Call</h3>
+
+                <p>
+                    Talk with your friends anytime.
+                </p>
+
+                <br>
+
+                <button class="button"
+                    onclick="alert('Voice calling will be added soon! 📞')">
+                    Call
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>📹 Video Call</h3>
+
+                <p>
+                    See and talk to your friends.
+                </p>
+
+                <br>
+
+                <button class="button"
+                    onclick="alert('Video calling will be added soon! 📹')">
+                    Video Call
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MUSIC -->
+
+    <section id="music">
+
+        <h2>🎵 Shared Music</h2>
+
+        <div class="add-box">
 
             <input
                 type="text"
-                id="messageInput"
-                placeholder="Type a message..."
-                autocomplete="off"
+                id="songInput"
+                placeholder="Enter a song title"
             >
 
-            <button id="sendButton">
-                Send
+            <button
+                class="button"
+                onclick="addSong()">
+                Add Song 🎵
             </button>
 
         </div>
 
-    </div>
+        <div
+            id="songList"
+            class="cards">
+        </div>
 
-            </section>
+    </section>
 
-            <div class="feature">
-                <h3>📹 Calls</h3>
-                <p>Chat face-to-face through video calls.</p>
-            </div>
 
-            <div class="feature">
-                <h3>🎵 Music</h3>
-                <p>Share and discover music that we enjoy.</p>
-            </div><section id="music">
+    <!-- K-DRAMA AND ANIME -->
 
-    <h2>🎵 Shared Music</h2>
+    <section id="shows">
 
-    <div class="add-box">
-        <input type="text" id="songInput"
-               placeholder="Enter a song title">
+        <h2>🎬 K-Drama & Anime</h2>
 
-        <button class="button" onclick="addSong()">
-            Add Song 🎵
-        </button>
-    </div>
+        <div class="add-box">
 
-    <div id="songList" class="cards"></div>
+            <input
+                type="text"
+                id="showInput"
+                placeholder="Enter K-drama or anime"
+            >
 
-            </section>
+            <select id="showType">
 
-            <section id="shows">
+                <option value="K-Drama">
+                    🇰🇷 K-Drama
+                </option>
 
-    <h2>🎬 K-Drama & Anime</h2>
+                <option value="Anime">
+                    🇯🇵 Anime
+                </option>
 
-    <div class="add-box">
+            </select>
 
-        <input type="text" id="showInput"
-               placeholder="Enter K-drama or anime">
-
-        <select id="showType">
-            <option value="K-Drama">🇰🇷 K-Drama</option>
-            <option value="Anime">🇯🇵 Anime</option>
-        </select>
-
-        <button class="button" onclick="addShow()">
-            Add 🎬
-        </button>
-
-    </div>
-
-    <div id="showList" class="cards"></div>
-
-            </section>
+            <button
+                class="button"
+                onclick="addShow()">
+                Add 🎬
+            </button>
 
         </div>
 
-    </div>
+        <div
+            id="showList"
+            class="cards">
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section>
+
+        <h2>✨ Why NLC Collection?</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>📸 Memories</h3>
+
+                <p>
+                    Keep your favorite moments together.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>👯 Friends</h3>
+
+                <p>
+                    Stay connected with your friends.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🆓 Free</h3>
+
+                <p>
+                    Enjoy NLC Collection for free.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
 
     <footer>
-        <p>© 2026 NLC Collection | Made with ♡</p>
+
+        <p>
+            Made with 💗 for unforgettable memories.
+        </p>
+
+        <p>
+            © 2026 NLC Collection
+        </p>
+
     </footer>
 
 
-<script src="script.js"></script>
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* =========================
+           CHAT
+        ========================= */
+
+        const messageInput =
+            document.getElementById("messageInput");
+
+        const sendButton =
+            document.getElementById("sendButton");
+
+        const chatMessages =
+            document.getElementById("chatMessages");
+
+
+        function sendMessage() {
+
+            const text =
+                messageInput.value.trim();
+
+            if (text === "") {
+                return;
+            }
+
+            const message =
+                document.createElement("div");
+
+            message.className =
+                "message you";
+
+            message.textContent =
+                text;
+
+            chatMessages.appendChild(message);
+
+            messageInput.value = "";
+
+            chatMessages.scrollTop =
+                chatMessages.scrollHeight;
+
+            messageInput.focus();
+        }
+
+
+        sendButton.addEventListener(
+            "click",
+            sendMessage
+        );
+
+
+        messageInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+                    sendMessage();
+                }
+
+            }
+        );
+
+
+        /* =========================
+           PHOTOS AND VIDEOS
+        ========================= */
+
+        const memoryInput =
+            document.getElementById("memoryInput");
+
+        const memoryGallery =
+            document.getElementById("memoryGallery");
+
+
+        memoryInput.addEventListener(
+            "change",
+            function() {
+
+                const files =
+                    memoryInput.files;
+
+                for (const file of files) {
+
+                    const card =
+                        document.createElement("div");
+
+                    card.className =
+                        "memory-card";
+
+
+                    if (file.type.startsWith("image/")) {
+
+                        const image =
+                            document.createElement("img");
+
+                        image.src =
+                            URL.createObjectURL(file);
+
+                        card.appendChild(image);
+
+                    }
+
+
+                    else if (
+                        file.type.startsWith("video/")
+                    ) {
+
+                        const video =
+                            document.createElement("video");
+
+                        video.src =
+                            URL.createObjectURL(file);
+
+                        video.controls = true;
+
+                        card.appendChild(video);
+
+                    }
+
+
+                    const removeButton =
+                        document.createElement("button");
+
+                    removeButton.textContent =
+                        "🗑️ Remove";
+
+
+                    removeButton.onclick =
+                        function() {
+
+                            card.remove();
+
+                        };
+
+
+                    card.appendChild(
+                        removeButton
+                    );
+
+                    memoryGallery.appendChild(
+                        card
+                    );
+                }
+
+                memoryInput.value = "";
+            }
+        );
+
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+        function addSong() {
+
+            const input =
+                document.getElementById("songInput");
+
+            const list =
+                document.getElementById("songList");
+
+            const song =
+                input.value.trim();
+
+
+            if (song === "") {
+
+                alert(
+                    "Please enter a song title."
+                );
+
+                return;
+            }
+
+
+            const card =
+                document.createElement("div");
+
+            card.className = "card";
+
+
+            card.innerHTML = `
+                <h3>🎵 ${song}</h3>
+                <p>Added to NLC Collection</p>
+                <br>
+                <button
+                    class="button"
+                    onclick="this.parentElement.remove()">
+                    Remove
+                </button>
+            `;
+
+
+            list.appendChild(card);
+
+            input.value = "";
+        }
+
+
+        /* =========================
+           K-DRAMA AND ANIME
+        ========================= */
+
+        function addShow() {
+
+            const input =
+                document.getElementById("showInput");
+
+            const type =
+                document.getElementById("showType");
+
+            const list =
+                document.getElementById("showList");
+
+            const show =
+                input.value.trim();
+
+
+            if (show === "") {
+
+                alert(
+                    "Please enter a title."
+                );
+
+                return;
+            }
+
+
+            const card =
+                document.createElement("div");
+
+            card.className = "card";
+
+
+            const emoji =
+                type.value === "K-Drama"
+                ? "🇰🇷"
+                : "🇯🇵";
+
+
+            card.innerHTML = `
+                <h3>${emoji} ${show}</h3>
+                <p>${type.value}</p>
+                <br>
+                <button
+                    class="button"
+                    onclick="this.parentElement.remove()">
+                    Remove
+                </button>
+            `;
+
+
+            list.appendChild(card);
+
+            input.value = "";
+        }
+
+    </script>
+
 </body>
-</html>
+    </html>
