@@ -9,6 +9,42 @@ function welcomeMessage() {
 }
 
 // Send chat message
+const messageInput = document.getElementById("messageInput");
+const sendButton = document.getElementById("sendButton");
+const chatMessages = document.getElementById("chatMessages");
+
+function sendMessage() {
+
+    const messageText = messageInput.value.trim();
+
+    if (messageText === "") {
+        return;
+    }
+
+    const message = document.createElement("div");
+
+    message.classList.add("message", "you");
+
+    message.textContent = messageText;
+
+    chatMessages.appendChild(message);
+
+    messageInput.value = "";
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    messageInput.focus();
+}
+
+sendButton.addEventListener("click", sendMessage);
+
+messageInput.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+
+});
 function sendMessage() {
     const input = document.getElementById("messageInput");
     const chatBox = document.getElementById("chatMessages");
@@ -167,3 +203,4 @@ function addShow() {
 
     input.value = "";
 }
+
