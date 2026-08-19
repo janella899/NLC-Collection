@@ -106,7 +106,27 @@
             background: #8e7cc3;
             color: white;
         }
-    </style>
+    </style>.add-box {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px #ddd;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.add-box input,
+.add-box select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin: 5px;
+    outline: none;
+}
+
+.add-box .button {
+    margin: 5px;
+}
 </head>
 
 <body>
@@ -161,7 +181,38 @@
             <div class="feature">
                 <h3>💬 Chat</h3>
                 <p>Talk and share messages with each other anytime.</p>
+            </div><section id="chat">
+
+    <h2>💬 NLC Chat</h2>
+
+    <div class="chat-box">
+
+        <div id="chatMessages" class="chat-messages">
+
+            <div class="message">
+                Hii! Welcome to NLC Collection! 💗
             </div>
+
+        </div>
+
+        <div class="chat-input">
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Type a message..."
+                autocomplete="off"
+            >
+
+            <button id="sendButton">
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+            </section>
 
             <div class="feature">
                 <h3>📹 Calls</h3>
