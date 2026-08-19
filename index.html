@@ -1,738 +1,1291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NLC Collection</title>
+<title>NLC Collection</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-    body {
-      background: #f8f3f3;
-      color: #333;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    header {
-      background: linear-gradient(135deg, #4a091b, #6b1028, #8b1e3f);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      border-radius: 0 0 30px 30px;
-    }
+body {
+    background: #f8f3f4;
+    color: #333;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #4b0b1b, #70152d, #8f2947);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 34px;
+}
+
+header p {
+    margin-top: 8px;
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 2px 8px #d5caca;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    text-decoration: none;
+    color: #6b1028;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background: #f1dce2;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h2 {
+    font-size: 36px;
+    color: #6b1028;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+    background: #6b1028;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #4b0b1b;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 45px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+section h2 {
+    text-align: center;
+    color: #6b1028;
+    margin-bottom: 25px;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(200px, 1fr)
+    );
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px #d8cccc;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #7b1735;
+}
+
+.card p {
+    line-height: 1.5;
+}
+
+/* INPUT BOX */
+
+.add-box {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px #d8cccc;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.add-box input,
+.add-box select {
+    padding: 12px;
+    border: 1px solid #cdb8be;
+    border-radius: 20px;
+    margin: 5px;
+    outline: none;
+}
+
+.add-box input:focus {
+    border-color: #6b1028;
+}
+
+/* MEMORIES */
+
+.memory-box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px dashed #9d536a;
+}
+
+.memory-box input {
+    margin-top: 20px;
+}
+
+.memory-gallery {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(200px, 1fr)
+    );
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.memory-card {
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px #d8cccc;
+    text-align: center;
+}
+
+.memory-card img,
+.memory-card video {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.memory-card button {
+    margin-top: 10px;
+}
+
+/* CHAT */
+
+.chat-box {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 4px 12px #d8cccc;
+}
+
+.chat-messages {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.message {
+    background: #f0e0e4;
+    padding: 12px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    width: fit-content;
+    max-width: 85%;
+}
+
+.message.you {
+    background: #6b1028;
+    color: white;
+    margin-left: auto;
+}
+
+.message small {
+    display: block;
+    margin-top: 5px;
+    opacity: 0.7;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #d5caca;
+    border-radius: 20px;
+    outline: none;
+}
+
+.chat-input button {
+    border: none;
+    background: #6b1028;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background: #4b0b1b;
+}
+
+/* STATUS */
+
+#firebaseStatus {
+    text-align: center;
+    padding: 8px;
+    font-size: 13px;
+    background: #f0e0e4;
+    color: #6b1028;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #6b1028;
+    color: white;
+    margin-top: 30px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
 
     header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
+        font-size: 28px;
     }
 
-    header p {
-      font-size: 14px;
+    .hero h2 {
+        font-size: 28px;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      padding: 15px;
+    nav a {
+        font-size: 13px;
+        padding: 8px 10px;
     }
 
-    nav button {
-      border: none;
-      background: white;
-      color: #6b1028;
-      padding: 10px 15px;
-      border-radius: 20px;
-      box-shadow: 0 3px 10px #d8caca;
+    .chat-input {
+        flex-direction: column;
     }
 
-    nav button:hover {
-      background: #6b1028;
-      color: white;
+    .chat-input button {
+        width: 100%;
     }
-
-    section {
-      padding: 25px 18px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .title {
-      text-align: center;
-      color: #6b1028;
-      margin-bottom: 20px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px 20px;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px #d8caca;
-      text-align: center;
-    }
-
-    .card .emoji {
-      font-size: 45px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      color: #6b1028;
-      margin-bottom: 8px;
-    }
-
-    .memory-box {
-      background: white;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px #d8caca;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      border: 2px solid #c58a98;
-      border-radius: 12px;
-      padding: 12px;
-      margin: 7px 0;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: #6b1028;
-    }
-
-    .btn {
-      border: none;
-      background: #6b1028;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-      margin-top: 5px;
-    }
-
-    .btn:hover {
-      background: #4a091b;
-    }
-
-    .memory {
-      background: #f3e6e8;
-      padding: 15px;
-      border-radius: 15px;
-      margin-top: 15px;
-    }
-
-    .memory strong {
-      color: #6b1028;
-    }
-
-    .chat-message {
-      background: #f3e6e8;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 15px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #6b1028;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    #status {
-      text-align: center;
-      margin: 10px;
-      font-size: 13px;
-      color: #6b1028;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <h1>♡ NLC Collection ♡</h1>
-  <p>A place for memories, music, shows and moments together.</p>
+    <h1>🍷 NLC Collection</h1>
+    <p>Where our memories stay forever.</p>
 </header>
 
+
+<!-- FIREBASE STATUS -->
+
+<div id="firebaseStatus">
+    Connecting to NLC Collection...
+</div>
+
+
+<!-- NAVIGATION -->
+
 <nav>
-  <button onclick="showSection('home')">Home</button>
-  <button onclick="showSection('memories')">Memories</button>
-  <button onclick="showSection('music')">Music</button>
-  <button onclick="showSection('shows')">K-Drama & Anime</button>
-  <button onclick="showSection('chat')">Chat</button>
+
+    <a href="#home">🏠 Home</a>
+
+    <a href="#memories">📸 Memories</a>
+
+    <a href="#chat">💬 Chat</a>
+
+    <a href="#calls">📞 Calls</a>
+
+    <a href="#music">🎵 Music</a>
+
+    <a href="#shows">🎬 K-Drama & Anime</a>
+
 </nav>
 
-<div id="status">Connecting...</div>
 
 <!-- HOME -->
-<section id="home">
 
-  <h2 class="title">Welcome to NLC Collection ♡</h2>
+<div class="hero" id="home">
 
-  <div class="cards">
+    <h2>Welcome to NLC Collection! 🍷</h2>
 
-    <div class="card">
-      <div class="emoji">📸</div>
-      <h3>Memories</h3>
-      <p>Save special memories.</p>
-    </div>
+    <p>
+        A free space where friends can save memories,
+        chat, call, video call, share music, and recommend
+        their favorite K-dramas and anime.
+    </p>
 
-    <div class="card">
-      <div class="emoji">🎵</div>
-      <h3>Music</h3>
-      <p>Share favorite songs.</p>
-    </div>
+    <a href="#memories" class="button">
+        Start Making Memories ✨
+    </a>
 
-    <div class="card">
-      <div class="emoji">🎬</div>
-      <h3>K-Drama & Anime</h3>
-      <p>Share favorite shows.</p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">💬</div>
-      <h3>Chat</h3>
-      <p>Send messages.</p>
-    </div>
-
-  </div>
-
-</section>
+</div>
 
 
 <!-- MEMORIES -->
-<section id="memories" class="hidden">
 
-  <h2 class="title">📸 Our Memories</h2>
+<section id="memories">
 
-  <div class="memory-box">
+    <h2>📸 Our Memories</h2>
 
-    <input
-      id="memoryTitle"
-      type="text"
-      placeholder="Memory title">
+    <div class="memory-box">
 
-    <textarea
-      id="memoryText"
-      placeholder="Write your memory..."></textarea>
+        <h3>Save Your Favorite Moments 🍷</h3>
 
-    <button class="btn" onclick="saveMemory()">
-      💾 Save Memory
-    </button>
+        <p>
+            Choose your favorite pictures and videos
+            to add to your collection.
+        </p>
 
-  </div>
+        <input
+            type="file"
+            id="memoryInput"
+            accept="image/*,video/*"
+            multiple
+        >
 
-  <div id="memoryList"></div>
+        <p style="margin-top:10px;font-size:13px;color:#777;">
+            Photos and videos selected here are displayed
+            on this device. Firebase Storage can be connected
+            after Storage is enabled.
+        </p>
 
-</section>
+    </div>
 
-
-<!-- MUSIC -->
-<section id="music" class="hidden">
-
-  <h2 class="title">🎵 Music Collection</h2>
-
-  <div class="memory-box">
-
-    <input
-      id="songName"
-      type="text"
-      placeholder="Song title">
-
-    <input
-      id="songArtist"
-      type="text"
-      placeholder="Artist">
-
-    <button class="btn" onclick="saveSong()">
-      🎵 Add Song
-    </button>
-
-  </div>
-
-  <div id="songList"></div>
-
-</section>
-
-
-<!-- SHOWS -->
-<section id="shows" class="hidden">
-
-  <h2 class="title">🎬 K-Drama & Anime</h2>
-
-  <div class="memory-box">
-
-    <input
-      id="showName"
-      type="text"
-      placeholder="Title">
-
-    <input
-      id="showType"
-      type="text"
-      placeholder="K-Drama or Anime">
-
-    <button class="btn" onclick="saveShow()">
-      🎬 Add Show
-    </button>
-
-  </div>
-
-  <div id="showList"></div>
+    <div
+        id="memoryGallery"
+        class="memory-gallery">
+    </div>
 
 </section>
 
 
 <!-- CHAT -->
-<section id="chat" class="hidden">
 
-  <h2 class="title">💬 NLC Chat</h2>
+<section id="chat">
 
-  <div class="memory-box">
+    <h2>💬 NLC Chat</h2>
 
-    <input
-      id="chatName"
-      type="text"
-      placeholder="Your name">
+    <div class="chat-box">
 
-    <textarea
-      id="chatMessage"
-      placeholder="Type your message..."></textarea>
+        <div
+            id="chatMessages"
+            class="chat-messages">
 
-    <button class="btn" onclick="sendMessage()">
-      💌 Send
-    </button>
+            <div class="message">
+                🍷 Welcome to NLC Collection!
+            </div>
 
-  </div>
+        </div>
 
-  <div id="chatList"></div>
+        <div class="chat-input">
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Type a message..."
+                autocomplete="off"
+            >
+
+            <button id="sendButton">
+                Send
+            </button>
+
+        </div>
+
+    </div>
 
 </section>
 
 
+<!-- CALLS -->
+
+<section id="calls">
+
+    <h2>📞 Calls</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>📞 Voice Call</h3>
+
+            <p>
+                Talk with your friends anytime.
+            </p>
+
+            <br>
+
+            <button
+                class="button"
+                onclick="alert('Voice calling requires a real-time calling service.')">
+
+                Call
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>📹 Video Call</h3>
+
+            <p>
+                See and talk to your friends.
+            </p>
+
+            <br>
+
+            <button
+                class="button"
+                onclick="alert('Video calling requires a real-time calling service.')">
+
+                Video Call
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MUSIC -->
+
+<section id="music">
+
+    <h2>🎵 Shared Music</h2>
+
+    <div class="add-box">
+
+        <input
+            type="text"
+            id="songInput"
+            placeholder="Enter a song title"
+        >
+
+        <button
+            class="button"
+            onclick="addSong()">
+
+            Add Song 🎵
+
+        </button>
+
+    </div>
+
+    <div
+        id="songList"
+        class="cards">
+    </div>
+
+</section>
+
+
+<!-- K-DRAMA AND ANIME -->
+
+<section id="shows">
+
+    <h2>🎬 K-Drama & Anime</h2>
+
+    <div class="add-box">
+
+        <input
+            type="text"
+            id="showInput"
+            placeholder="Enter K-drama or anime"
+        >
+
+        <select id="showType">
+
+            <option value="K-Drama">
+                🇰🇷 K-Drama
+            </option>
+
+            <option value="Anime">
+                🇯🇵 Anime
+            </option>
+
+        </select>
+
+        <button
+            class="button"
+            onclick="addShow()">
+
+            Add 🎬
+
+        </button>
+
+    </div>
+
+    <div
+        id="showList"
+        class="cards">
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section>
+
+    <h2>✨ Why NLC Collection?</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>📸 Memories</h3>
+
+            <p>
+                Keep your favorite moments together.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>👯 Friends</h3>
+
+            <p>
+                Stay connected with your friends.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>🆓 Free</h3>
+
+            <p>
+                Enjoy NLC Collection for free.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
 <footer>
-  Made with ♡ for NLC Collection
+
+    <p>
+        Made with 🍷 for unforgettable memories.
+    </p>
+
+    <p>
+        © 2026 NLC Collection
+    </p>
+
 </footer>
 
 
 <!-- FIREBASE -->
+
 <script type="module">
 
-  import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+/* ==========================================
+   FIREBASE IMPORTS
+========================================== */
 
-  import {
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getAuth,
+    signInAnonymously,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
     getDatabase,
     ref,
     push,
     onValue
-  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
-  // YOUR FIREBASE CONFIG
-  const firebaseConfig = {
+/* ==========================================
+   YOUR FIREBASE CONFIG
+========================================== */
 
-    apiKey: "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
+const firebaseConfig = {
 
-    authDomain: "nlc--collection.firebaseapp.com",
+    apiKey:
+        "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
 
-    databaseURL:
-      "https://nlc--collection-default-rtdb.firebaseio.com",
+    authDomain:
+        "nlc--collection.firebaseapp.com",
 
-    projectId: "nlc--collection",
+    projectId:
+        "nlc--collection",
 
     storageBucket:
-      "nlc--collection.firebasestorage.app",
+        "nlc--collection.firebasestorage.app",
 
-    messagingSenderId: "765940335630",
+    messagingSenderId:
+        "765940335630",
 
     appId:
-      "1:765940335630:web:0c37f0e3762ebcf80ee85f",
+        "1:765940335630:web:0c37f0e3762ebcf80ee85f",
 
-    measurementId: "G-Q1LBNYGYMY"
-  };
-
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-
-  // Initialize Realtime Database
-  const database = getDatabase(app);
+    measurementId:
+        "G-Q1LBNYGYMY"
+};
 
 
-  document.getElementById("status").innerText =
-    "✓ NLC Collection connected";
+/* ==========================================
+   INITIALIZE FIREBASE
+========================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const database =
+    getDatabase(app);
 
 
-  // NAVIGATION
-  window.showSection = function(sectionId) {
+/* ==========================================
+   ANONYMOUS LOGIN
+========================================== */
 
-    const sections = [
-      "home",
-      "memories",
-      "music",
-      "shows",
-      "chat"
-    ];
+signInAnonymously(auth)
+    .then(() => {
 
-    sections.forEach(function(id) {
-      document
-        .getElementById(id)
-        .classList.add("hidden");
+        console.log(
+            "Anonymous login successful."
+        );
+
+    })
+    .catch((error) => {
+
+        console.error(error);
+
+        document
+            .getElementById("firebaseStatus")
+            .innerText =
+            "Firebase login is not enabled yet.";
+
     });
 
-    document
-      .getElementById(sectionId)
-      .classList.remove("hidden");
-  };
+
+/* ==========================================
+   AUTH STATE
+========================================== */
+
+onAuthStateChanged(
+    auth,
+    (user) => {
+
+        if (user) {
+
+            document
+                .getElementById("firebaseStatus")
+                .innerText =
+                "✓ Connected to NLC Collection";
+
+        }
+
+    }
+);
 
 
-  // SAVE MEMORY
-  window.saveMemory = function() {
+/* ==========================================
+   CHAT
+========================================== */
 
-    const title =
-      document
-        .getElementById("memoryTitle")
-        .value.trim();
+const messageInput =
+    document.getElementById(
+        "messageInput"
+    );
+
+const sendButton =
+    document.getElementById(
+        "sendButton"
+    );
+
+const chatMessages =
+    document.getElementById(
+        "chatMessages"
+    );
+
+
+function sendMessage() {
 
     const text =
-      document
-        .getElementById("memoryText")
-        .value.trim();
+        messageInput.value.trim();
 
 
-    if (!title || !text) {
-      alert("Please complete the memory.");
-      return;
+    if (text === "") {
+        return;
     }
 
 
-    push(ref(database, "memories"), {
+    push(
+        ref(database, "chat"),
+        {
 
-      title: title,
-      text: text,
-      date: new Date().toLocaleString()
+            message: text,
 
-    })
+            time:
+                new Date()
+                    .toLocaleString()
+
+        }
+    )
     .then(() => {
 
-      document.getElementById("memoryTitle").value = "";
-      document.getElementById("memoryText").value = "";
+        messageInput.value = "";
 
-      alert("Memory saved! ♡");
+        chatMessages.scrollTop =
+            chatMessages.scrollHeight;
 
     })
     .catch((error) => {
 
-      console.error(error);
+        console.error(error);
 
-      alert(
-        "Hindi ma-save. Check your Firebase Realtime Database setup."
-      );
+        alert(
+            "Message could not be saved. Check Firebase Database."
+        );
 
     });
 
-  };
+}
 
 
-  // LOAD MEMORIES
-  onValue(
-    ref(database, "memories"),
+sendButton.addEventListener(
+    "click",
+    sendMessage
+);
+
+
+messageInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            sendMessage();
+
+        }
+
+    }
+);
+
+
+/* ==========================================
+   CHAT HISTORY
+========================================== */
+
+onValue(
+    ref(database, "chat"),
     (snapshot) => {
 
-      const list =
-        document.getElementById("memoryList");
+        chatMessages.innerHTML = "";
 
-      list.innerHTML = "";
+        snapshot.forEach(
+            (child) => {
 
-      snapshot.forEach((child) => {
+                const data =
+                    child.val();
 
-        const data = child.val();
+                const message =
+                    document.createElement(
+                        "div"
+                    );
 
-        list.innerHTML += `
+                message.className =
+                    "message";
 
-          <div class="memory">
+                message.innerHTML =
+                    `
+                    <div>
+                        ${escapeHTML(
+                            data.message
+                        )}
+                    </div>
 
-            <strong>📸 ${data.title}</strong>
+                    <small>
+                        ${escapeHTML(
+                            data.time || ""
+                        )}
+                    </small>
+                    `;
 
-            <p>${data.text}</p>
+                chatMessages.appendChild(
+                    message
+                );
 
-            <small>${data.date}</small>
+            }
+        );
 
-          </div>
-
-        `;
-      });
+        chatMessages.scrollTop =
+            chatMessages.scrollHeight;
 
     }
-  );
+);
 
 
-  // SAVE SONG
-  window.saveSong = function() {
+/* ==========================================
+   MUSIC
+========================================== */
 
-    const name =
-      document
-        .getElementById("songName")
-        .value.trim();
+window.addSong = function() {
 
-    const artist =
-      document
-        .getElementById("songArtist")
-        .value.trim();
+    const input =
+        document.getElementById(
+            "songInput"
+        );
+
+    const song =
+        input.value.trim();
 
 
-    if (!name || !artist) {
+    if (song === "") {
 
-      alert("Please enter the song and artist.");
+        alert(
+            "Please enter a song title."
+        );
 
-      return;
+        return;
+
     }
 
 
-    push(ref(database, "music"), {
+    push(
+        ref(database, "music"),
+        {
 
-      name: name,
-      artist: artist
+            title: song,
 
-    })
+            time:
+                new Date()
+                    .toLocaleString()
+
+        }
+    )
     .then(() => {
 
-      document.getElementById("songName").value = "";
-      document.getElementById("songArtist").value = "";
-
-      alert("Song added! 🎵");
+        input.value = "";
 
     })
     .catch((error) => {
 
-      console.error(error);
+        console.error(error);
 
-      alert("Unable to save the song.");
+        alert(
+            "Song could not be saved."
+        );
 
     });
 
-  };
+};
 
 
-  // LOAD SONGS
-  onValue(
+/* ==========================================
+   LOAD MUSIC
+========================================== */
+
+onValue(
     ref(database, "music"),
     (snapshot) => {
 
-      const list =
-        document.getElementById("songList");
+        const list =
+            document.getElementById(
+                "songList"
+            );
 
-      list.innerHTML = "";
+        list.innerHTML = "";
 
-      snapshot.forEach((child) => {
 
-        const data = child.val();
+        snapshot.forEach(
+            (child) => {
 
-        list.innerHTML += `
+                const data =
+                    child.val();
 
-          <div class="memory">
 
-            <strong>🎵 ${data.name}</strong>
+                const card =
+                    document.createElement(
+                        "div"
+                    );
 
-            <p>Artist: ${data.artist}</p>
+                card.className =
+                    "card";
 
-          </div>
 
-        `;
+                card.innerHTML =
+                    `
+                    <h3>
+                        🎵 ${escapeHTML(
+                            data.title
+                        )}
+                    </h3>
 
-      });
+                    <p>
+                        Shared Music
+                    </p>
+                    `;
+
+
+                list.appendChild(
+                    card
+                );
+
+            }
+        );
 
     }
-  );
+);
 
 
-  // SAVE SHOW
-  window.saveShow = function() {
+/* ==========================================
+   SHOWS
+========================================== */
 
-    const name =
-      document
-        .getElementById("showName")
-        .value.trim();
+window.addShow = function() {
+
+    const input =
+        document.getElementById(
+            "showInput"
+        );
 
     const type =
-      document
-        .getElementById("showType")
-        .value.trim();
+        document.getElementById(
+            "showType"
+        );
 
 
-    if (!name || !type) {
+    const show =
+        input.value.trim();
 
-      alert("Please complete the information.");
 
-      return;
+    if (show === "") {
+
+        alert(
+            "Please enter a title."
+        );
+
+        return;
+
     }
 
 
-    push(ref(database, "shows"), {
+    push(
+        ref(database, "shows"),
+        {
 
-      name: name,
-      type: type
+            title: show,
 
-    })
+            type: type.value,
+
+            time:
+                new Date()
+                    .toLocaleString()
+
+        }
+    )
     .then(() => {
 
-      document.getElementById("showName").value = "";
-      document.getElementById("showType").value = "";
-
-      alert("Show added! 🎬");
+        input.value = "";
 
     })
     .catch((error) => {
 
-      console.error(error);
+        console.error(error);
 
-      alert("Unable to save the show.");
+        alert(
+            "Show could not be saved."
+        );
 
     });
 
-  };
+};
 
 
-  // LOAD SHOWS
-  onValue(
+/* ==========================================
+   LOAD SHOWS
+========================================== */
+
+onValue(
     ref(database, "shows"),
     (snapshot) => {
 
-      const list =
-        document.getElementById("showList");
+        const list =
+            document.getElementById(
+                "showList"
+            );
 
-      list.innerHTML = "";
-
-      snapshot.forEach((child) => {
-
-        const data = child.val();
-
-        list.innerHTML += `
-
-          <div class="memory">
-
-            <strong>🎬 ${data.name}</strong>
-
-            <p>${data.type}</p>
-
-          </div>
-
-        `;
-
-      });
-
-    }
-  );
+        list.innerHTML = "";
 
 
-  // SEND CHAT
-  window.sendMessage = function() {
+        snapshot.forEach(
+            (child) => {
 
-    const name =
-      document
-        .getElementById("chatName")
-        .value.trim();
-
-    const message =
-      document
-        .getElementById("chatMessage")
-        .value.trim();
+                const data =
+                    child.val();
 
 
-    if (!name || !message) {
+                const card =
+                    document.createElement(
+                        "div"
+                    );
 
-      alert("Please enter your name and message.");
-
-      return;
-    }
-
-
-    push(ref(database, "messages"), {
-
-      name: name,
-      message: message,
-      date: new Date().toLocaleString()
-
-    })
-    .then(() => {
-
-      document.getElementById("chatMessage").value = "";
-
-    })
-    .catch((error) => {
-
-      console.error(error);
-
-      alert("Unable to send message.");
-
-    });
-
-  };
+                card.className =
+                    "card";
 
 
-  // LOAD CHAT
-  onValue(
-    ref(database, "messages"),
-    (snapshot) => {
+                const emoji =
+                    data.type === "K-Drama"
+                    ? "🇰🇷"
+                    : "🇯🇵";
 
-      const list =
-        document.getElementById("chatList");
 
-      list.innerHTML = "";
+                card.innerHTML =
+                    `
+                    <h3>
+                        ${emoji}
+                        ${escapeHTML(
+                            data.title
+                        )}
+                    </h3>
 
-      snapshot.forEach((child) => {
+                    <p>
+                        ${escapeHTML(
+                            data.type
+                        )}
+                    </p>
+                    `;
 
-        const data = child.val();
 
-        list.innerHTML += `
+                list.appendChild(
+                    card
+                );
 
-          <div class="chat-message">
-
-            <strong>${data.name}</strong>
-
-            <p>${data.message}</p>
-
-            <small>${data.date}</small>
-
-          </div>
-
-        `;
-
-      });
+            }
+        );
 
     }
-  );
+);
+
+
+/* ==========================================
+   LOCAL PHOTO / VIDEO PREVIEW
+========================================== */
+
+const memoryInput =
+    document.getElementById(
+        "memoryInput"
+    );
+
+const memoryGallery =
+    document.getElementById(
+        "memoryGallery"
+    );
+
+
+memoryInput.addEventListener(
+    "change",
+    function() {
+
+        const files =
+            memoryInput.files;
+
+
+        for (
+            const file of files
+        ) {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.className =
+                "memory-card";
+
+
+            if (
+                file.type.startsWith(
+                    "image/"
+                )
+            ) {
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+                image.src =
+                    URL.createObjectURL(
+                        file
+                    );
+
+                card.appendChild(
+                    image
+                );
+
+            }
+
+
+            else if (
+                file.type.startsWith(
+                    "video/"
+                )
+            ) {
+
+                const video =
+                    document.createElement(
+                        "video"
+                    );
+
+                video.src =
+                    URL.createObjectURL(
+                        file
+                    );
+
+                video.controls =
+                    true;
+
+                card.appendChild(
+                    video
+                );
+
+            }
+
+
+            const remove =
+                document.createElement(
+                    "button"
+                );
+
+            remove.className =
+                "button";
+
+            remove.textContent =
+                "🗑️ Remove";
+
+
+            remove.onclick =
+                function() {
+
+                    card.remove();
+
+                };
+
+
+            card.appendChild(
+                remove
+            );
+
+
+            memoryGallery.appendChild(
+                card
+            );
+
+        }
+
+
+        memoryInput.value = "";
+
+    }
+);
+
+
+/* ==========================================
+   SECURITY
+========================================== */
+
+function escapeHTML(value) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.textContent =
+        value;
+
+    return div.innerHTML;
+
+}
 
 </script>
 
 </body>
-   </html>
+  </html>
     
 
                     
