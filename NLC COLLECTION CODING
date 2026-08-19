@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLC Collection</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f3ff;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background: #8e7cc3;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .container {
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: white;
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #8e7cc3;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .feature {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .feature h3 {
+            color: #8e7cc3;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #8e7cc3;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>♡ NLC Collection ♡</h1>
+        <p>Our little place for memories, stories, and everything we love.</p>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+            <h2>Welcome to NLC Collection!</h2>
+            <p>
+                A place to make memories through photos and videos,
+                chat and video call with each other, and share music,
+                K-dramas, and anime — all for free!
+            </p>
+        </div>
+
+        <div class="features">
+
+            <div class="feature">
+                <h3>📸 Memories</h3>
+                <p>Keep our favorite pictures and video compilations in one place.</p>
+            </div>
+
+            <div class="feature">
+                <h3>💬 Chat</h3>
+                <p>Talk and share messages with each other anytime.</p>
+            </div>
+
+            <div class="feature">
+                <h3>📹 Calls</h3>
+                <p>Chat face-to-face through video calls.</p>
+            </div>
+
+            <div class="feature">
+                <h3>🎵 Music</h3>
+                <p>Share and discover music that we enjoy.</p>
+            </div>
+
+            <div class="feature">
+                <h3>🎬 K-Dramas</h3>
+                <p>Share our favorite K-dramas and recommendations.</p>
+            </div>
+
+            <div class="feature">
+                <h3>🍥 Anime</h3>
+                <p>Talk about and share anime that we love.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 NLC Collection | Made with ♡</p>
+    </footer>
+
+</body>
+</html>
