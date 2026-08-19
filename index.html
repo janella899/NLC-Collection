@@ -13,9 +13,7 @@
     font-family:Arial,sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
     background:#faf5f6;
@@ -29,13 +27,8 @@ header{
     padding:30px 15px;
 }
 
-header h1{
-    font-size:34px;
-}
-
-header p{
-    margin-top:8px;
-}
+header h1{font-size:34px;}
+header p{margin-top:8px;}
 
 nav{
     background:white;
@@ -58,9 +51,7 @@ nav a{
     border-radius:20px;
 }
 
-nav a:hover{
-    background:#f2dce2;
-}
+nav a:hover{background:#f2dce2;}
 
 .status{
     text-align:center;
@@ -100,8 +91,7 @@ section h2{
     margin-bottom:25px;
 }
 
-.box,
-.chat-box{
+.box,.chat-box{
     background:white;
     padding:25px;
     border-radius:20px;
@@ -119,9 +109,7 @@ section h2{
     margin:5px;
 }
 
-.button:hover{
-    background:#430817;
-}
+.button:hover{background:#430817;}
 
 input,select{
     padding:12px;
@@ -171,9 +159,7 @@ input:focus,select:focus{
     gap:8px;
 }
 
-.chat-input input{
-    flex:1;
-}
+.chat-input input{flex:1;}
 
 /* MEMORIES */
 
@@ -204,55 +190,6 @@ input:focus,select:focus{
     word-break:break-word;
 }
 
-/* CALL */
-
-.call-box{
-    max-width:850px;
-    margin:auto;
-    background:white;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 4px 12px #ddd;
-    text-align:center;
-}
-
-.room-area{
-    margin-bottom:20px;
-}
-
-.room-code{
-    display:inline-block;
-    background:#f0e0e5;
-    color:#6b1028;
-    padding:12px 20px;
-    border-radius:15px;
-    font-size:20px;
-    font-weight:bold;
-    letter-spacing:3px;
-    margin:10px;
-}
-
-.video-container{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-top:20px;
-}
-
-video{
-    width:100%;
-    background:#222;
-    border-radius:15px;
-    min-height:180px;
-    object-fit:cover;
-}
-
-.call-status{
-    margin-top:12px;
-    color:#6b1028;
-    font-weight:bold;
-}
-
 /* CARDS */
 
 .cards{
@@ -274,6 +211,16 @@ video{
     margin-bottom:10px;
 }
 
+.delete-btn{
+    margin-top:12px;
+    background:#8b1e3f;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:18px;
+    cursor:pointer;
+}
+
 footer{
     background:#6b1028;
     color:white;
@@ -284,17 +231,9 @@ footer{
 
 @media(max-width:600px){
 
-    header h1{
-        font-size:28px;
-    }
-
-    .hero h2{
-        font-size:28px;
-    }
-
-    nav a{
-        font-size:12px;
-    }
+    header h1{font-size:28px;}
+    .hero h2{font-size:28px;}
+    nav a{font-size:12px;}
 
     .chat-input{
         flex-direction:column;
@@ -302,10 +241,6 @@ footer{
 
     .chat-input button{
         width:100%;
-    }
-
-    .video-container{
-        grid-template-columns:1fr;
     }
 }
 </style>
@@ -326,11 +261,9 @@ footer{
     <a href="#home">🏠 Home</a>
     <a href="#memories">📸 Memories</a>
     <a href="#chat">💬 Chat</a>
-    <a href="#calls">📞 Calls</a>
     <a href="#music">🎵 Music</a>
     <a href="#shows">🎬 Shows</a>
 </nav>
-
 
 <!-- HOME -->
 
@@ -340,8 +273,8 @@ footer{
 
     <p>
         A free space where friends can save memories,
-        chat, call, video call, share music, and recommend
-        their favorite K-dramas and anime.
+        chat, share music, and recommend their favorite
+        K-dramas and anime.
     </p>
 
     <br>
@@ -351,7 +284,6 @@ footer{
     </a>
 
 </div>
-
 
 <!-- MEMORIES -->
 
@@ -386,13 +318,9 @@ footer{
 
     </div>
 
-    <div
-        id="memoryGallery"
-        class="memory-gallery">
-    </div>
+    <div id="memoryGallery" class="memory-gallery"></div>
 
 </section>
-
 
 <!-- CHAT -->
 
@@ -402,9 +330,7 @@ footer{
 
     <div class="chat-box">
 
-        <div
-            id="chatMessages"
-            class="chat-messages">
+        <div id="chatMessages" class="chat-messages">
 
             <p style="text-align:center;color:#888;">
                 Loading chat...
@@ -433,111 +359,6 @@ footer{
 
 </section>
 
-
-<!-- CALLS -->
-
-<section id="calls">
-
-    <h2>📞 Voice & Video Calls</h2>
-
-    <div class="call-box">
-
-        <div class="room-area">
-
-            <h3>Create a Call Room</h3>
-
-            <button
-                id="createRoomButton"
-                class="button">
-                Create Room
-            </button>
-
-            <p>
-                Your room code:
-            </p>
-
-            <div
-                id="roomCode"
-                class="room-code">
-                ------
-            </div>
-
-            <br>
-
-            <input
-                id="joinRoomInput"
-                type="text"
-                placeholder="Enter room code"
-                maxlength="6"
-            >
-
-            <button
-                id="joinRoomButton"
-                class="button">
-                Join Room
-            </button>
-
-        </div>
-
-
-        <button
-            id="voiceCallButton"
-            class="button">
-            📞 Start Voice Call
-        </button>
-
-        <button
-            id="videoCallButton"
-            class="button">
-            📹 Start Video Call
-        </button>
-
-        <button
-            id="hangupButton"
-            class="button">
-            ❌ End Call
-        </button>
-
-
-        <p
-            id="callStatus"
-            class="call-status">
-            Not connected
-        </p>
-
-
-        <div class="video-container">
-
-            <div>
-                <p>You</p>
-
-                <video
-                    id="localVideo"
-                    autoplay
-                    muted
-                    playsinline>
-                </video>
-
-            </div>
-
-            <div>
-                <p>Friend</p>
-
-                <video
-                    id="remoteVideo"
-                    autoplay
-                    playsinline>
-                </video>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
 <!-- MUSIC -->
 
 <section id="music">
@@ -562,13 +383,9 @@ footer{
 
     <br>
 
-    <div
-        id="songList"
-        class="cards">
-    </div>
+    <div id="songList" class="cards"></div>
 
 </section>
-
 
 <!-- SHOWS -->
 
@@ -586,13 +403,8 @@ footer{
 
         <select id="showType">
 
-            <option value="K-Drama">
-                🇰🇷 K-Drama
-            </option>
-
-            <option value="Anime">
-                🇯🇵 Anime
-            </option>
+            <option value="K-Drama">🇰🇷 K-Drama</option>
+            <option value="Anime">🇯🇵 Anime</option>
 
         </select>
 
@@ -606,73 +418,144 @@ footer{
 
     <br>
 
-    <div
-        id="showList"
-        class="cards">
-    </div>
+    <div id="showList" class="cards"></div>
 
 </section>
-
 
 <footer>
 
     <p>Made with 🍷 for unforgettable memories.</p>
-
     <p>© 2026 NLC Collection</p>
 
 </footer>
 
+
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+/* =========================
+   FIREBASE IMPORTS
+========================= */
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
     getAuth,
     signInAnonymously,
     onAuthStateChanged
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
     getDatabase,
     ref,
     push,
-    onValue
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+    onValue,
+    remove
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+import {
+    getStorage,
+    ref as storageRef,
+    uploadBytes,
+    getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
-    authDomain: "nlc--collection.firebaseapp.com",
-    databaseURL: "https://nlc--collection-default-rtdb.firebaseio.com",
-    projectId: "nlc--collection",
-    storageBucket: "nlc--collection.firebasestorage.app",
-    messagingSenderId: "765940335630",
-    appId: "1:765940335630:web:0c37f0e3762ebcf80ee85f",
-    measurementId: "G-Q1LBNYGYMY"
+
+    apiKey:
+    "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
+
+    authDomain:
+    "nlc--collection.firebaseapp.com",
+
+    databaseURL:
+    "https://nlc--collection-default-rtdb.firebaseio.com",
+
+    projectId:
+    "nlc--collection",
+
+    storageBucket:
+    "nlc--collection.firebasestorage.app",
+
+    messagingSenderId:
+    "765940335630",
+
+    appId:
+    "1:765940335630:web:0c37f0e3762ebcf80ee85f",
+
+    measurementId:
+    "G-Q1LBNYGYMY"
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getDatabase(app);
+
+/* =========================
+   INITIALIZE
+========================= */
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+const db =
+getDatabase(app);
+
+const storage =
+getStorage(app);
+
+
+/* =========================
+   FIREBASE LOGIN
+========================= */
 
 signInAnonymously(auth)
-.then(() => {
-
-    document.getElementById("firebaseStatus").textContent =
-        "✓ Connected to Firebase";
-
-})
 .catch(error => {
 
-    console.error(error);
+    console.error(
+        "Authentication error:",
+        error
+    );
 
-    document.getElementById("firebaseStatus").textContent =
-        "⚠️ Firebase Error: " + error.code;
+    document.getElementById(
+        "firebaseStatus"
+    ).textContent =
+    "⚠️ Firebase Error: " + error.code;
 
 });
 
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        if(user){
+
+            document.getElementById(
+                "firebaseStatus"
+            ).textContent =
+            "✓ Connected to NLC Collection";
+
+            loadChat();
+            loadMemories();
+            loadMusic();
+            loadShows();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   CHAT
+========================= */
 
 const messageInput =
 document.getElementById("messageInput");
@@ -684,22 +567,28 @@ const chatMessages =
 document.getElementById("chatMessages");
 
 
-function sendMessage() {
+function sendMessage(){
 
     const text =
     messageInput.value.trim();
 
-    if (!text) return;
+    if(!text) return;
 
-    push(ref(db, "chat"), {
+    push(
+        ref(db,"chat"),
+        {
 
-        message: text,
-        time: new Date().toLocaleString()
+            message:text,
 
-    })
+            time:
+            new Date().toLocaleString()
+
+        }
+    )
     .then(() => {
 
         messageInput.value = "";
+        messageInput.focus();
 
     })
     .catch(error => {
@@ -724,172 +613,9 @@ messageInput.addEventListener(
     "keydown",
     event => {
 
-        if (event.key === "Enter") {
+        if(event.key === "Enter"){
 
             event.preventDefault();
-            sendMessage();
-
-        }
-
-    }
-);
-
-
-onAuthStateChanged(auth, user => {
-
-    if (!user) return;
-
-    onValue(
-        ref(db, "chat"),
-        snapshot => {
-
-            chatMessages.innerHTML = "";
-
-            snapshot.forEach(child => {
-
-                const data = child.val();
-
-                const message =
-                document.createElement("div");
-
-                message.className = "message";
-
-                message.textContent =
-                data.message || "";
-
-                chatMessages.appendChild(
-                    message
-                );
-
-            });
-
-            chatMessages.scrollTop =
-            chatMessages.scrollHeight;
-
-        }
-    );
-
-});
-
-</script>
-    
-    });
-
-
-",
-
-    measurementId:
-    "G-Q1LBNYGYMY"
-};
-
-
-const app =
-initializeApp(firebaseConfig);
-
-const auth =
-getAuth(app);
-
-const db =
-getDatabase(app);
-
-const storage =
-getStorage(app);
-
-
-/* =========================
-   LOGIN
-========================= */
-
-signInAnonymously(auth)
-.catch(error => {
-
-    console.error(error);
-
-    document.getElementById(
-        "firebaseStatus"
-    ).textContent =
-    "⚠️ Firebase authentication failed.";
-
-});
-
-
-onAuthStateChanged(auth,user=>{
-
-    if(user){
-
-        document.getElementById(
-            "firebaseStatus"
-        ).textContent =
-        "✓ Connected to NLC Collection";
-
-        loadChat();
-        loadMemories();
-        loadMusic();
-        loadShows();
-
-    }
-
-});
-
-
-/* =========================
-   CHAT
-========================= */
-
-const messageInput =
-document.getElementById("messageInput");
-
-const sendButton =
-document.getElementById("sendButton");
-
-const chatMessages =
-document.getElementById("chatMessages");
-
-
-function sendMessage(){
-
-    const text =
-    messageInput.value.trim();
-
-    if(!text)return;
-
-    push(ref(db,"chat"),{
-
-        message:text,
-
-        time:
-        new Date().toLocaleString()
-
-    })
-    .then(()=>{
-
-        messageInput.value="";
-
-        messageInput.focus();
-
-    })
-    .catch(error=>{
-
-        alert(
-            "Message error:\n"+error.message
-        );
-
-    });
-
-}
-
-
-sendButton.onclick=sendMessage;
-
-
-messageInput.addEventListener(
-    "keydown",
-    e=>{
-
-        if(e.key==="Enter"){
-
-            e.preventDefault();
-
             sendMessage();
 
         }
@@ -902,41 +628,63 @@ function loadChat(){
 
     onValue(
         ref(db,"chat"),
-        snapshot=>{
+        snapshot => {
 
-            chatMessages.innerHTML="";
+            chatMessages.innerHTML = "";
 
-            snapshot.forEach(child=>{
+            snapshot.forEach(
+                child => {
 
-                const data=child.val();
+                    const data =
+                    child.val();
 
-                const div=
-                document.createElement("div");
+                    const div =
+                    document.createElement(
+                        "div"
+                    );
 
-                div.className="message";
+                    div.className =
+                    "message";
 
-                const text=
-                document.createElement("div");
+                    const text =
+                    document.createElement(
+                        "div"
+                    );
 
-                text.textContent=
-                data.message || "";
+                    text.textContent =
+                    data.message || "";
 
-                const time=
-                document.createElement("small");
+                    const time =
+                    document.createElement(
+                        "small"
+                    );
 
-                time.textContent=
-                data.time || "";
+                    time.textContent =
+                    data.time || "";
 
-                div.appendChild(text);
+                    div.appendChild(text);
+                    div.appendChild(time);
 
-                div.appendChild(time);
+                    chatMessages.appendChild(
+                        div
+                    );
 
-                chatMessages.appendChild(div);
+                }
+            );
 
-            });
-
-            chatMessages.scrollTop=
+            chatMessages.scrollTop =
             chatMessages.scrollHeight;
+
+        },
+        error => {
+
+            console.error(
+                "Chat error:",
+                error
+            );
+
+            chatMessages.innerHTML =
+            "<p>⚠️ Cannot load chat.</p>";
 
         }
     );
@@ -948,26 +696,31 @@ function loadChat(){
    MEMORIES
 ========================= */
 
+const uploadButton =
 document.getElementById(
     "uploadButton"
-).onclick=uploadMemories;
+);
+
+uploadButton.addEventListener(
+    "click",
+    uploadMemories
+);
 
 
 async function uploadMemories(){
 
-    const input=
+    const input =
     document.getElementById(
         "memoryInput"
     );
 
-    const files=
-    Array.from(input.files);
-
-    const status=
+    const status =
     document.getElementById(
         "uploadStatus"
     );
 
+    const files =
+    Array.from(input.files);
 
     if(!files.length){
 
@@ -979,47 +732,396 @@ async function uploadMemories(){
 
     }
 
-
-    status.textContent="Uploading...";
-
+    status.textContent =
+    "Uploading...";
 
     try{
 
         for(const file of files){
 
-            const fileName=
-            Date.now()+"_"+file.name
-            .replace(
+            const safeName =
+            Date.now() +
+            "_" +
+            file.name.replace(
                 /[^a-zA-Z0-9._-]/g,
                 "_"
             );
 
-
-            const fileRef=
+            const fileRef =
             storageRef(
                 storage,
-                "memories/"+fileName
+                "memories/" + safeName
             );
-
 
             await uploadBytes(
                 fileRef,
                 file
             );
 
-
-            const url=
-            await getDownloadURL(fileRef);
-
+            const url =
+            await getDownloadURL(
+                fileRef
+            );
 
             await push(
                 ref(db,"memories"),
                 {
 
                     name:file.name,
-    </script>
+                    url:url,
+                    type:file.type,
+                    time:
+                    new Date().toLocaleString()
+
+                }
+            );
+
+        }
+
+        input.value = "";
+
+        status.textContent =
+        "✓ Upload complete!";
+
+    }
+    catch(error){
+
+        console.error(
+            "Upload error:",
+            error
+        );
+
+        status.textContent =
+        "⚠️ Upload failed: " +
+        error.code;
+
+    }
+
+}
+
+
+function loadMemories(){
+
+    onValue(
+        ref(db,"memories"),
+        snapshot => {
+
+            const gallery =
+            document.getElementById(
+                "memoryGallery"
+            );
+
+            gallery.innerHTML = "";
+
+            snapshot.forEach(
+                child => {
+
+                    const data =
+                    child.val();
+
+                    const card =
+                    document.createElement(
+                        "div"
+                    );
+
+                    card.className =
+                    "memory-card";
+
+
+                    if(
+                        data.type &&
+                        data.type.startsWith(
+                            "image/"
+                        )
+                    ){
+
+                        const img =
+                        document.createElement(
+                            "img"
+                        );
+
+                        img.src = data.url;
+                        img.alt = data.name;
+
+                        card.appendChild(img);
+
+                    }
+                    else if(
+                        data.type &&
+                        data.type.startsWith(
+                            "video/"
+                        )
+                    ){
+
+                        const video =
+                        document.createElement(
+                            "video"
+                        );
+
+                        video.src = data.url;
+                        video.controls = true;
+                        video.playsInline = true;
+
+                        card.appendChild(video);
+
+                    }
+
+
+                    const name =
+                    document.createElement(
+                        "p"
+                    );
+
+                    name.textContent =
+                    data.name || "Memory";
+
+                    card.appendChild(name);
+
+                    gallery.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const songButton =
+document.getElementById(
+    "songButton"
+);
+
+songButton.addEventListener(
+    "click",
+    addSong
+);
+
+
+function addSong(){
+
+    const input =
+    document.getElementById(
+        "songInput"
+    );
+
+    const song =
+    input.value.trim();
+
+    if(!song){
+
+        alert(
+            "Please enter a song title."
+        );
+
+        return;
+
+    }
+
+    push(
+        ref(db,"music"),
+        {
+
+            title:song,
+            time:
+            new Date().toLocaleString()
+
+        }
+    );
+
+    input.value = "";
+
+}
+
+
+function loadMusic(){
+
+    onValue(
+        ref(db,"music"),
+        snapshot => {
+
+            const list =
+            document.getElementById(
+                "songList"
+            );
+
+            list.innerHTML = "";
+
+            snapshot.forEach(
+                child => {
+
+                    const data =
+                    child.val();
+
+                    const card =
+                    document.createElement(
+                        "div"
+                    );
+
+                    card.className =
+                    "card";
+
+                    card.innerHTML =
+                    `
+                    <h3>🎵 ${escapeHTML(
+                        data.title || ""
+                    )}</h3>
+
+                    <p>
+                    Added to NLC Collection
+                    </p>
+                    `;
+
+                    list.appendChild(card);
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   SHOWS
+========================= */
+
+const showButton =
+document.getElementById(
+    "showButton"
+);
+
+showButton.addEventListener(
+    "click",
+    addShow
+);
+
+
+function addShow(){
+
+    const input =
+    document.getElementById(
+        "showInput"
+    );
+
+    const type =
+    document.getElementById(
+        "showType"
+    );
+
+    const title =
+    input.value.trim();
+
+    if(!title){
+
+        alert(
+            "Please enter a title."
+        );
+
+        return;
+
+    }
+
+    push(
+        ref(db,"shows"),
+        {
+
+            title:title,
+            type:type.value,
+            time:
+            new Date().toLocaleString()
+
+        }
+    );
+
+    input.value = "";
+
+}
+
+
+function loadShows(){
+
+    onValue(
+        ref(db,"shows"),
+        snapshot => {
+
+            const list =
+            document.getElementById(
+                "showList"
+            );
+
+            list.innerHTML = "";
+
+            snapshot.forEach(
+                child => {
+
+                    const data =
+                    child.val();
+
+                    const card =
+                    document.createElement(
+                        "div"
+                    );
+
+                    card.className =
+                    "card";
+
+                    const emoji =
+                    data.type === "Anime"
+                    ? "🇯🇵"
+                    : "🇰🇷";
+
+                    card.innerHTML =
+                    `
+                    <h3>
+                    ${emoji}
+                    ${escapeHTML(
+                        data.title || ""
+                    )}
+                    </h3>
+
+                    <p>
+                    ${escapeHTML(
+                        data.type || ""
+                    )}
+                    </p>
+                    `;
+
+                    list.appendChild(card);
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   SAFE TEXT
+========================= */
+
+function escapeHTML(text){
+
+    const div =
+    document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+</script>
 
 </body>
-</html>
-
-                   
+    </html>
