@@ -657,29 +657,183 @@ import {
 
 <script type="module">
 
-};
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getAuth,
+    signInAnonymously,
+    onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+    getDatabase,
+    ref,
+    push,
+    onValue
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
 const firebaseConfig = {
+    apiKey: "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
+    authDomain: "nlc--collection.firebaseapp.com",
+    databaseURL: "https://nlc--collection-default-rtdb.firebaseio.com",
+    projectId: "nlc--collection",
+    storageBucket: "nlc--collection.firebasestorage.app",
+    messagingSenderId: "765940335630",
+    appId: "1:765940335630:web:0c37f0e3762ebcf80ee85f",
+    measurementId: "G-Q1LBNYGYMY"
+};
 
-    apiKey:
-    "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
 
-    authDomain:
-    "nlc--collection.firebaseapp.com",
+const app = initializeApp(firebaseConfig);
 
-    databaseURL:
-    "https://nlc--collection-default-rtdb.firebaseio.com/",
+const auth = getAuth(app);
 
-    projectId:
-    "nlc--collection",
+const db = getDatabase(app);
 
-    storageBucket:
-    "nlc--collection.firebasestorage.app",
 
-    messagingSenderId:
-    "765940335630",
+/* CONNECT TO FIREBASE */
 
-    appId:
-    "1:765940335630:web:0c37f0e3762ebcf80ee85f",
+signInAnonymously(auth)
+    .then(() => {
+
+        document.getElementById("firebaseStatus").textContent =
+            "✓ Connected to Firebase";
+
+        console.log("Firebase connected!");
+
+    })
+    .catch(error => {
+
+        console.error("Firebase Auth Error:", error);
+
+        document.getElementById("firebaseStatus").textContent =
+            "⚠️ Firebase Error: " + error.code;
+
+    });
+
+
+/* CHAT */
+
+const messageInput =
+    document.getElementById("messageInput");
+
+const sendButton =
+    document.getElementById("sendButton");
+
+const chatMessages =
+    document.getElementById("chatMessages");
+
+
+function sendMessage() {
+
+    const text =
+        messageInput.value.trim();
+
+    if (!text) return;
+
+
+    push(ref(db, "chat"), {
+
+        message: text,
+
+        time: new Date().toLocaleString()
+
+    })
+    .then(() => {
+
+        messageInput.value = "";
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        alert(
+            "Message could not be sent:\n" +
+            error.message
+        );
+
+    });
+
+}
+
+
+sendButton.addEventListener(
+    "click",
+    sendMessage
+);
+
+
+messageInput.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            sendMessage();
+
+        }
+
+    }
+);
+
+
+/* CHAT HISTORY */
+
+onAuthStateChanged(auth, user => {
+
+    if (!user) return;
+
+    onValue(
+        ref(db, "chat"),
+        snapshot => {
+
+            chatMessages.innerHTML = "";
+
+            snapshot.forEach(child => {
+
+                const data = child.val();
+
+                const message =
+                    document.createElement("div");
+
+                message.className = "message";
+
+                message.textContent =
+                    data.message || "";
+
+                chatMessages.appendChild(message);
+
+            });
+
+            chatMessages.scrollTop =
+                chatMessages.scrollHeight;
+
+        },
+
+        error => {
+
+            console.error(
+                "Database Error:",
+                error
+            );
+
+            chatMessages.innerHTML =
+                "<p>⚠️ Cannot load chat.</p>";
+
+        }
+    );
+
+});
+
+</script>
+",
 
     measurementId:
     "G-Q1LBNYGYMY"
