@@ -105,3 +105,65 @@ memoryInput.addEventListener("change", function () {
     memoryInput.value = "";
 });
 }
+function addSong() {
+
+    const input = document.getElementById("songInput");
+    const list = document.getElementById("songList");
+
+    const song = input.value.trim();
+
+    if (song === "") {
+        alert("Please enter a song title.");
+        return;
+    }
+
+    const card = document.createElement("div");
+
+    card.className = "card";
+
+    card.innerHTML = `
+        <h3>🎵 ${song}</h3>
+        <p>Added to NLC Collection</p>
+        <button class="button" onclick="this.parentElement.remove()">
+            Remove
+        </button>
+    `;
+
+    list.appendChild(card);
+
+    input.value = "";
+}
+
+
+function addShow() {
+
+    const input = document.getElementById("showInput");
+    const type = document.getElementById("showType");
+    const list = document.getElementById("showList");
+
+    const show = input.value.trim();
+
+    if (show === "") {
+        alert("Please enter a title.");
+        return;
+    }
+
+    const card = document.createElement("div");
+
+    card.className = "card";
+
+    const emoji =
+        type.value === "K-Drama" ? "🇰🇷" : "🇯🇵";
+
+    card.innerHTML = `
+        <h3>${emoji} ${show}</h3>
+        <p>${type.value}</p>
+        <button class="button" onclick="this.parentElement.remove()">
+            Remove
+        </button>
+    `;
+
+    list.appendChild(card);
+
+    input.value = "";
+}
