@@ -622,39 +622,6 @@ footer{
 
 </footer>
 
-
-<script type="module">
-
-/* =========================
-   FIREBASE
-========================= */
-
-import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-    getAuth,
-    signInAnonymously,
-    onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-import {
-    getDatabase,
-    ref,
-    push,
-    set,
-    get,
-    onValue
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-import {
-    getStorage,
-    ref as storageRef,
-    uploadBytes,
-    getDownloadURL
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
-
 <script type="module">
 
 import { initializeApp }
@@ -675,7 +642,6 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-
 const firebaseConfig = {
     apiKey: "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
     authDomain: "nlc--collection.firebaseapp.com",
@@ -687,59 +653,47 @@ const firebaseConfig = {
     measurementId: "G-Q1LBNYGYMY"
 };
 
-
 const app = initializeApp(firebaseConfig);
-
 const auth = getAuth(app);
-
 const db = getDatabase(app);
 
-
-/* CONNECT TO FIREBASE */
-
 signInAnonymously(auth)
-    .then(() => {
+.then(() => {
 
-        document.getElementById("firebaseStatus").textContent =
-            "✓ Connected to Firebase";
+    document.getElementById("firebaseStatus").textContent =
+        "✓ Connected to Firebase";
 
-        console.log("Firebase connected!");
+})
+.catch(error => {
 
-    })
-    .catch(error => {
+    console.error(error);
 
-        console.error("Firebase Auth Error:", error);
+    document.getElementById("firebaseStatus").textContent =
+        "⚠️ Firebase Error: " + error.code;
 
-        document.getElementById("firebaseStatus").textContent =
-            "⚠️ Firebase Error: " + error.code;
+});
 
-    });
-
-
-/* CHAT */
 
 const messageInput =
-    document.getElementById("messageInput");
+document.getElementById("messageInput");
 
 const sendButton =
-    document.getElementById("sendButton");
+document.getElementById("sendButton");
 
 const chatMessages =
-    document.getElementById("chatMessages");
+document.getElementById("chatMessages");
 
 
 function sendMessage() {
 
     const text =
-        messageInput.value.trim();
+    messageInput.value.trim();
 
     if (!text) return;
-
 
     push(ref(db, "chat"), {
 
         message: text,
-
         time: new Date().toLocaleString()
 
     })
@@ -750,10 +704,8 @@ function sendMessage() {
     })
     .catch(error => {
 
-        console.error(error);
-
         alert(
-            "Message could not be sent:\n" +
+            "Message error: " +
             error.message
         );
 
@@ -775,7 +727,6 @@ messageInput.addEventListener(
         if (event.key === "Enter") {
 
             event.preventDefault();
-
             sendMessage();
 
         }
@@ -783,8 +734,6 @@ messageInput.addEventListener(
     }
 );
 
-
-/* CHAT HISTORY */
 
 onAuthStateChanged(auth, user => {
 
@@ -801,31 +750,21 @@ onAuthStateChanged(auth, user => {
                 const data = child.val();
 
                 const message =
-                    document.createElement("div");
+                document.createElement("div");
 
                 message.className = "message";
 
                 message.textContent =
-                    data.message || "";
+                data.message || "";
 
-                chatMessages.appendChild(message);
+                chatMessages.appendChild(
+                    message
+                );
 
             });
 
             chatMessages.scrollTop =
-                chatMessages.scrollHeight;
-
-        },
-
-        error => {
-
-            console.error(
-                "Database Error:",
-                error
-            );
-
-            chatMessages.innerHTML =
-                "<p>⚠️ Cannot load chat.</p>";
+            chatMessages.scrollHeight;
 
         }
     );
@@ -833,6 +772,10 @@ onAuthStateChanged(auth, user => {
 });
 
 </script>
+    
+    });
+
+
 ",
 
     measurementId:
