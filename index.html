@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -20,7 +20,7 @@
     }
 
     header {
-      background: linear-gradient(135deg, #4a091b, #7b1735, #9b294b);
+      background: linear-gradient(135deg, #4a091b, #6b1028, #8b1e3f);
       color: white;
       text-align: center;
       padding: 40px 20px;
@@ -51,7 +51,6 @@
       padding: 10px 15px;
       border-radius: 20px;
       box-shadow: 0 3px 10px #d8caca;
-      cursor: pointer;
     }
 
     nav button:hover {
@@ -175,300 +174,303 @@
 
 <body>
 
-  <header>
-    <h1>♡ NLC Collection ♡</h1>
-    <p>A place for memories, music, shows and moments together.</p>
-  </header>
+<header>
+  <h1>♡ NLC Collection ♡</h1>
+  <p>A place for memories, music, shows and moments together.</p>
+</header>
 
-  <nav>
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('memories')">Memories</button>
-    <button onclick="showSection('music')">Music</button>
-    <button onclick="showSection('shows')">K-Drama & Anime</button>
-    <button onclick="showSection('chat')">Chat</button>
-  </nav>
+<nav>
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('memories')">Memories</button>
+  <button onclick="showSection('music')">Music</button>
+  <button onclick="showSection('shows')">K-Drama & Anime</button>
+  <button onclick="showSection('chat')">Chat</button>
+</nav>
 
-  <div id="status">Connecting to NLC Collection...</div>
+<div id="status">Connecting...</div>
 
-  <!-- HOME -->
-  <section id="home">
+<!-- HOME -->
+<section id="home">
 
-    <h2 class="title">Welcome to NLC Collection ♡</h2>
+  <h2 class="title">Welcome to NLC Collection ♡</h2>
 
-    <div class="cards">
+  <div class="cards">
 
-      <div class="card">
-        <div class="emoji">📸</div>
-        <h3>Memories</h3>
-        <p>Save special memories and messages.</p>
-      </div>
-
-      <div class="card">
-        <div class="emoji">🎵</div>
-        <h3>Music</h3>
-        <p>Share your favorite songs.</p>
-      </div>
-
-      <div class="card">
-        <div class="emoji">🎬</div>
-        <h3>K-Drama & Anime</h3>
-        <p>Keep your favorite shows and recommendations.</p>
-      </div>
-
-      <div class="card">
-        <div class="emoji">💬</div>
-        <h3>Chat</h3>
-        <p>Send messages to your collection.</p>
-      </div>
-
+    <div class="card">
+      <div class="emoji">📸</div>
+      <h3>Memories</h3>
+      <p>Save special memories.</p>
     </div>
 
-  </section>
-
-
-  <!-- MEMORIES -->
-  <section id="memories" class="hidden">
-
-    <h2 class="title">📸 Our Memories</h2>
-
-    <div class="memory-box">
-
-      <input
-        type="text"
-        id="memoryTitle"
-        placeholder="Memory title">
-
-      <textarea
-        id="memoryText"
-        placeholder="Write your memory here..."></textarea>
-
-      <button class="btn" onclick="saveMemory()">
-        💾 Save Memory
-      </button>
-
+    <div class="card">
+      <div class="emoji">🎵</div>
+      <h3>Music</h3>
+      <p>Share favorite songs.</p>
     </div>
 
-    <div id="memoryList"></div>
-
-  </section>
-
-
-  <!-- MUSIC -->
-  <section id="music" class="hidden">
-
-    <h2 class="title">🎵 Music Collection</h2>
-
-    <div class="memory-box">
-
-      <input
-        type="text"
-        id="songName"
-        placeholder="Song title">
-
-      <input
-        type="text"
-        id="songArtist"
-        placeholder="Artist">
-
-      <button class="btn" onclick="saveSong()">
-        🎵 Add Song
-      </button>
-
+    <div class="card">
+      <div class="emoji">🎬</div>
+      <h3>K-Drama & Anime</h3>
+      <p>Share favorite shows.</p>
     </div>
 
-    <div id="songList"></div>
-
-  </section>
-
-
-  <!-- SHOWS -->
-  <section id="shows" class="hidden">
-
-    <h2 class="title">🎬 K-Drama & Anime</h2>
-
-    <div class="memory-box">
-
-      <input
-        type="text"
-        id="showName"
-        placeholder="K-Drama or Anime title">
-
-      <input
-        type="text"
-        id="showType"
-        placeholder="K-Drama or Anime">
-
-      <button class="btn" onclick="saveShow()">
-        🎬 Add Show
-      </button>
-
+    <div class="card">
+      <div class="emoji">💬</div>
+      <h3>Chat</h3>
+      <p>Send messages.</p>
     </div>
 
-    <div id="showList"></div>
+  </div>
 
-  </section>
-
-
-  <!-- CHAT -->
-  <section id="chat" class="hidden">
-
-    <h2 class="title">💬 NLC Chat</h2>
-
-    <div class="memory-box">
-
-      <input
-        type="text"
-        id="chatName"
-        placeholder="Your name">
-
-      <textarea
-        id="chatMessage"
-        placeholder="Type your message..."></textarea>
-
-      <button class="btn" onclick="sendMessage()">
-        💌 Send
-      </button>
-
-    </div>
-
-    <div id="chatList"></div>
-
-  </section>
+</section>
 
 
-  <footer>
-    Made with ♡ for NLC Collection
-  </footer>
+<!-- MEMORIES -->
+<section id="memories" class="hidden">
+
+  <h2 class="title">📸 Our Memories</h2>
+
+  <div class="memory-box">
+
+    <input
+      id="memoryTitle"
+      type="text"
+      placeholder="Memory title">
+
+    <textarea
+      id="memoryText"
+      placeholder="Write your memory..."></textarea>
+
+    <button class="btn" onclick="saveMemory()">
+      💾 Save Memory
+    </button>
+
+  </div>
+
+  <div id="memoryList"></div>
+
+</section>
 
 
-  <!-- FIREBASE -->
-  <script type="module">
+<!-- MUSIC -->
+<section id="music" class="hidden">
 
-    import { initializeApp }
-      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  <h2 class="title">🎵 Music Collection</h2>
 
-    import {
-      getDatabase,
-      ref,
-      push,
-      onValue
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  <div class="memory-box">
 
+    <input
+      id="songName"
+      type="text"
+      placeholder="Song title">
 
-    // ==========================================
-    // 🔥 YOUR FIREBASE CONFIG
-    // ==========================================
+    <input
+      id="songArtist"
+      type="text"
+      placeholder="Artist">
 
-    const firebaseConfig = {
+    <button class="btn" onclick="saveSong()">
+      🎵 Add Song
+    </button>
 
-      apiKey: "PASTE_YOUR_API_KEY_HERE",
+  </div>
 
-      authDomain: "PASTE_YOUR_PROJECT_ID.firebaseapp.com",
+  <div id="songList"></div>
 
-      databaseURL: "https://PASTE_YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-
-      projectId: "PASTE_YOUR_PROJECT_ID",
-
-      storageBucket: "PASTE_YOUR_PROJECT_ID.firebasestorage.app",
-
-      messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID",
-
-      appId: "PASTE_YOUR_APP_ID"
-
-    };
+</section>
 
 
-    // Initialize Firebase
+<!-- SHOWS -->
+<section id="shows" class="hidden">
 
-    const app = initializeApp(firebaseConfig);
+  <h2 class="title">🎬 K-Drama & Anime</h2>
 
-    const database = getDatabase(app);
+  <div class="memory-box">
 
+    <input
+      id="showName"
+      type="text"
+      placeholder="Title">
 
-    document.getElementById("status").innerText =
-      "✓ NLC Collection is connected";
+    <input
+      id="showType"
+      type="text"
+      placeholder="K-Drama or Anime">
 
+    <button class="btn" onclick="saveShow()">
+      🎬 Add Show
+    </button>
 
-    // ==========================================
-    // NAVIGATION
-    // ==========================================
+  </div>
 
-    window.showSection = function(sectionId) {
+  <div id="showList"></div>
 
-      const sections = [
-        "home",
-        "memories",
-        "music",
-        "shows",
-        "chat"
-      ];
-
-      sections.forEach(function(id) {
-
-        document.getElementById(id)
-          .classList.add("hidden");
-
-      });
-
-      document.getElementById(sectionId)
-        .classList.remove("hidden");
-
-    };
+</section>
 
 
-    // ==========================================
-    // SAVE MEMORY
-    // ==========================================
+<!-- CHAT -->
+<section id="chat" class="hidden">
 
-    window.saveMemory = function() {
+  <h2 class="title">💬 NLC Chat</h2>
 
-      const title =
-        document.getElementById("memoryTitle").value.trim();
+  <div class="memory-box">
 
-      const text =
-        document.getElementById("memoryText").value.trim();
+    <input
+      id="chatName"
+      type="text"
+      placeholder="Your name">
+
+    <textarea
+      id="chatMessage"
+      placeholder="Type your message..."></textarea>
+
+    <button class="btn" onclick="sendMessage()">
+      💌 Send
+    </button>
+
+  </div>
+
+  <div id="chatList"></div>
+
+</section>
 
 
-      if (!title || !text) {
-
-        alert("Please complete the memory.");
-
-        return;
-      }
+<footer>
+  Made with ♡ for NLC Collection
+</footer>
 
 
-      push(ref(database, "memories"), {
+<!-- FIREBASE -->
+<script type="module">
 
-        title: title,
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-        text: text,
+  import {
+    getDatabase,
+    ref,
+    push,
+    onValue
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-        date: new Date().toLocaleString()
 
-      });
+  // YOUR FIREBASE CONFIG
+  const firebaseConfig = {
 
+    apiKey: "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
+
+    authDomain: "nlc--collection.firebaseapp.com",
+
+    databaseURL:
+      "https://nlc--collection-default-rtdb.firebaseio.com",
+
+    projectId: "nlc--collection",
+
+    storageBucket:
+      "nlc--collection.firebasestorage.app",
+
+    messagingSenderId: "765940335630",
+
+    appId:
+      "1:765940335630:web:0c37f0e3762ebcf80ee85f",
+
+    measurementId: "G-Q1LBNYGYMY"
+  };
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  // Initialize Realtime Database
+  const database = getDatabase(app);
+
+
+  document.getElementById("status").innerText =
+    "✓ NLC Collection connected";
+
+
+  // NAVIGATION
+  window.showSection = function(sectionId) {
+
+    const sections = [
+      "home",
+      "memories",
+      "music",
+      "shows",
+      "chat"
+    ];
+
+    sections.forEach(function(id) {
+      document
+        .getElementById(id)
+        .classList.add("hidden");
+    });
+
+    document
+      .getElementById(sectionId)
+      .classList.remove("hidden");
+  };
+
+
+  // SAVE MEMORY
+  window.saveMemory = function() {
+
+    const title =
+      document
+        .getElementById("memoryTitle")
+        .value.trim();
+
+    const text =
+      document
+        .getElementById("memoryText")
+        .value.trim();
+
+
+    if (!title || !text) {
+      alert("Please complete the memory.");
+      return;
+    }
+
+
+    push(ref(database, "memories"), {
+
+      title: title,
+      text: text,
+      date: new Date().toLocaleString()
+
+    })
+    .then(() => {
 
       document.getElementById("memoryTitle").value = "";
-
       document.getElementById("memoryText").value = "";
 
       alert("Memory saved! ♡");
 
-    };
+    })
+    .catch((error) => {
+
+      console.error(error);
+
+      alert(
+        "Hindi ma-save. Check your Firebase Realtime Database setup."
+      );
+
+    });
+
+  };
 
 
-    // ==========================================
-    // LOAD MEMORIES
-    // ==========================================
-
-    onValue(ref(database, "memories"), function(snapshot) {
+  // LOAD MEMORIES
+  onValue(
+    ref(database, "memories"),
+    (snapshot) => {
 
       const list =
         document.getElementById("memoryList");
 
       list.innerHTML = "";
 
-      snapshot.forEach(function(child) {
+      snapshot.forEach((child) => {
 
         const data = child.val();
 
@@ -476,7 +478,7 @@
 
           <div class="memory">
 
-            <strong>${data.title}</strong>
+            <strong>📸 ${data.title}</strong>
 
             <p>${data.text}</p>
 
@@ -485,63 +487,70 @@
           </div>
 
         `;
-
       });
 
-    });
+    }
+  );
 
 
-    // ==========================================
-    // SAVE SONG
-    // ==========================================
+  // SAVE SONG
+  window.saveSong = function() {
 
-    window.saveSong = function() {
+    const name =
+      document
+        .getElementById("songName")
+        .value.trim();
 
-      const name =
-        document.getElementById("songName").value.trim();
-
-      const artist =
-        document.getElementById("songArtist").value.trim();
-
-
-      if (!name || !artist) {
-
-        alert("Please enter the song and artist.");
-
-        return;
-      }
+    const artist =
+      document
+        .getElementById("songArtist")
+        .value.trim();
 
 
-      push(ref(database, "music"), {
+    if (!name || !artist) {
 
-        name: name,
+      alert("Please enter the song and artist.");
 
-        artist: artist
+      return;
+    }
 
-      });
 
+    push(ref(database, "music"), {
+
+      name: name,
+      artist: artist
+
+    })
+    .then(() => {
 
       document.getElementById("songName").value = "";
-
       document.getElementById("songArtist").value = "";
 
       alert("Song added! 🎵");
 
-    };
+    })
+    .catch((error) => {
+
+      console.error(error);
+
+      alert("Unable to save the song.");
+
+    });
+
+  };
 
 
-    // ==========================================
-    // LOAD SONGS
-    // ==========================================
-
-    onValue(ref(database, "music"), function(snapshot) {
+  // LOAD SONGS
+  onValue(
+    ref(database, "music"),
+    (snapshot) => {
 
       const list =
         document.getElementById("songList");
 
       list.innerHTML = "";
 
-      snapshot.forEach(function(child) {
+      snapshot.forEach((child) => {
 
         const data = child.val();
 
@@ -559,60 +568,68 @@
 
       });
 
-    });
+    }
+  );
 
 
-    // ==========================================
-    // SAVE SHOW
-    // ==========================================
+  // SAVE SHOW
+  window.saveShow = function() {
 
-    window.saveShow = function() {
+    const name =
+      document
+        .getElementById("showName")
+        .value.trim();
 
-      const name =
-        document.getElementById("showName").value.trim();
-
-      const type =
-        document.getElementById("showType").value.trim();
-
-
-      if (!name || !type) {
-
-        alert("Please complete the information.");
-
-        return;
-      }
+    const type =
+      document
+        .getElementById("showType")
+        .value.trim();
 
 
-      push(ref(database, "shows"), {
+    if (!name || !type) {
 
-        name: name,
+      alert("Please complete the information.");
 
-        type: type
+      return;
+    }
 
-      });
 
+    push(ref(database, "shows"), {
+
+      name: name,
+      type: type
+
+    })
+    .then(() => {
 
       document.getElementById("showName").value = "";
-
       document.getElementById("showType").value = "";
 
       alert("Show added! 🎬");
 
-    };
+    })
+    .catch((error) => {
+
+      console.error(error);
+
+      alert("Unable to save the show.");
+
+    });
+
+  };
 
 
-    // ==========================================
-    // LOAD SHOWS
-    // ==========================================
-
-    onValue(ref(database, "shows"), function(snapshot) {
+  // LOAD SHOWS
+  onValue(
+    ref(database, "shows"),
+    (snapshot) => {
 
       const list =
         document.getElementById("showList");
 
       list.innerHTML = "";
 
-      snapshot.forEach(function(child) {
+      snapshot.forEach((child) => {
 
         const data = child.val();
 
@@ -630,58 +647,66 @@
 
       });
 
-    });
+    }
+  );
 
 
-    // ==========================================
-    // SEND CHAT MESSAGE
-    // ==========================================
+  // SEND CHAT
+  window.sendMessage = function() {
 
-    window.sendMessage = function() {
+    const name =
+      document
+        .getElementById("chatName")
+        .value.trim();
 
-      const name =
-        document.getElementById("chatName").value.trim();
-
-      const message =
-        document.getElementById("chatMessage").value.trim();
-
-
-      if (!name || !message) {
-
-        alert("Please enter your name and message.");
-
-        return;
-      }
+    const message =
+      document
+        .getElementById("chatMessage")
+        .value.trim();
 
 
-      push(ref(database, "messages"), {
+    if (!name || !message) {
 
-        name: name,
+      alert("Please enter your name and message.");
 
-        message: message,
+      return;
+    }
 
-        date: new Date().toLocaleString()
 
-      });
+    push(ref(database, "messages"), {
 
+      name: name,
+      message: message,
+      date: new Date().toLocaleString()
+
+    })
+    .then(() => {
 
       document.getElementById("chatMessage").value = "";
 
-    };
+    })
+    .catch((error) => {
+
+      console.error(error);
+
+      alert("Unable to send message.");
+
+    });
+
+  };
 
 
-    // ==========================================
-    // LOAD CHAT
-    // ==========================================
-
-    onValue(ref(database, "messages"), function(snapshot) {
+  // LOAD CHAT
+  onValue(
+    ref(database, "messages"),
+    (snapshot) => {
 
       const list =
         document.getElementById("chatList");
 
       list.innerHTML = "";
 
-      snapshot.forEach(function(child) {
+      snapshot.forEach((child) => {
 
         const data = child.val();
 
@@ -701,12 +726,16 @@
 
       });
 
-    });
+    }
+  );
 
-  </script>
+</script>
 
 </body>
-    </html>             
-                                
+   </html>
+    
+
+                    
+                                  
                 
             
