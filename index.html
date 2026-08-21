@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NLC Collection 💕</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NLC Collection ♡</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:"Poppins",Arial,sans-serif;
 }
 
 html{
@@ -20,754 +17,569 @@ html{
 }
 
 body{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    background:#fff7fa;
+    color:#4b2935;
     min-height:100vh;
-    background:
-        radial-gradient(circle at 10% 10%,#ffe4ed 0%,transparent 30%),
-        radial-gradient(circle at 90% 80%,#ead6ff 0%,transparent 30%),
-        #fff8fb;
-    color:#3d2630;
     overflow-x:hidden;
 }
 
-/* FLOATING BACKGROUND */
+/* FLOATING DECORATIONS */
 
-.bg-heart{
+.decor{
     position:fixed;
-    font-size:25px;
-    opacity:.15;
-    animation:float 8s infinite ease-in-out;
     pointer-events:none;
-    z-index:-1;
+    z-index:0;
+    animation:float 5s ease-in-out infinite;
+    opacity:.7;
 }
 
-.h1{top:15%;left:8%;}
-.h2{top:55%;left:85%;animation-delay:2s;}
-.h3{top:80%;left:15%;animation-delay:4s;}
-.h4{top:25%;left:90%;animation-delay:1s;}
+.d1{top:12%;left:6%;font-size:25px;}
+.d2{top:25%;right:7%;font-size:22px;animation-delay:1s;}
+.d3{bottom:15%;left:8%;font-size:20px;animation-delay:2s;}
+.d4{bottom:25%;right:8%;font-size:25px;animation-delay:3s;}
 
 @keyframes float{
-
-    0%,100%{
-        transform:translateY(0) rotate(0deg);
-    }
-
-    50%{
-        transform:translateY(-35px) rotate(15deg);
-    }
-
+    0%,100%{transform:translateY(0) rotate(-5deg);}
+    50%{transform:translateY(-15px) rotate(7deg);}
 }
 
+/* LANDING */
 
-/* HEADER */
-
-header{
-    min-height:70vh;
+#landing{
+    position:fixed;
+    inset:0;
+    z-index:100;
     display:flex;
-    justify-content:center;
     align-items:center;
-    text-align:center;
-    padding:40px 20px;
-
+    justify-content:center;
+    padding:25px;
     background:
-        linear-gradient(
-            135deg,
-            #4a0b20,
-            #7d1637,
-            #b63b63
-        );
-
-    color:white;
-    position:relative;
-    overflow:hidden;
+        radial-gradient(circle at 20% 20%,#ffe2ec,transparent 30%),
+        radial-gradient(circle at 80% 80%,#eadcff,transparent 30%),
+        #fff8fb;
+    transition:.8s ease;
 }
 
-header:before,
-header:after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
+#landing.hide{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.08);
 }
 
-header:before{
-    width:300px;
-    height:300px;
-    top:-120px;
-    left:-100px;
+.landing-card{
+    width:min(430px,100%);
+    text-align:center;
+    padding:38px 24px;
+    border-radius:35px;
+    background:rgba(255,255,255,.82);
+    box-shadow:0 20px 60px rgba(110,55,80,.15);
+    border:2px solid #fff;
+    animation:pop .9s ease;
 }
 
-header:after{
-    width:400px;
-    height:400px;
-    bottom:-200px;
-    right:-150px;
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    animation:appear 1.2s ease;
-}
-
-@keyframes appear{
-
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
+@keyframes pop{
+    from{opacity:0;transform:translateY(30px) scale(.9);}
+    to{opacity:1;transform:none;}
 }
 
 .logo{
-    font-size:65px;
-    animation:bounce 3s infinite ease-in-out;
+    font-size:58px;
+    margin-bottom:8px;
+    animation:bounce 2.5s infinite;
 }
 
 @keyframes bounce{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
-
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
 }
 
-header h1{
-    font-size:48px;
-    margin:10px 0;
+.landing-card h1{
+    font-family:Georgia,serif;
+    font-size:35px;
+    color:#7b3150;
 }
 
-header p{
-    font-size:18px;
-    opacity:.9;
+.landing-card p{
+    margin:12px auto 25px;
+    line-height:1.6;
+    color:#765866;
 }
 
-.start-btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 28px;
-    background:white;
-    color:#7d1637;
+.enter-btn{
+    border:0;
+    padding:14px 25px;
     border-radius:30px;
-    text-decoration:none;
+    background:linear-gradient(135deg,#8d3c61,#c66b91);
+    color:white;
+    font-size:15px;
     font-weight:bold;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(141,60,97,.25);
     transition:.3s;
 }
 
-.start-btn:hover{
-    transform:translateY(-5px) scale(1.03);
+.enter-btn:hover{
+    transform:translateY(-3px) scale(1.03);
 }
 
+/* MAIN */
 
-/* STATUS */
-
-.status{
-    text-align:center;
-    padding:10px;
-    background:#fff0f4;
-    color:#7d1637;
-    font-size:13px;
-}
-
-
-/* MAIN MENU */
-
-.menu{
-    max-width:1000px;
-    margin:auto;
-    padding:45px 20px;
-}
-
-.menu-title{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.menu-title h2{
-    color:#7d1637;
-    font-size:30px;
-}
-
-.menu-title p{
-    margin-top:8px;
-    color:#777;
-}
-
-.menu-grid{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
-
-.menu-card{
-    border:none;
-    background:white;
-    padding:30px 20px;
-    border-radius:25px;
-    box-shadow:0 8px 25px rgba(100,40,60,.12);
-    cursor:pointer;
-    transition:.35s;
-    color:#4a2732;
-}
-
-.menu-card:hover{
-    transform:translateY(-10px) rotate(1deg);
-    box-shadow:0 15px 30px rgba(100,40,60,.2);
-}
-
-.menu-icon{
-    font-size:45px;
-    margin-bottom:12px;
-}
-
-.menu-card h3{
-    color:#7d1637;
-    margin-bottom:7px;
-}
-
-.menu-card p{
-    color:#777;
-    font-size:14px;
-}
-
-
-/* SECTIONS */
-
-.page{
+#app{
     display:none;
-    max-width:1000px;
+    min-height:100vh;
+}
+
+#app.show{
+    display:block;
+    animation:fadeIn .7s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+header{
+    text-align:center;
+    padding:28px 18px 20px;
+    background:linear-gradient(135deg,#fff0f5,#f5edff);
+}
+
+header h1{
+    font-family:Georgia,serif;
+    color:#7b3150;
+    font-size:28px;
+}
+
+header p{
+    font-size:13px;
+    margin-top:5px;
+    color:#806572;
+}
+
+/* SPACE MENU */
+
+#spaces{
+    max-width:850px;
     margin:auto;
-    padding:50px 20px;
+    padding:28px 18px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.section-title h2{
+    font-family:Georgia,serif;
+    color:#71334c;
+    font-size:25px;
+}
+
+.section-title p{
+    font-size:13px;
+    color:#92727e;
+    margin-top:5px;
+}
+
+.space-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:13px;
+}
+
+.space{
+    position:relative;
+    border:0;
+    padding:22px 12px;
+    min-height:145px;
+    border-radius:25px;
+    cursor:pointer;
+    color:#583543;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(100,60,80,.1);
+    overflow:hidden;
+}
+
+.space:hover{
+    transform:translateY(-5px) rotate(-1deg);
+}
+
+.space:nth-child(1){background:#ffe2eb;}
+.space:nth-child(2){background:#e9e1ff;}
+.space:nth-child(3){background:#fff0c9;}
+.space:nth-child(4){background:#dff4ed;}
+
+.space .emoji{
+    font-size:38px;
+    display:block;
+    margin-bottom:8px;
+}
+
+.space strong{
+    display:block;
+    font-size:16px;
+}
+
+.space small{
+    display:block;
+    margin-top:5px;
+    opacity:.7;
+}
+
+.tape{
+    position:absolute;
+    width:55px;
+    height:15px;
+    background:rgba(255,255,255,.55);
+    top:7px;
+    left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+}
+
+/* CONTENT SCREENS */
+
+.screen{
+    display:none;
+    max-width:800px;
+    margin:auto;
+    padding:25px 18px 50px;
+}
+
+.screen.active{
+    display:block;
     animation:slideIn .5s ease;
 }
 
-.page.active{
-    display:block;
-}
-
 @keyframes slideIn{
-
-    from{
-        opacity:0;
-        transform:translateX(35px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
-
+    from{opacity:0;transform:translateX(25px);}
+    to{opacity:1;transform:none;}
 }
 
-.page-title{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.page-title .big-icon{
-    font-size:45px;
-}
-
-.page-title h2{
-    color:#7d1637;
-    font-size:30px;
-}
-
-.page-title p{
-    color:#777;
-    margin-top:8px;
-}
-
-
-/* BUTTON */
-
-.button{
-    border:none;
-    background:#7d1637;
-    color:white;
-    padding:11px 20px;
-    border-radius:25px;
+.back{
+    border:0;
+    background:#f0e1e8;
+    color:#71334c;
+    padding:9px 15px;
+    border-radius:20px;
     cursor:pointer;
+    margin-bottom:18px;
     font-weight:bold;
-    transition:.25s;
 }
 
-.button:hover{
-    background:#4a0b20;
-    transform:translateY(-2px);
+.screen h2{
+    font-family:Georgia,serif;
+    text-align:center;
+    color:#71334c;
+    margin-bottom:18px;
 }
-
-.back-btn{
-    background:#f4dce4;
-    color:#7d1637;
-    margin-bottom:25px;
-}
-
-
-/* BOX */
 
 .box{
     background:white;
-    padding:25px;
+    padding:20px;
     border-radius:25px;
-    box-shadow:0 8px 25px rgba(100,40,60,.12);
-    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(90,50,70,.1);
+    margin-bottom:18px;
 }
 
 input,select{
     width:100%;
-    padding:13px;
-    border:1px solid #e0cbd2;
+    padding:12px 14px;
+    border:1px solid #ead4dc;
     border-radius:20px;
+    margin:5px 0;
     outline:none;
-    margin:6px 0;
-    background:#fffafb;
+    font-family:inherit;
 }
 
-input:focus,
-select:focus{
-    border-color:#7d1637;
+button{
+    font-family:inherit;
 }
 
-
-/* MEMORIES */
-
-.memory-gallery{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
-
-.memory-card{
-    background:white;
+.action{
+    border:0;
+    background:#823b5a;
+    color:white;
+    padding:11px 18px;
     border-radius:22px;
-    padding:13px;
-    box-shadow:0 8px 22px rgba(100,40,60,.12);
-    animation:cardIn .5s ease;
-    overflow:hidden;
-}
-
-@keyframes cardIn{
-
-    from{
-        opacity:0;
-        transform:scale(.9);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-
-}
-
-.memory-card img,
-.memory-card video{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:16px;
-    display:block;
-}
-
-.memory-card p{
-    padding:10px 3px;
-    font-size:13px;
-    word-break:break-word;
-}
-
-.delete-btn{
-    border:none;
-    background:#ffe3ea;
-    color:#a51d45;
-    padding:8px 12px;
-    border-radius:18px;
     cursor:pointer;
     font-weight:bold;
+    margin-top:7px;
 }
 
-.delete-btn:hover{
-    background:#ffcbd8;
+.action:hover{
+    background:#642c45;
 }
-
 
 /* CHAT */
 
-.chat-box{
-    background:white;
-    border-radius:25px;
-    padding:20px;
-    box-shadow:0 8px 25px rgba(100,40,60,.12);
-}
-
 .chat-messages{
-    height:400px;
+    height:380px;
     overflow-y:auto;
-    padding:10px;
+    padding:8px;
+    background:#fffafd;
+    border-radius:18px;
+    margin-bottom:10px;
 }
 
 .message{
-    background:#f7e5eb;
-    padding:12px 15px;
-    border-radius:18px;
-    margin-bottom:12px;
+    background:#f3e3ea;
+    padding:10px 13px;
+    border-radius:16px;
+    margin:7px 0;
     max-width:85%;
-    animation:cardIn .3s ease;
+    word-break:break-word;
 }
 
 .message small{
     display:block;
-    font-size:10px;
-    color:#888;
-    margin-top:5px;
+    margin-top:4px;
+    font-size:9px;
+    opacity:.55;
 }
 
-.chat-input{
-    display:flex;
-    gap:8px;
-    margin-top:15px;
+/* MEMORIES */
+
+.upload-note{
+    font-size:12px;
+    color:#876a76;
+    line-height:1.5;
 }
 
-.chat-input input{
-    flex:1;
-    margin:0;
-}
-
-
-/* CARDS */
-
-.cards{
+.gallery{
     display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
 }
 
-.card{
+.memory{
     background:white;
-    padding:25px;
-    border-radius:22px;
-    box-shadow:0 8px 22px rgba(100,40,60,.12);
-    animation:cardIn .4s ease;
+    padding:9px;
+    border-radius:20px;
+    box-shadow:0 7px 20px rgba(90,50,70,.1);
+    animation:pop .5s ease;
 }
 
-.card h3{
-    color:#7d1637;
+.memory img,
+.memory video{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    border-radius:14px;
+}
+
+.memory p{
+    font-size:11px;
+    margin:7px 3px;
+    word-break:break-word;
+}
+
+.delete{
+    border:0;
+    background:#f7dce5;
+    color:#873b59;
+    padding:6px 10px;
+    border-radius:15px;
+    font-size:11px;
+    cursor:pointer;
+}
+
+/* MUSIC / SHOWS */
+
+.item{
+    background:white;
+    padding:18px;
+    border-radius:20px;
+    box-shadow:0 7px 20px rgba(90,50,70,.08);
     margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
 }
 
-.card button{
-    margin-top:15px;
+.item strong{
+    color:#71334c;
 }
-
-
-/* ABOUT */
-
-.about-box{
-    background:
-        linear-gradient(135deg,#fff,#fff0f5);
-    padding:35px;
-    border-radius:30px;
-    text-align:center;
-    box-shadow:0 8px 25px rgba(100,40,60,.12);
-}
-
-.about-box .heart{
-    font-size:55px;
-    animation:bounce 2s infinite;
-}
-
-.about-box p{
-    line-height:1.7;
-    margin-top:15px;
-}
-
-
-/* FOOTER */
 
 footer{
-    background:#4a0b20;
-    color:white;
     text-align:center;
-    padding:30px 15px;
-    margin-top:30px;
+    padding:25px;
+    color:#987784;
+    font-size:11px;
 }
 
-footer p{
-    margin:5px;
+@media(max-width:480px){
+    .space-grid{
+        gap:10px;
+    }
+
+    .space{
+        min-height:130px;
+        padding:18px 10px;
+    }
+
+    .space .emoji{
+        font-size:32px;
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .memory img,
+    .memory video{
+        height:150px;
+    }
 }
-
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-    header{
-        min-height:60vh;
-    }
-
-    header h1{
-        font-size:35px;
-    }
-
-    .logo{
-        font-size:50px;
-    }
-
-    .chat-input{
-        flex-direction:column;
-    }
-
-    .chat-input button{
-        width:100%;
-    }
-
-    .memory-card img,
-    .memory-card video{
-        height:200px;
-    }
-
-}
-
 </style>
 </head>
 
-
 <body>
 
-<!-- FLOATING DECORATIONS -->
+<div class="decor d1">🌷</div>
+<div class="decor d2">♡</div>
+<div class="decor d3">✨</div>
+<div class="decor d4">🎀</div>
 
-<div class="bg-heart h1">♡</div>
-<div class="bg-heart h2">✦</div>
-<div class="bg-heart h3">♡</div>
-<div class="bg-heart h4">✦</div>
+<!-- LANDING -->
 
+<div id="landing">
 
-<!-- HERO -->
+    <div class="landing-card">
 
-<header>
+        <div class="logo">🍷</div>
 
-<div class="hero-content">
+        <h1>NLC Collection</h1>
 
-<div class="logo">🍷</div>
+        <p>
+            Three friends.<br>
+            Countless memories.<br>
+            One little corner of the internet. ♡
+        </p>
 
-<h1>NLC Collection</h1>
+        <button class="enter-btn" onclick="enterCollection()">
+            Enter Our Collection ✨
+        </button>
 
-<p>Where our memories stay forever. ✨</p>
-
-<a href="#menu" class="start-btn">
-Enter Our Collection 💕
-</a>
+    </div>
 
 </div>
 
+
+<!-- APP -->
+
+<div id="app">
+
+<header>
+    <h1>♡ NLC Collection ♡</h1>
+    <p>Our little corner of memories</p>
 </header>
 
 
-<div id="firebaseStatus" class="status">
-Connecting to NLC Collection...
-</div>
+<!-- SPACES -->
 
+<div id="spaces">
 
-<!-- MENU -->
+    <div class="section-title">
+        <h2>Our Little Spaces 🌷</h2>
+        <p>Choose a little space to explore</p>
+    </div>
 
-<main id="menu" class="menu">
+    <div class="space-grid">
 
-<div class="menu-title">
+        <button class="space" onclick="openScreen('memories')">
+            <span class="tape"></span>
+            <span class="emoji">📸</span>
+            <strong>Memory Box</strong>
+            <small>Our pictures & videos</small>
+        </button>
 
-<h2>✨ Our Little Space</h2>
+        <button class="space" onclick="openScreen('chat')">
+            <span class="tape"></span>
+            <span class="emoji">💌</span>
+            <strong>Secret Chat</strong>
+            <small>Little messages for us</small>
+        </button>
 
-<p>Choose what you want to explore.</p>
+        <button class="space" onclick="openScreen('music')">
+            <span class="tape"></span>
+            <span class="emoji">🎧</span>
+            <strong>Our Playlist</strong>
+            <small>Songs we love</small>
+        </button>
 
-</div>
+        <button class="space" onclick="openScreen('shows')">
+            <span class="tape"></span>
+            <span class="emoji">🎬</span>
+            <strong>Watch List</strong>
+            <small>K-Dramas & anime</small>
+        </button>
 
-
-<div class="menu-grid">
-
-<button class="menu-card"
-onclick="openPage('memories')">
-
-<div class="menu-icon">📸</div>
-
-<h3>Memories</h3>
-
-<p>Keep our pictures and videos together.</p>
-
-</button>
-
-
-<button class="menu-card"
-onclick="openPage('chat')">
-
-<div class="menu-icon">💬</div>
-
-<h3>Chat</h3>
-
-<p>Send messages and talk with each other.</p>
-
-</button>
-
-
-<button class="menu-card"
-onclick="openPage('music')">
-
-<div class="menu-icon">🎵</div>
-
-<h3>Music</h3>
-
-<p>Share songs we love.</p>
-
-</button>
-
-
-<button class="menu-card"
-onclick="openPage('shows')">
-
-<div class="menu-icon">🎬</div>
-
-<h3>K-Drama & Anime</h3>
-
-<p>Recommend our favorite shows.</p>
-
-</button>
-
-
-<button class="menu-card"
-onclick="openPage('about')">
-
-<div class="menu-icon">💕</div>
-
-<h3>About NLC</h3>
-
-<p>A little place made for memories.</p>
-
-</button>
+    </div>
 
 </div>
-
-</main>
 
 
 <!-- MEMORIES -->
 
-<section id="memories" class="page">
+<section id="memories" class="screen">
 
-<button class="button back-btn"
-onclick="backHome()">
-← Back
-</button>
+<button class="back" onclick="backToSpaces()">← Little Spaces</button>
 
-<div class="page-title">
-
-<div class="big-icon">📸</div>
-
-<h2>Our Memories</h2>
-
-<p>Pictures and videos we want to keep forever.</p>
-
-</div>
-
+<h2>📸 Memory Box</h2>
 
 <div class="box">
 
-<h3>☁️ Add a Memory</h3>
+<h3>Keep a memory ♡</h3>
 
-<p style="margin:10px 0;color:#777;">
-Choose pictures or videos from your phone.
+<p class="upload-note">
+Choose pictures or videos and upload them to our shared memory box.
 </p>
 
 <input
-type="file"
-id="memoryInput"
-accept="image/*,video/*"
-multiple
+    type="file"
+    id="memoryInput"
+    accept="image/*,video/*"
+    multiple
 >
 
-<button
-class="button"
-id="uploadButton">
-
-Upload Memory ✨
-
+<button class="action" onclick="uploadMemories()">
+    ☁️ Save Memory
 </button>
 
-<p id="uploadStatus"
-style="margin-top:10px;color:#7d1637;">
-</p>
+<p id="uploadStatus" class="upload-note"></p>
 
 </div>
 
-
-<div
-id="memoryGallery"
-class="memory-gallery">
-
-</div>
+<div id="gallery" class="gallery"></div>
 
 </section>
 
 
 <!-- CHAT -->
 
-<section id="chat" class="page">
+<section id="chat" class="screen">
 
-<button class="button back-btn"
-onclick="backHome()">
-← Back
-</button>
+<button class="back" onclick="backToSpaces()">← Little Spaces</button>
 
-<div class="page-title">
+<h2>💌 Secret Chat</h2>
 
-<div class="big-icon">💬</div>
+<div class="box">
 
-<h2>NLC Chat</h2>
-
-<p>Talk with everyone in our little space.</p>
-
+<div id="chatMessages" class="chat-messages">
+    <p style="text-align:center">Loading our little chat... ♡</p>
 </div>
-
-
-<div class="chat-box">
-
-<div
-id="chatMessages"
-class="chat-messages">
-
-<p style="text-align:center;color:#999;">
-Loading messages...
-</p>
-
-</div>
-
-
-<div class="chat-input">
 
 <input
-id="messageInput"
-placeholder="Type something..."
-autocomplete="off"
+    id="messageInput"
+    placeholder="Write something... ♡"
 >
 
-<button
-id="sendButton"
-class="button">
-
-Send 💌
-
+<button class="action" onclick="sendMessage()">
+    Send 💗
 </button>
-
-</div>
 
 </div>
 
@@ -776,188 +588,72 @@ Send 💌
 
 <!-- MUSIC -->
 
-<section id="music" class="page">
+<section id="music" class="screen">
 
-<button class="button back-btn"
-onclick="backHome()">
-← Back
-</button>
+<button class="back" onclick="backToSpaces()">← Little Spaces</button>
 
-<div class="page-title">
-
-<div class="big-icon">🎵</div>
-
-<h2>Our Music</h2>
-
-<p>Songs that remind us of each other.</p>
-
-</div>
-
+<h2>🎧 Our Playlist</h2>
 
 <div class="box">
 
-<input
-id="songInput"
-placeholder="Enter song title..."
->
+<input id="songInput" placeholder="Song title">
 
-<button
-id="songButton"
-class="button">
-
-Add Song 🎶
-
+<button class="action" onclick="addSong()">
+    Add Song 🎵
 </button>
 
 </div>
 
-
-<div
-id="songList"
-class="cards">
-
-</div>
+<div id="songList"></div>
 
 </section>
 
 
 <!-- SHOWS -->
 
-<section id="shows" class="page">
+<section id="shows" class="screen">
 
-<button class="button back-btn"
-onclick="backHome()">
-← Back
-</button>
+<button class="back" onclick="backToSpaces()">← Little Spaces</button>
 
-<div class="page-title">
-
-<div class="big-icon">🎬</div>
-
-<h2>K-Drama & Anime</h2>
-
-<p>Shows we recommend to each other.</p>
-
-</div>
-
+<h2>🎬 Watch List</h2>
 
 <div class="box">
 
-<input
-id="showInput"
-placeholder="Enter title..."
->
+<input id="showInput" placeholder="K-Drama or anime title">
 
 <select id="showType">
-
-<option value="K-Drama">
-🇰🇷 K-Drama
-</option>
-
-<option value="Anime">
-🇯🇵 Anime
-</option>
-
+    <option>K-Drama 🇰🇷</option>
+    <option>Anime 🇯🇵</option>
 </select>
 
-
-<button
-id="showButton"
-class="button">
-
-Add Show 🍿
-
+<button class="action" onclick="addShow()">
+    Add to List ✨
 </button>
 
 </div>
 
-
-<div
-id="showList"
-class="cards">
-
-</div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about" class="page">
-
-<button class="button back-btn"
-onclick="backHome()">
-← Back
-</button>
-
-<div class="page-title">
-
-<div class="big-icon">💕</div>
-
-<h2>About NLC Collection</h2>
-
-</div>
-
-
-<div class="about-box">
-
-<div class="heart">
-♡
-</div>
-
-<h2>NLC Collection</h2>
-
-<p>
-A small online space made for creating,
-sharing, and keeping unforgettable memories.
-</p>
-
-<p>
-📸 Pictures & Videos<br>
-💬 Chat<br>
-🎵 Music<br>
-🎬 K-Drama & Anime
-</p>
-
-<p>
-No matter how much time passes,
-our memories can stay here. ✨
-</p>
-
-</div>
+<div id="showList"></div>
 
 </section>
 
 
 <footer>
-
-<p>🍷 NLC Collection</p>
-
-<p>Made with love for unforgettable memories.</p>
-
-<p>© 2026 NLC Collection</p>
-
+    Made with ♡ by NLC
 </footer>
 
+</div>
 
 
 <script type="module">
 
-/* ================================
-   FIREBASE
-================================ */
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
     getAuth,
-    signInAnonymously,
-    onAuthStateChanged
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
+    signInAnonymously
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
     getDatabase,
@@ -965,29 +661,26 @@ import {
     push,
     onValue,
     remove
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+
+/* FIREBASE */
 
 const firebaseConfig = {
 
-    apiKey:
-    "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
+    apiKey:"AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
 
-    authDomain:
-    "nlc--collection.firebaseapp.com",
+    authDomain:"nlc--collection.firebaseapp.com",
 
     databaseURL:
     "https://nlc--collection-default-rtdb.firebaseio.com",
 
-    projectId:
-    "nlc--collection",
+    projectId:"nlc--collection",
 
     storageBucket:
     "nlc--collection.firebasestorage.app",
 
-    messagingSenderId:
-    "765940335630",
+    messagingSenderId:"765940335630",
 
     appId:
     "1:765940335630:web:0c37f0e3762ebcf80ee85f"
@@ -995,43 +688,53 @@ const firebaseConfig = {
 };
 
 
-const app =
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const auth =
-getAuth(app);
+const auth = getAuth(app);
 
-const db =
-getDatabase(app);
+const db = getDatabase(app);
 
 
-/* ================================
-   CLOUDINARY
-================================ */
+/* LOGIN */
 
-const CLOUDINARY_CLOUD_NAME =
-"tisxycv9";
+signInAnonymously(auth)
+.catch(error => {
 
-const CLOUDINARY_UPLOAD_PRESET =
-"nlc.upload";
+    console.error("Firebase error:",error);
+
+});
 
 
-/* ================================
-   PAGE NAVIGATION
-================================ */
+/* PAGE NAVIGATION */
 
-window.openPage = function(page){
+window.enterCollection = function(){
 
-    document.getElementById("menu")
-        .style.display="none";
+    document
+    .getElementById("landing")
+    .classList.add("hide");
 
-    document.querySelectorAll(".page")
-        .forEach(p =>
-            p.classList.remove("active")
-        );
+    document
+    .getElementById("app")
+    .classList.add("show");
 
-    document.getElementById(page)
-        .classList.add("active");
+};
+
+
+window.openScreen = function(id){
+
+    document
+    .getElementById("spaces")
+    .style.display="none";
+
+    document
+    .querySelectorAll(".screen")
+    .forEach(screen=>{
+        screen.classList.remove("active");
+    });
+
+    document
+    .getElementById(id)
+    .classList.add("active");
 
     window.scrollTo({
         top:0,
@@ -1041,288 +744,146 @@ window.openPage = function(page){
 };
 
 
-window.backHome = function(){
+window.backToSpaces = function(){
 
-    document.querySelectorAll(".page")
-        .forEach(p =>
-            p.classList.remove("active")
-        );
+    document
+    .querySelectorAll(".screen")
+    .forEach(screen=>{
+        screen.classList.remove("active");
+    });
 
-    document.getElementById("menu")
-        .style.display="block";
+    document
+    .getElementById("spaces")
+    .style.display="block";
 
-    document.getElementById("menu")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 };
 
 
-/* ================================
-   FIREBASE LOGIN
-================================ */
+/* CHAT */
 
-signInAnonymously(auth)
+window.sendMessage = function(){
 
-.then(() => {
-
-    document.getElementById(
-        "firebaseStatus"
-    ).textContent =
-    "✓ Connected to NLC Collection";
-
-})
-
-.catch(error => {
-
-    console.error(error);
-
-    document.getElementById(
-        "firebaseStatus"
-    ).textContent =
-    "⚠️ Firebase error: " +
-    error.code;
-
-});
-
-
-onAuthStateChanged(auth,user => {
-
-    if(!user) return;
-
-    loadChat();
-    loadMemories();
-    loadMusic();
-    loadShows();
-
-});
-
-
-/* ================================
-   CHAT
-================================ */
-
-const messageInput =
-document.getElementById(
-    "messageInput"
-);
-
-const sendButton =
-document.getElementById(
-    "sendButton"
-);
-
-
-function sendMessage(){
+    const input =
+    document.getElementById("messageInput");
 
     const text =
-    messageInput.value.trim();
+    input.value.trim();
 
-    if(!text) return;
-
+    if(!text)return;
 
     push(
         ref(db,"chat"),
         {
-
             message:text,
-
-            time:
-            new Date()
-            .toLocaleString()
-
+            time:new Date().toLocaleString()
         }
-
     )
-
-    .then(() => {
-
-        messageInput.value="";
-
-        messageInput.focus();
-
+    .then(()=>{
+        input.value="";
     })
-
-    .catch(error => {
-
-        alert(
-            "Unable to send message:\n"+
-            error.message
-        );
-
+    .catch(error=>{
+        alert("Message error: "+error.message);
     });
 
-}
+};
 
 
-sendButton.onclick =
-sendMessage;
+onValue(
+    ref(db,"chat"),
+    snapshot=>{
 
+        const box =
+        document.getElementById("chatMessages");
 
-messageInput.addEventListener(
-    "keydown",
-    event => {
+        box.innerHTML="";
 
-        if(event.key==="Enter"){
+        snapshot.forEach(child=>{
 
-            event.preventDefault();
+            const data=child.val();
 
-            sendMessage();
+            const div =
+            document.createElement("div");
 
-        }
+            div.className="message";
+
+            const text =
+            document.createElement("div");
+
+            text.textContent =
+            data.message || "";
+
+            const time =
+            document.createElement("small");
+
+            time.textContent =
+            data.time || "";
+
+            const del =
+            document.createElement("button");
+
+            del.className="delete";
+
+            del.textContent="Delete";
+
+            del.onclick=()=>{
+                if(confirm("Delete this message?")){
+                    remove(
+                        ref(db,"chat/"+child.key)
+                    );
+                }
+            };
+
+            div.appendChild(text);
+            div.appendChild(time);
+            div.appendChild(del);
+
+            box.appendChild(div);
+
+        });
+
+        box.scrollTop=box.scrollHeight;
 
     }
 );
 
 
-function loadChat(){
+/* CLOUDINARY */
 
-    onValue(
-        ref(db,"chat"),
+const CLOUD_NAME="tisxycv9";
 
-        snapshot => {
-
-            const container =
-            document.getElementById(
-                "chatMessages"
-            );
-
-            container.innerHTML="";
+const UPLOAD_PRESET="nlc.upload";
 
 
-            snapshot.forEach(child => {
-
-                const data =
-                child.val();
-
-                const div =
-                document.createElement(
-                    "div"
-                );
-
-                div.className =
-                "message";
-
-
-                const text =
-                document.createElement(
-                    "div"
-                );
-
-                text.textContent =
-                data.message || "";
-
-
-                const time =
-                document.createElement(
-                    "small"
-                );
-
-                time.textContent =
-                data.time || "";
-
-
-                const deleteButton =
-                document.createElement(
-                    "button"
-                );
-
-                deleteButton.className =
-                "delete-btn";
-
-                deleteButton.textContent =
-                "Delete";
-
-
-                deleteButton.onclick =
-                () => {
-
-                    if(
-                        confirm(
-                            "Delete this message?"
-                        )
-                    ){
-
-                        remove(
-                            ref(
-                                db,
-                                "chat/" +
-                                child.key
-                            )
-                        );
-
-                    }
-
-                };
-
-
-                div.appendChild(text);
-
-                div.appendChild(time);
-
-                div.appendChild(
-                    deleteButton
-                );
-
-                container.appendChild(div);
-
-            });
-
-
-            container.scrollTop =
-            container.scrollHeight;
-
-        }
-
-    );
-
-}
-
-
-/* ================================
-   CLOUDINARY UPLOAD
-================================ */
-
-const uploadButton =
-document.getElementById(
-    "uploadButton"
-);
-
-
-uploadButton.onclick =
-uploadMemories;
-
-
-async function uploadMemories(){
+window.uploadMemories = async function(){
 
     const input =
-    document.getElementById(
-        "memoryInput"
-    );
+    document.getElementById("memoryInput");
 
     const files =
     Array.from(input.files);
 
     const status =
-    document.getElementById(
-        "uploadStatus"
-    );
+    document.getElementById("uploadStatus");
+
+    const gallery =
+    document.getElementById("gallery");
 
 
     if(!files.length){
 
-        alert(
-            "Please choose a picture or video first."
-        );
+        alert("Choose a picture or video first. ♡");
 
         return;
 
     }
 
 
-    status.textContent =
-    "Uploading... ☁️";
+    status.textContent="Uploading... ☁️";
 
 
     try{
@@ -1332,487 +893,326 @@ async function uploadMemories(){
             const formData =
             new FormData();
 
-
             formData.append(
                 "file",
                 file
             );
 
-
             formData.append(
                 "upload_preset",
-                CLOUDINARY_UPLOAD_PRESET
+                UPLOAD_PRESET
             );
 
 
             const response =
             await fetch(
-
-                "https://api.cloudinary.com/v1_1/" +
-                CLOUDINARY_CLOUD_NAME +
-                "/auto/upload",
-
+                `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`,
                 {
-
                     method:"POST",
-
                     body:formData
-
                 }
-
             );
-
-
-            const data =
-            await response.json();
 
 
             if(!response.ok){
 
                 throw new Error(
-                    data.error?.message ||
                     "Cloudinary upload failed."
                 );
 
             }
 
 
+            const data =
+            await response.json();
+
+
             await push(
                 ref(db,"memories"),
                 {
-
                     name:file.name,
-
                     url:data.secure_url,
-
-                    public_id:
-                    data.public_id,
-
-                    resource_type:
-                    data.resource_type,
-
-                    time:
-                    new Date()
-                    .toLocaleString()
-
+                    type:file.type,
+                    time:new Date().toLocaleString()
                 }
-
             );
 
         }
 
 
-        status.textContent =
-        "✓ Memories uploaded! 💕";
+        status.textContent=
+        "♡ Memory saved!";
 
         input.value="";
 
-    }
 
-    catch(error){
+    }catch(error){
 
         console.error(error);
 
-        status.textContent =
+        status.textContent=
         "⚠️ Upload failed.";
 
         alert(
-            "Upload error:\n"+
+            "Upload failed:\n"+
             error.message
         );
 
     }
 
-}
+};
 
 
-/* ================================
-   LOAD MEMORIES
-================================ */
+/* LOAD MEMORIES */
 
-function loadMemories(){
+onValue(
+    ref(db,"memories"),
+    snapshot=>{
 
-    onValue(
-        ref(db,"memories"),
+        const gallery =
+        document.getElementById("gallery");
 
-        snapshot => {
+        gallery.innerHTML="";
 
-            const gallery =
-            document.getElementById(
-                "memoryGallery"
-            );
+        snapshot.forEach(child=>{
 
-            gallery.innerHTML="";
+            const data =
+            child.val();
 
+            const card =
+            document.createElement("div");
 
-            snapshot.forEach(child => {
-
-                const data =
-                child.val();
+            card.className="memory";
 
 
-                const card =
-                document.createElement(
-                    "div"
-                );
-
-                card.className =
-                "memory-card";
+            let media;
 
 
-                let media;
+            if(
+                data.type &&
+                data.type.startsWith("video")
+            ){
 
+                media =
+                document.createElement("video");
+
+                media.controls=true;
+
+            }else{
+
+                media =
+                document.createElement("img");
+
+            }
+
+
+            media.src=data.url;
+
+
+            const name =
+            document.createElement("p");
+
+            name.textContent =
+            data.name || "Memory";
+
+
+            const del =
+            document.createElement("button");
+
+            del.className="delete";
+
+            del.textContent="Remove from collection";
+
+
+            del.onclick=()=>{
 
                 if(
-                    data.resource_type ===
-                    "video"
+                    confirm(
+                        "Remove this memory from the collection?"
+                    )
                 ){
 
-                    media =
-                    document.createElement(
-                        "video"
-                    );
-
-                    media.controls=true;
-
-                    media.playsInline=true;
-
-                }
-
-                else{
-
-                    media =
-                    document.createElement(
-                        "img"
-                    );
-
-                }
-
-
-                media.src =
-                data.url;
-
-
-                const name =
-                document.createElement(
-                    "p"
-                );
-
-                name.textContent =
-                data.name || "Memory";
-
-
-                const deleteButton =
-                document.createElement(
-                    "button"
-                );
-
-                deleteButton.className =
-                "delete-btn";
-
-                deleteButton.textContent =
-                "🗑️ Remove";
-
-
-                deleteButton.onclick =
-                () => {
-
-                    if(
-                        confirm(
-                            "Remove this memory from NLC Collection?"
+                    remove(
+                        ref(
+                            db,
+                            "memories/"+child.key
                         )
-                    ){
+                    );
 
-                        remove(
-                            ref(
-                                db,
-                                "memories/" +
-                                child.key
-                            )
-                        );
+                }
 
-                    }
-
-                };
+            };
 
 
-                card.appendChild(media);
+            card.appendChild(media);
 
-                card.appendChild(name);
+            card.appendChild(name);
 
-                card.appendChild(
-                    deleteButton
-                );
+            card.appendChild(del);
 
-                gallery.appendChild(card);
+            gallery.appendChild(card);
 
-            });
+        });
 
-        }
-
-    );
-
-}
+    }
+);
 
 
-/* ================================
-   MUSIC
-================================ */
+/* MUSIC */
 
-document.getElementById(
-    "songButton"
-).onclick = addSong;
-
-
-function addSong(){
+window.addSong=function(){
 
     const input =
-    document.getElementById(
-        "songInput"
-    );
+    document.getElementById("songInput");
 
     const title =
     input.value.trim();
 
-
-    if(!title) return;
-
+    if(!title)return;
 
     push(
         ref(db,"music"),
         {
-
             title:title
-
         }
-
     );
-
 
     input.value="";
 
-}
+};
 
 
-function loadMusic(){
+onValue(
+    ref(db,"music"),
+    snapshot=>{
 
-    onValue(
-        ref(db,"music"),
+        const list =
+        document.getElementById("songList");
 
-        snapshot => {
+        list.innerHTML="";
 
-            const list =
-            document.getElementById(
-                "songList"
-            );
+        snapshot.forEach(child=>{
 
-            list.innerHTML="";
+            const data=child.val();
 
+            const item =
+            document.createElement("div");
 
-            snapshot.forEach(child => {
+            item.className="item";
 
-                const data =
-                child.val();
+            item.innerHTML=
+            `<strong>🎵 ${escapeHTML(data.title)}</strong>`;
 
+            const del =
+            document.createElement("button");
 
-                const card =
-                document.createElement(
-                    "div"
+            del.className="delete";
+
+            del.textContent="Delete";
+
+            del.onclick=()=>{
+                remove(
+                    ref(db,"music/"+child.key)
                 );
+            };
 
-                card.className =
-                "card";
+            item.appendChild(del);
 
+            list.appendChild(item);
 
-                card.innerHTML =
-                "🎵 <h3></h3>";
+        });
 
-
-                card.querySelector(
-                    "h3"
-                ).textContent =
-                data.title;
+    }
+);
 
 
-                const button =
-                document.createElement(
-                    "button"
-                );
+/* SHOWS */
 
-                button.className =
-                "delete-btn";
-
-                button.textContent =
-                "🗑️ Delete";
-
-
-                button.onclick = () => {
-
-                    remove(
-                        ref(
-                            db,
-                            "music/" +
-                            child.key
-                        )
-                    );
-
-                };
-
-
-                card.appendChild(button);
-
-                list.appendChild(card);
-
-            });
-
-        }
-
-    );
-
-}
-
-
-/* ================================
-   SHOWS
-================================ */
-
-document.getElementById(
-    "showButton"
-).onclick = addShow;
-
-
-function addShow(){
+window.addShow=function(){
 
     const input =
-    document.getElementById(
-        "showInput"
-    );
+    document.getElementById("showInput");
 
     const type =
-    document.getElementById(
-        "showType"
-    );
-
+    document.getElementById("showType");
 
     const title =
     input.value.trim();
 
-
-    if(!title) return;
-
+    if(!title)return;
 
     push(
         ref(db,"shows"),
         {
-
             title:title,
-
             type:type.value
-
         }
-
     );
-
 
     input.value="";
 
-}
+};
 
 
-function loadShows(){
+onValue(
+    ref(db,"shows"),
+    snapshot=>{
 
-    onValue(
-        ref(db,"shows"),
+        const list =
+        document.getElementById("showList");
 
-        snapshot => {
+        list.innerHTML="";
 
-            const list =
-            document.getElementById(
-                "showList"
-            );
+        snapshot.forEach(child=>{
 
-            list.innerHTML="";
+            const data=child.val();
 
+            const item =
+            document.createElement("div");
 
-            snapshot.forEach(child => {
+            item.className="item";
 
-                const data =
-                child.val();
+            const title =
+            document.createElement("strong");
 
+            title.textContent =
+            `${data.type} — ${data.title}`;
 
-                const card =
-                document.createElement(
-                    "div"
+            const del =
+            document.createElement("button");
+
+            del.className="delete";
+
+            del.textContent="Delete";
+
+            del.onclick=()=>{
+                remove(
+                    ref(db,"shows/"+child.key)
                 );
+            };
 
-                card.className =
-                "card";
+            item.appendChild(title);
 
+            item.appendChild(del);
 
-                const icon =
-                data.type ===
-                "Anime"
-                ? "🇯🇵"
-                : "🇰🇷";
+            list.appendChild(item);
 
+        });
 
-                card.innerHTML =
-                `<h3>
-                    ${icon} ${escapeHTML(data.title)}
-                </h3>
-                <p>${escapeHTML(data.type)}</p>`;
+    }
+);
 
 
-                const button =
-                document.createElement(
-                    "button"
-                );
-
-                button.className =
-                "delete-btn";
-
-                button.textContent =
-                "🗑️ Delete";
-
-
-                button.onclick = () => {
-
-                    remove(
-                        ref(
-                            db,
-                            "shows/" +
-                            child.key
-                        )
-                    );
-
-                };
-
-
-                card.appendChild(button);
-
-                list.appendChild(card);
-
-            });
-
-        }
-
-    );
-
-}
-
-
-/* ================================
-   SAFETY FOR SHOW TEXT
-================================ */
+/* BASIC HTML ESCAPE */
 
 function escapeHTML(text){
 
-    return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+    const div =
+    document.createElement("div");
+
+    div.textContent=text;
+
+    return div.innerHTML;
 
 }
 
