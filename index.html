@@ -4,9 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NLC Collection ♡</title>
+<title>NLC Collection</title>
 
 <style>
+
+/* =========================================================
+   NLC COLLECTION — AESTHETIC SCRAPBOOK DESIGN
+   Color palette kept:
+   Burgundy #6b1028
+   Cream    #fffdf8
+   Blush    #f8eee9
+   Pink     #f2dfe2
+   Beige    #efd8bd
+========================================================= */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -24,52 +35,162 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
-   FLOATING DECORATIONS
-========================= */
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+    opacity:.18;
+    background-image:
+        radial-gradient(#6b1028 0.6px,transparent 0.6px);
+    background-size:18px 18px;
+}
+
+
+/* =========================================================
+   CSS-ONLY DECORATIONS
+========================================================= */
 
 .decor{
     position:fixed;
     pointer-events:none;
     z-index:0;
-    animation:float 5s ease-in-out infinite;
 }
+
+.decor::before,
+.decor::after{
+    content:"";
+    position:absolute;
+}
+
+
+/* top left flower */
 
 .decor.one{
+    width:75px;
+    height:75px;
     top:12%;
-    left:4%;
-    font-size:28px;
+    left:3%;
 }
+
+.decor.one::before{
+    width:26px;
+    height:26px;
+    border:2px solid #b94b61;
+    border-radius:50%;
+    box-shadow:
+        22px 0 0 -5px #f2dfe2,
+        -22px 0 0 -5px #f2dfe2,
+        0 22px 0 -5px #f2dfe2,
+        0 -22px 0 -5px #f2dfe2;
+    top:25px;
+    left:25px;
+}
+
+.decor.one::after{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#6b1028;
+    top:36px;
+    left:36px;
+}
+
+
+/* top right circles */
 
 .decor.two{
+    width:85px;
+    height:85px;
+    right:3%;
     top:28%;
-    right:5%;
-    font-size:25px;
-    animation-delay:1s;
+    border:2px solid #d7aeb8;
+    border-radius:50%;
 }
+
+.decor.two::before{
+    width:55px;
+    height:55px;
+    border:1px solid #d7aeb8;
+    border-radius:50%;
+    top:13px;
+    left:13px;
+}
+
+.decor.two::after{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#efd8bd;
+    top:36px;
+    left:36px;
+}
+
+
+/* bottom left ribbon */
 
 .decor.three{
+    width:70px;
+    height:70px;
+    left:4%;
     bottom:15%;
-    left:6%;
-    font-size:22px;
-    animation-delay:2s;
 }
+
+.decor.three::before{
+    width:48px;
+    height:48px;
+    border-left:2px solid #b94b61;
+    border-bottom:2px solid #b94b61;
+    transform:rotate(-45deg);
+    top:10px;
+    left:10px;
+}
+
+.decor.three::after{
+    width:18px;
+    height:18px;
+    border:2px solid #6b1028;
+    transform:rotate(45deg);
+    top:26px;
+    left:26px;
+}
+
+
+/* bottom right sparkle */
 
 .decor.four{
-    bottom:8%;
-    right:7%;
-    font-size:30px;
-    animation-delay:3s;
+    width:70px;
+    height:70px;
+    right:5%;
+    bottom:9%;
 }
 
-@keyframes float{
-    0%,100%{transform:translateY(0) rotate(-5deg);}
-    50%{transform:translateY(-14px) rotate(5deg);}
+.decor.four::before{
+    width:2px;
+    height:60px;
+    background:#b94b61;
+    left:34px;
+    top:5px;
 }
 
-/* =========================
+.decor.four::after{
+    width:60px;
+    height:2px;
+    background:#b94b61;
+    left:5px;
+    top:34px;
+}
+
+
+/* =========================================================
    LANDING PAGE
-========================= */
+========================================================= */
 
 #landing{
     min-height:100vh;
@@ -77,228 +198,467 @@ body{
     align-items:center;
     justify-content:center;
     padding:25px;
+    position:relative;
     background:
-        radial-gradient(circle at 20% 20%,#f5d9df 0 5%,transparent 6%),
-        radial-gradient(circle at 80% 30%,#ead4c7 0 5%,transparent 6%),
+        radial-gradient(
+            circle at 15% 20%,
+            #f5d9df 0 4%,
+            transparent 4.5%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            #ead4c7 0 5%,
+            transparent 5.5%
+        ),
         #f8eee9;
     transition:.8s ease;
 }
 
+
+/* decorative frame */
+
+#landing::before{
+    content:"";
+    position:absolute;
+    width:calc(100% - 45px);
+    height:calc(100% - 45px);
+    border:1px solid #d7aeb8;
+    pointer-events:none;
+}
+
+#landing::after{
+    content:"";
+    position:absolute;
+    width:calc(100% - 65px);
+    height:calc(100% - 65px);
+    border:1px solid rgba(107,16,40,.18);
+    pointer-events:none;
+}
+
+
 .landing-card{
     position:relative;
     z-index:2;
-    width:min(650px,100%);
+    width:min(680px,100%);
     background:#fffdf8;
-    padding:55px 35px;
+    padding:70px 40px 55px;
     text-align:center;
-    border-radius:28px;
+
+    border-radius:4px;
+
     box-shadow:
-        0 15px 35px rgba(92,45,55,.15),
-        inset 0 0 0 3px #f2dfe0;
+        0 25px 50px rgba(92,45,55,.16),
+        inset 0 0 0 1px #f2dfe0;
+
     transform:rotate(-1deg);
+
     animation:appear 1s ease;
 }
+
+
+/* corner decorations */
+
+.landing-card::before{
+    content:"";
+    position:absolute;
+    width:45px;
+    height:45px;
+    top:15px;
+    left:15px;
+    border-top:2px solid #6b1028;
+    border-left:2px solid #6b1028;
+}
+
+.landing-card::after{
+    content:"";
+    position:absolute;
+    width:45px;
+    height:45px;
+    bottom:15px;
+    right:15px;
+    border-bottom:2px solid #6b1028;
+    border-right:2px solid #6b1028;
+}
+
 
 @keyframes appear{
     from{
         opacity:0;
-        transform:translateY(30px) rotate(-3deg);
+        transform:translateY(30px) rotate(-4deg);
     }
+
     to{
         opacity:1;
         transform:translateY(0) rotate(-1deg);
     }
 }
 
+
+/* paper tape */
+
 .tape{
     position:absolute;
-    width:110px;
-    height:28px;
+    width:125px;
+    height:30px;
     background:#efd8bd;
-    opacity:.8;
-    transform:rotate(-8deg);
-    top:-12px;
+    opacity:.75;
+    transform:rotate(-7deg);
+    top:-13px;
     left:50%;
-    margin-left:-55px;
+    margin-left:-62px;
 }
+
+
+/* decorative line above title */
+
+.landing-line{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.landing-line span{
+    width:70px;
+    height:1px;
+    background:#b94b61;
+}
+
+.landing-line i{
+    width:8px;
+    height:8px;
+    border:1px solid #6b1028;
+    transform:rotate(45deg);
+}
+
 
 .landing-card h1{
     font-family:Georgia,serif;
-    font-size:clamp(38px,8vw,65px);
+    font-size:clamp(40px,8vw,68px);
     color:#6b1028;
-    margin-bottom:10px;
+    margin-bottom:14px;
+    letter-spacing:1px;
 }
+
+
+.landing-card .subtitle{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    color:#b94b61;
+    margin-bottom:18px;
+}
+
 
 .landing-card p{
-    font-size:17px;
-    line-height:1.7;
-    margin-bottom:30px;
+    font-size:16px;
+    line-height:1.8;
+    margin:0 auto 30px;
+    max-width:500px;
 }
 
+
+/* ENTER BUTTON */
+
 .enter-btn{
-    border:none;
+    border:1px solid #6b1028;
     background:#6b1028;
     color:white;
-    padding:15px 28px;
-    border-radius:30px;
+    padding:15px 32px;
+    border-radius:2px;
     font-weight:bold;
-    font-size:16px;
+    font-size:15px;
+    letter-spacing:.5px;
     cursor:pointer;
-    box-shadow:0 8px 18px rgba(107,16,40,.25);
+
+    box-shadow:
+        6px 6px 0 #efd8bd;
+
     transition:.3s;
 }
 
 .enter-btn:hover{
-    transform:translateY(-4px) scale(1.03);
+    transform:translate(-2px,-3px);
+    box-shadow:
+        9px 9px 0 #efd8bd;
     background:#4b081c;
 }
 
+
 #landing.hide{
     opacity:0;
-    transform:scale(1.15);
+    transform:scale(1.08);
     pointer-events:none;
     position:absolute;
     width:100%;
 }
 
-/* =========================
+
+/* =========================================================
    COLLECTION
-========================= */
+========================================================= */
 
 #collection{
     display:none;
     min-height:100vh;
     animation:collectionIn 1s ease;
+    position:relative;
 }
 
 #collection.show{
     display:block;
 }
 
+
 @keyframes collectionIn{
     from{
         opacity:0;
         transform:translateY(25px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
     background:#6b1028;
     color:white;
-    padding:28px 20px;
+    padding:48px 20px 42px;
     text-align:center;
     position:relative;
     overflow:hidden;
 }
 
+
+/* header decorative lines */
+
+header::before{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:50%;
+    left:-65px;
+    top:-80px;
+}
+
+header::after{
+    content:"";
+    position:absolute;
+    width:210px;
+    height:210px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+    right:-100px;
+    bottom:-120px;
+}
+
+
+.header-line{
+    width:80px;
+    height:1px;
+    background:#efd8bd;
+    margin:14px auto;
+}
+
+
 header h1{
     font-family:Georgia,serif;
-    font-size:clamp(30px,5vw,48px);
+    font-size:clamp(32px,6vw,52px);
+    letter-spacing:1px;
 }
+
 
 header p{
-    margin-top:6px;
+    margin-top:8px;
     opacity:.9;
+    font-size:14px;
+    letter-spacing:1px;
 }
 
-/* STATUS */
+
+/* =========================================================
+   STATUS
+========================================================= */
 
 .status{
     text-align:center;
-    padding:8px;
-    font-size:12px;
+    padding:9px;
+    font-size:11px;
+    letter-spacing:.5px;
     background:#f3dfe3;
     color:#6b1028;
 }
 
-/* NAV */
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 nav{
     position:sticky;
     top:0;
     z-index:50;
+
     display:flex;
     justify-content:center;
     gap:8px;
     flex-wrap:wrap;
-    padding:12px;
-    background:rgba(255,253,248,.95);
-    backdrop-filter:blur(10px);
-    box-shadow:0 3px 12px rgba(70,30,40,.1);
+
+    padding:14px;
+
+    background:rgba(255,253,248,.94);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid #ead4d7;
+
+    box-shadow:
+        0 4px 15px rgba(70,30,40,.08);
 }
 
+
 nav button{
-    border:none;
-    background:#f2dfe2;
+    border:1px solid transparent;
+    background:transparent;
     color:#6b1028;
-    padding:9px 14px;
-    border-radius:20px;
+
+    padding:9px 16px;
+
+    border-radius:2px;
+
     font-weight:bold;
+    font-size:12px;
+
+    letter-spacing:.5px;
+
     cursor:pointer;
+
     transition:.25s;
 }
 
+
 nav button:hover{
-    background:#6b1028;
-    color:white;
+    background:#f2dfe2;
+    border-color:#d7aeb8;
     transform:translateY(-2px);
 }
 
-/* =========================
+
+/* =========================================================
    LITTLE SPACES
-========================= */
+========================================================= */
 
 #spaces{
-    padding:55px 20px;
+    padding:65px 20px;
     max-width:1100px;
     margin:auto;
 }
 
+
 .title{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:42px;
 }
+
+
+.title::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:1px;
+    background:#b94b61;
+    margin:15px auto 0;
+}
+
 
 .title h2{
     font-family:Georgia,serif;
     color:#6b1028;
-    font-size:35px;
+    font-size:36px;
 }
 
+
 .title p{
-    margin-top:8px;
+    margin-top:10px;
+    color:#76545a;
+    font-size:14px;
 }
+
+
+/* =========================================================
+   SPACE CARDS
+========================================================= */
 
 .space-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:20px;
+    gap:25px;
 }
+
 
 .space{
     position:relative;
-    min-height:190px;
-    padding:25px 18px;
-    border-radius:20px;
+    min-height:220px;
+
+    padding:32px 22px;
+
     background:#fffdf8;
-    box-shadow:0 8px 20px rgba(80,40,45,.12);
+
+    border:1px solid #ead4d7;
+
+    box-shadow:
+        0 10px 22px rgba(80,40,45,.10);
+
     cursor:pointer;
+
     transition:.35s;
+
     overflow:hidden;
 }
 
+
+/* paper corner */
+
+.space::before{
+    content:"";
+    position:absolute;
+    width:35px;
+    height:35px;
+    top:0;
+    right:0;
+    background:#f2dfe2;
+    clip-path:polygon(0 0,100% 0,100% 100%);
+}
+
+
+/* bottom line */
+
+.space::after{
+    content:"";
+    position:absolute;
+    width:55px;
+    height:1px;
+    bottom:18px;
+    left:22px;
+    background:#d7aeb8;
+}
+
+
 .space:nth-child(1){
-    transform:rotate(-2deg);
+    transform:rotate(-1.5deg);
 }
 
 .space:nth-child(2){
-    transform:rotate(1.5deg);
+    transform:rotate(1deg);
 }
 
 .space:nth-child(3){
@@ -306,275 +666,551 @@ nav button:hover{
 }
 
 .space:nth-child(4){
-    transform:rotate(2deg);
+    transform:rotate(1.5deg);
 }
+
 
 .space:hover{
-    transform:translateY(-9px) rotate(0);
-    box-shadow:0 15px 28px rgba(80,40,45,.18);
+    transform:translateY(-10px) rotate(0);
+    box-shadow:
+        0 18px 30px rgba(80,40,45,.17);
 }
 
-.space .emoji{
-    font-size:42px;
+
+/* CSS decorative icon */
+
+.space-icon{
+    width:52px;
+    height:52px;
+
+    border:1px solid #b94b61;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:20px;
+
+    position:relative;
 }
+
+
+.space-icon::before{
+    content:"";
+    width:22px;
+    height:22px;
+    border:2px solid #6b1028;
+    border-radius:50%;
+}
+
+
+.space-icon::after{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#efd8bd;
+}
+
 
 .space h3{
-    margin:13px 0 7px;
+    margin-bottom:9px;
     color:#6b1028;
+    font-family:Georgia,serif;
+    font-size:20px;
 }
+
 
 .space p{
-    font-size:13px;
-    line-height:1.5;
+    font-size:12px;
+    line-height:1.7;
+    color:#76545a;
 }
 
-.sticker{
-    position:absolute;
-    right:12px;
-    top:10px;
-    font-size:22px;
-}
 
-/* =========================
+/* =========================================================
    SECTIONS
-========================= */
+========================================================= */
 
 .page-section{
     max-width:1050px;
     margin:auto;
-    padding:50px 20px;
+    padding:55px 20px;
     display:none;
 }
+
 
 .page-section.active{
     display:block;
     animation:slideIn .6s ease;
 }
 
+
 @keyframes slideIn{
     from{
         opacity:0;
         transform:translateY(20px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
+
+/* =========================================================
+   PAPER
+========================================================= */
+
 .paper{
     background:#fffdf8;
-    padding:28px;
-    border-radius:22px;
-    box-shadow:0 8px 22px rgba(70,35,40,.12);
+
+    padding:35px;
+
+    border:1px solid #ead4d7;
+
+    box-shadow:
+        0 12px 28px rgba(70,35,40,.11);
+
     position:relative;
 }
+
+
+/* paper inner border */
+
+.paper::after{
+    content:"";
+    position:absolute;
+    inset:10px;
+
+    border:1px solid rgba(107,16,40,.08);
+
+    pointer-events:none;
+}
+
+
+/* tape */
 
 .paper:before{
     content:"";
     position:absolute;
-    top:10px;
+
+    top:-11px;
     left:50%;
-    width:90px;
-    height:20px;
+
+    width:100px;
+    height:22px;
+
     background:#efd8bd;
-    opacity:.7;
-    transform:translateX(-50%) rotate(-2deg);
+
+    opacity:.75;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    z-index:2;
 }
+
 
 .page-title{
     text-align:center;
     font-family:Georgia,serif;
     color:#6b1028;
-    font-size:32px;
-    margin-bottom:25px;
+    font-size:34px;
+    margin-bottom:30px;
 }
 
-/* =========================
+
+.page-title::after{
+    content:"";
+    display:block;
+    width:55px;
+    height:1px;
+    background:#b94b61;
+    margin:13px auto 0;
+}
+
+
+/* =========================================================
    BUTTONS
-========================= */
+========================================================= */
 
 .btn{
-    border:none;
+    border:1px solid #6b1028;
+
     background:#6b1028;
     color:white;
-    padding:11px 18px;
-    border-radius:22px;
+
+    padding:11px 19px;
+
+    border-radius:2px;
+
     cursor:pointer;
+
     font-weight:bold;
+
     margin:4px;
+
     transition:.25s;
+
+    box-shadow:4px 4px 0 #efd8bd;
 }
+
 
 .btn:hover{
     background:#450817;
-    transform:translateY(-2px);
+    transform:translate(-2px,-2px);
+    box-shadow:6px 6px 0 #efd8bd;
 }
+
 
 .delete-btn{
     background:#b94b61;
     padding:7px 12px;
-    border-radius:18px;
+    border-radius:2px;
     color:white;
     border:none;
     cursor:pointer;
     margin-top:8px;
+    font-size:11px;
+    transition:.2s;
 }
+
 
 .delete-btn:hover{
     background:#8e3045;
 }
 
-/* =========================
-   MEMORIES
-========================= */
 
-.upload-area{
-    text-align:center;
-    padding:25px;
-    border:2px dashed #d7aeb8;
-    border-radius:18px;
-    background:#fff7f8;
-}
+/* =========================================================
+   INPUTS
+========================================================= */
 
-input,select{
+input,
+select{
     border:1px solid #d7bfc3;
-    background:white;
+
+    background:#fff;
+
     padding:11px 14px;
-    border-radius:20px;
+
+    border-radius:2px;
+
     outline:none;
+
     margin:5px;
+
     max-width:100%;
+
+    color:#4b3035;
 }
 
-input:focus,select:focus{
+
+input:focus,
+select:focus{
     border-color:#6b1028;
+    box-shadow:0 0 0 3px #f3dfe3;
 }
+
 
 #uploadStatus{
     margin-top:10px;
     font-size:13px;
 }
 
+
+/* =========================================================
+   MEMORY WALL
+========================================================= */
+
+.upload-area{
+    text-align:center;
+
+    padding:30px;
+
+    border:1px dashed #c9909d;
+
+    background:#fff7f8;
+
+    position:relative;
+}
+
+
+.upload-area::before{
+    content:"";
+
+    position:absolute;
+
+    width:30px;
+    height:30px;
+
+    border-top:1px solid #6b1028;
+    border-left:1px solid #6b1028;
+
+    top:12px;
+    left:12px;
+}
+
+
+.upload-area::after{
+    content:"";
+
+    position:absolute;
+
+    width:30px;
+    height:30px;
+
+    border-bottom:1px solid #6b1028;
+    border-right:1px solid #6b1028;
+
+    bottom:12px;
+    right:12px;
+}
+
+
+.upload-area h3{
+    font-family:Georgia,serif;
+    color:#6b1028;
+    font-size:22px;
+}
+
+
+.upload-area p{
+    font-size:13px;
+    color:#76545a;
+    margin:10px;
+}
+
+
 .memory-gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    gap:22px;
-    margin-top:28px;
+    grid-template-columns:
+        repeat(auto-fill,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-top:35px;
 }
+
 
 .memory-card{
     background:#fffdf8;
-    padding:14px;
-    border-radius:8px;
-    box-shadow:0 6px 18px rgba(70,35,40,.15);
+
+    padding:12px;
+
+    border:1px solid #ead4d7;
+
+    box-shadow:
+        0 7px 18px rgba(70,35,40,.13);
+
     transition:.3s;
 }
 
+
 .memory-card:nth-child(even){
-    transform:rotate(1deg);
+    transform:rotate(1.3deg);
 }
 
 .memory-card:nth-child(odd){
-    transform:rotate(-1deg);
+    transform:rotate(-1.3deg);
 }
 
+
 .memory-card:hover{
-    transform:translateY(-5px) rotate(0);
+    transform:
+        translateY(-7px)
+        rotate(0);
 }
+
 
 .memory-card img,
 .memory-card video{
     width:100%;
     max-height:300px;
     object-fit:cover;
-    border-radius:5px;
+    border-radius:2px;
 }
+
 
 .memory-card p{
-    margin-top:9px;
-    font-size:13px;
+    margin-top:11px;
+    font-size:12px;
     word-break:break-word;
+    color:#6b1028;
 }
 
-/* =========================
+
+/* =========================================================
    CHAT
-========================= */
+========================================================= */
 
 .chat-messages{
     height:400px;
+
     overflow-y:auto;
-    padding:15px;
+
+    padding:20px;
+
     background:#f9eef1;
-    border-radius:16px;
-    margin-bottom:15px;
+
+    border:1px solid #ead4d7;
+
+    margin-bottom:18px;
 }
+
 
 .message{
     background:white;
-    padding:12px 15px;
-    border-radius:17px;
-    margin-bottom:12px;
+
+    padding:13px 16px;
+
+    border-left:3px solid #b94b61;
+
+    margin-bottom:13px;
+
     max-width:85%;
-    box-shadow:0 3px 8px rgba(70,35,40,.08);
+
+    box-shadow:
+        0 3px 9px rgba(70,35,40,.08);
+
     word-break:break-word;
 }
 
+
 .message small{
     display:block;
-    margin-top:5px;
+    margin-top:6px;
     opacity:.55;
-    font-size:10px;
+    font-size:9px;
 }
+
 
 .chat-input{
     display:flex;
     gap:8px;
 }
 
+
 .chat-input input{
     flex:1;
 }
 
-/* =========================
+
+/* =========================================================
    MUSIC / SHOWS
-========================= */
+========================================================= */
 
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-    gap:18px;
-    margin-top:25px;
-}
 
-.item-card{
-    background:#fffdf8;
-    padding:20px;
-    border-radius:18px;
-    box-shadow:0 6px 15px rgba(70,35,40,.1);
-    text-align:center;
-}
+    grid-template-columns:
+        repeat(auto-fill,minmax(200px,1fr));
 
-.item-card h3{
-    color:#6b1028;
-    margin-bottom:8px;
-}
+    gap:20px;
 
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#6b1028;
-    color:white;
-    text-align:center;
-    padding:25px;
     margin-top:30px;
 }
 
-/* =========================
+
+.item-card{
+    background:#fffdf8;
+
+    padding:25px 18px;
+
+    border:1px solid #ead4d7;
+
+    box-shadow:
+        0 7px 16px rgba(70,35,40,.09);
+
+    text-align:center;
+
+    transition:.3s;
+
+    position:relative;
+}
+
+
+.item-card:hover{
+    transform:translateY(-6px);
+    box-shadow:
+        0 14px 24px rgba(70,35,40,.14);
+}
+
+
+.item-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:10px;
+    left:10px;
+
+    width:20px;
+    height:20px;
+
+    border-top:1px solid #b94b61;
+    border-left:1px solid #b94b61;
+}
+
+
+.item-card h3{
+    color:#6b1028;
+    margin:12px 0 8px;
+    font-family:Georgia,serif;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#6b1028;
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    margin-top:30px;
+
+    position:relative;
+}
+
+
+footer::before{
+    content:"";
+
+    display:block;
+
+    width:80px;
+    height:1px;
+
+    background:#efd8bd;
+
+    margin:0 auto 15px;
+}
+
+
+footer p:first-of-type{
+    font-family:Georgia,serif;
+    font-size:16px;
+}
+
+
+footer p:last-of-type{
+    font-size:10px;
+    opacity:.7;
+}
+
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:800px){
 
@@ -584,72 +1220,121 @@ footer{
 
 }
 
+
 @media(max-width:600px){
 
-    .landing-card{
-        padding:45px 22px;
+    #landing::before{
+        width:calc(100% - 25px);
+        height:calc(100% - 25px);
     }
+
+    #landing::after{
+        width:calc(100% - 40px);
+        height:calc(100% - 40px);
+    }
+
+
+    .landing-card{
+        padding:55px 22px 45px;
+    }
+
+
+    .landing-card h1{
+        font-size:42px;
+    }
+
+
+    .landing-card p{
+        font-size:14px;
+    }
+
 
     .space-grid{
         grid-template-columns:1fr 1fr;
-        gap:13px;
+        gap:14px;
     }
+
 
     .space{
-        min-height:165px;
-        padding:18px 12px;
+        min-height:185px;
+        padding:20px 14px;
     }
 
-    .space .emoji{
-        font-size:34px;
-    }
 
     .space h3{
         font-size:16px;
     }
 
+
     .space p{
-        font-size:11px;
+        font-size:10px;
     }
+
+
+    .space-icon{
+        width:43px;
+        height:43px;
+    }
+
+
+    .paper{
+        padding:25px 16px;
+    }
+
+
+    .page-title{
+        font-size:28px;
+    }
+
 
     .chat-input{
         flex-direction:column;
     }
 
+
     .chat-input .btn{
         width:100%;
     }
 
+
     nav{
-        gap:5px;
+        gap:4px;
+        padding:9px 5px;
     }
+
 
     nav button{
-        font-size:11px;
-        padding:8px 10px;
+        font-size:10px;
+        padding:8px 9px;
     }
 
-    .paper{
-        padding:20px 15px;
+
+    .decor{
+        opacity:.45;
     }
 
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- FLOATING DECOR -->
 
-<div class="decor one">♡</div>
-<div class="decor two">✿</div>
-<div class="decor three">🧸</div>
-<div class="decor four">♡</div>
+<!-- =====================================================
+     DECORATIONS
+===================================================== -->
+
+<div class="decor one"></div>
+<div class="decor two"></div>
+<div class="decor three"></div>
+<div class="decor four"></div>
 
 
-<!-- =========================
-     LANDING
-========================= -->
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
 
 <div id="landing">
 
@@ -657,21 +1342,29 @@ footer{
 
         <div class="tape"></div>
 
-        <div style="font-size:45px;">🍷</div>
+        <div class="landing-line">
+            <span></span>
+            <i></i>
+            <span></span>
+        </div>
+
+        <div class="subtitle">
+            A private collection
+        </div>
 
         <h1>NLC Collection</h1>
 
         <p>
             A tiny scrapbook for the people,
             moments, songs and stories
-            we never want to forget. ♡
+            we never want to forget.
         </p>
 
         <button
             class="enter-btn"
             onclick="enterCollection()">
 
-            Enter Our Collection ✨
+            Enter Our Collection
 
         </button>
 
@@ -680,17 +1373,24 @@ footer{
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      MAIN COLLECTION
-========================= -->
+===================================================== -->
 
 <div id="collection">
 
+
 <header>
 
-    <h1>🍷 NLC Collection</h1>
+    <div class="header-line"></div>
 
-    <p>Our little corner of memories ♡</p>
+    <h1>NLC Collection</h1>
+
+    <div class="header-line"></div>
+
+    <p>
+        Our little corner of memories
+    </p>
 
 </header>
 
@@ -704,34 +1404,38 @@ footer{
 </div>
 
 
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <nav>
 
     <button onclick="showSpace('spaces')">
-        🏠 Home
+        Home
     </button>
 
     <button onclick="showSpace('memories')">
-        📸 Memories
+        Memories
     </button>
 
     <button onclick="showSpace('chat')">
-        💌 Chat
+        Chat
     </button>
 
     <button onclick="showSpace('music')">
-        🎵 Music
+        Music
     </button>
 
     <button onclick="showSpace('shows')">
-        🎬 Shows
+        Shows
     </button>
 
 </nav>
 
 
-<!-- =========================
-     LITTLE SPACES
-========================= -->
+<!-- =====================================================
+     HOME
+===================================================== -->
 
 <section
     id="spaces"
@@ -739,10 +1443,10 @@ footer{
 
     <div class="title">
 
-        <h2>Our Little Spaces ♡</h2>
+        <h2>Our Little Spaces</h2>
 
         <p>
-            Pick a little space to explore.
+            Choose a page from our collection.
         </p>
 
     </div>
@@ -750,13 +1454,12 @@ footer{
 
     <div class="space-grid">
 
+
         <div
             class="space"
             onclick="showSpace('memories')">
 
-            <span class="sticker">📌</span>
-
-            <div class="emoji">📸</div>
+            <div class="space-icon"></div>
 
             <h3>Memory Wall</h3>
 
@@ -772,9 +1475,7 @@ footer{
             class="space"
             onclick="showSpace('chat')">
 
-            <span class="sticker">💗</span>
-
-            <div class="emoji">💌</div>
+            <div class="space-icon"></div>
 
             <h3>Little Chat</h3>
 
@@ -790,9 +1491,7 @@ footer{
             class="space"
             onclick="showSpace('music')">
 
-            <span class="sticker">🎧</span>
-
-            <div class="emoji">🎵</div>
+            <div class="space-icon"></div>
 
             <h3>Our Playlist</h3>
 
@@ -808,9 +1507,7 @@ footer{
             class="space"
             onclick="showSpace('shows')">
 
-            <span class="sticker">⭐</span>
-
-            <div class="emoji">🎬</div>
+            <div class="space-icon"></div>
 
             <h3>Watch List</h3>
 
@@ -821,14 +1518,15 @@ footer{
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      MEMORIES
-========================= -->
+===================================================== -->
 
 <section
     id="memories"
@@ -837,18 +1535,19 @@ footer{
     <div class="paper">
 
         <h2 class="page-title">
-            📸 Our Memory Wall
+            Our Memory Wall
         </h2>
 
 
         <div class="upload-area">
 
-            <h3>Pin a new memory ♡</h3>
+            <h3>Pin a new memory</h3>
 
-            <p style="margin:10px;">
+            <p>
                 Upload pictures or videos
                 to our shared scrapbook.
             </p>
+
 
             <input
                 type="file"
@@ -856,15 +1555,18 @@ footer{
                 accept="image/*,video/*"
                 multiple>
 
+
             <br>
+
 
             <button
                 class="btn"
                 onclick="uploadMemories()">
 
-                ☁️ Upload Memory
+                Upload Memory
 
             </button>
+
 
             <p id="uploadStatus"></p>
 
@@ -882,9 +1584,9 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CHAT
-========================= -->
+===================================================== -->
 
 <section
     id="chat"
@@ -893,7 +1595,7 @@ footer{
     <div class="paper">
 
         <h2 class="page-title">
-            💌 Our Little Chat
+            Our Little Chat
         </h2>
 
 
@@ -911,13 +1613,14 @@ footer{
             <input
                 id="messageInput"
                 type="text"
-                placeholder="Write something cute...">
+                placeholder="Write something..." >
+
 
             <button
                 class="btn"
                 onclick="sendMessage()">
 
-                Send 💗
+                Send
 
             </button>
 
@@ -928,9 +1631,9 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      MUSIC
-========================= -->
+===================================================== -->
 
 <section
     id="music"
@@ -939,7 +1642,7 @@ footer{
     <div class="paper">
 
         <h2 class="page-title">
-            🎵 Our Playlist
+            Our Playlist
         </h2>
 
 
@@ -950,11 +1653,12 @@ footer{
                 type="text"
                 placeholder="Song title">
 
+
             <button
                 class="btn"
                 onclick="addSong()">
 
-                Add Song 🎧
+                Add Song
 
             </button>
 
@@ -972,9 +1676,9 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SHOWS
-========================= -->
+===================================================== -->
 
 <section
     id="shows"
@@ -983,7 +1687,7 @@ footer{
     <div class="paper">
 
         <h2 class="page-title">
-            🎬 Our Watch List
+            Our Watch List
         </h2>
 
 
@@ -994,14 +1698,15 @@ footer{
                 type="text"
                 placeholder="Title">
 
+
             <select id="showType">
 
                 <option value="K-Drama">
-                    🇰🇷 K-Drama
+                    K-Drama
                 </option>
 
                 <option value="Anime">
-                    🇯🇵 Anime
+                    Anime
                 </option>
 
             </select>
@@ -1011,7 +1716,7 @@ footer{
                 class="btn"
                 onclick="addShow()">
 
-                Add ⭐
+                Add
 
             </button>
 
@@ -1029,11 +1734,21 @@ footer{
 </section>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
-    <p>Made with 🍷 and lots of memories ♡</p>
+    <p>
+        NLC Collection
+    </p>
 
-    <p style="margin-top:6px;">
+    <p style="margin-top:7px;">
+        A little place for memories
+    </p>
+
+    <p style="margin-top:12px;">
         © 2026 NLC Collection
     </p>
 
@@ -1042,9 +1757,9 @@ footer{
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      FIREBASE + CLOUDINARY
-========================= -->
+===================================================== -->
 
 <script type="module">
 
@@ -1067,9 +1782,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
-/* =========================
+/* =====================================================
    FIREBASE CONFIG
-========================= */
+===================================================== */
 
 const firebaseConfig = {
 
@@ -1109,9 +1824,9 @@ const db =
 getDatabase(app);
 
 
-/* =========================
+/* =====================================================
    CLOUDINARY
-========================= */
+===================================================== */
 
 const CLOUD_NAME =
 "tisxycv9";
@@ -1120,9 +1835,9 @@ const UPLOAD_PRESET =
 "nlc.upload";
 
 
-/* =========================
+/* =====================================================
    LOGIN
-========================= */
+===================================================== */
 
 signInAnonymously(auth)
 
@@ -1131,7 +1846,7 @@ signInAnonymously(auth)
     document.getElementById(
         "firebaseStatus"
     ).textContent =
-    "✓ Connected to NLC Collection ♡";
+    "Connected to NLC Collection";
 
 })
 
@@ -1142,14 +1857,14 @@ signInAnonymously(auth)
     document.getElementById(
         "firebaseStatus"
     ).textContent =
-    "⚠️ Firebase connection error";
+    "Firebase connection error";
 
 });
 
 
-/* =========================
+/* =====================================================
    ENTER COLLECTION
-========================= */
+===================================================== */
 
 window.enterCollection =
 function(){
@@ -1167,9 +1882,9 @@ function(){
 };
 
 
-/* =========================
+/* =====================================================
    PAGE SWITCHER
-========================= */
+===================================================== */
 
 window.showSpace =
 function(id){
@@ -1186,6 +1901,7 @@ function(id){
     const selected =
     document.getElementById(id);
 
+
     if(selected){
 
         selected.classList.add("active");
@@ -1200,9 +1916,9 @@ function(id){
 };
 
 
-/* =========================
+/* =====================================================
    CHAT
-========================= */
+===================================================== */
 
 window.sendMessage =
 function(){
@@ -1214,6 +1930,7 @@ function(){
 
     const text =
     input.value.trim();
+
 
     if(!text) return;
 
@@ -1249,8 +1966,6 @@ function(){
 };
 
 
-/* ENTER TO SEND */
-
 document
 .getElementById("messageInput")
 .addEventListener(
@@ -1269,7 +1984,9 @@ document
 );
 
 
-/* LOAD CHAT */
+/* =====================================================
+   LOAD CHAT
+===================================================== */
 
 function loadChat(){
 
@@ -1289,6 +2006,7 @@ function loadChat(){
 
                 const data =
                 child.val();
+
 
                 const box =
                 document.createElement("div");
@@ -1318,7 +2036,7 @@ function loadChat(){
                 "delete-btn";
 
                 deleteButton.textContent =
-                "Delete 🗑️";
+                "Delete";
 
 
                 deleteButton.onclick =
@@ -1366,9 +2084,9 @@ function loadChat(){
 }
 
 
-/* =========================
+/* =====================================================
    CLOUDINARY UPLOAD
-========================= */
+===================================================== */
 
 window.uploadMemories =
 async function(){
@@ -1390,7 +2108,7 @@ async function(){
     if(!files.length){
 
         alert(
-            "Choose a picture or video first ♡"
+            "Choose a picture or video first."
         );
 
         return;
@@ -1399,7 +2117,7 @@ async function(){
 
 
     status.textContent =
-    "Uploading... ☁️";
+    "Uploading...";
 
 
     try{
@@ -1409,10 +2127,12 @@ async function(){
             const formData =
             new FormData();
 
+
             formData.append(
                 "file",
                 file
             );
+
 
             formData.append(
                 "upload_preset",
@@ -1474,8 +2194,9 @@ async function(){
 
         input.value="";
 
+
         status.textContent =
-        "✓ Memories uploaded! ♡";
+        "Memory uploaded successfully.";
 
 
     }
@@ -1484,8 +2205,10 @@ async function(){
 
         console.error(error);
 
+
         status.textContent =
-        "⚠️ Upload failed.";
+        "Upload failed.";
+
 
         alert(
             "Upload error:\n" +
@@ -1497,9 +2220,9 @@ async function(){
 };
 
 
-/* =========================
+/* =====================================================
    LOAD MEMORIES
-========================= */
+===================================================== */
 
 function loadMemories(){
 
@@ -1564,7 +2287,7 @@ function loadMemories(){
                 document.createElement("p");
 
                 name.textContent =
-                data.name || "Memory ♡";
+                data.name || "Memory";
 
 
                 const deleteButton =
@@ -1576,7 +2299,7 @@ function loadMemories(){
                 "delete-btn";
 
                 deleteButton.textContent =
-                "Remove 🗑️";
+                "Remove";
 
 
                 deleteButton.onclick =
@@ -1587,15 +2310,6 @@ function loadMemories(){
                             "Remove this memory from NLC Collection?"
                         )
                     ){
-
-                        /*
-                         * This removes the Firebase
-                         * record.
-                         *
-                         * The Cloudinary original remains
-                         * because deleting it requires a
-                         * secure server-side API.
-                         */
 
                         remove(
                             ref(
@@ -1629,9 +2343,9 @@ function loadMemories(){
 }
 
 
-/* =========================
+/* =====================================================
    MUSIC
-========================= */
+===================================================== */
 
 window.addSong =
 function(){
@@ -1643,6 +2357,7 @@ function(){
 
     const text =
     input.value.trim();
+
 
     if(!text)return;
 
@@ -1691,10 +2406,19 @@ function loadMusic(){
 
 
                 card.innerHTML =
-                `<div style="font-size:35px">
-                    🎵
-                 </div>
-                 <h3></h3>`;
+                `
+                    <div
+                        style="
+                        width:45px;
+                        height:45px;
+                        border:1px solid #b94b61;
+                        margin:auto;
+                        position:relative;
+                        ">
+                    </div>
+
+                    <h3></h3>
+                `;
 
 
                 card
@@ -1712,7 +2436,7 @@ function loadMusic(){
                 "delete-btn";
 
                 button.textContent =
-                "Delete 🗑️";
+                "Delete";
 
 
                 button.onclick =
@@ -1742,9 +2466,9 @@ function loadMusic(){
 }
 
 
-/* =========================
+/* =====================================================
    SHOWS
-========================= */
+===================================================== */
 
 window.addShow =
 function(){
@@ -1761,6 +2485,7 @@ function(){
 
     const title =
     input.value.trim();
+
 
     if(!title)return;
 
@@ -1811,11 +2536,20 @@ function loadShows(){
 
 
                 card.innerHTML =
-                `<div style="font-size:35px">
-                    🎬
-                 </div>
-                 <h3></h3>
-                 <p></p>`;
+                `
+                    <div
+                        style="
+                        width:45px;
+                        height:45px;
+                        border:1px solid #b94b61;
+                        margin:auto;
+                        ">
+                    </div>
+
+                    <h3></h3>
+
+                    <p></p>
+                `;
 
 
                 card
@@ -1839,7 +2573,7 @@ function loadShows(){
                 "delete-btn";
 
                 button.textContent =
-                "Delete 🗑️";
+                "Delete";
 
 
                 button.onclick =
@@ -1869,9 +2603,9 @@ function loadShows(){
 }
 
 
-/* =========================
+/* =====================================================
    AUTH READY
-========================= */
+===================================================== */
 
 onAuthStateChanged(
     auth,
