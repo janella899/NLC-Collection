@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NLC Collection</title>
+
+<title>NLC Collection 💌</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -18,222 +20,380 @@ html{
 }
 
 body{
-    background:#faf5f6;
-    color:#333;
+    background:
+        radial-gradient(circle at top left,#ffe5ed,transparent 30%),
+        radial-gradient(circle at bottom right,#eadcff,transparent 30%),
+        #fff8fb;
+    color:#3d2930;
 }
+
+/* HEADER */
 
 header{
-    background:linear-gradient(135deg,#430817,#6b1028,#8b1e3f);
+    background:
+        linear-gradient(135deg,#3d0718,#741633,#a52b55);
     color:white;
     text-align:center;
-    padding:30px 15px;
+    padding:55px 20px;
+    position:relative;
+    overflow:hidden;
 }
 
-header h1{font-size:34px;}
-header p{margin-top:8px;}
+header:before,
+header:after{
+    content:"♡";
+    position:absolute;
+    font-size:100px;
+    opacity:.08;
+}
+
+header:before{
+    left:10%;
+    top:10px;
+}
+
+header:after{
+    right:10%;
+    bottom:-20px;
+}
+
+header h1{
+    font-size:42px;
+    position:relative;
+}
+
+header p{
+    margin-top:10px;
+    font-size:17px;
+}
+
+/* STATUS */
+
+.status{
+    text-align:center;
+    padding:10px;
+    background:#fff0f4;
+    color:#741633;
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* NAV */
 
 nav{
-    background:white;
+    background:rgba(255,255,255,.95);
     padding:12px;
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:7px;
-    box-shadow:0 2px 8px #ddd;
+    gap:8px;
     position:sticky;
     top:0;
-    z-index:20;
+    z-index:100;
+    box-shadow:0 3px 15px #ead9df;
 }
 
 nav a{
     text-decoration:none;
-    color:#6b1028;
+    color:#741633;
     font-weight:bold;
-    padding:9px 12px;
-    border-radius:20px;
+    padding:9px 14px;
+    border-radius:25px;
+    transition:.2s;
 }
 
-nav a:hover{background:#f2dce2;}
-
-.status{
-    text-align:center;
-    padding:8px;
-    background:#f2e4e7;
-    color:#6b1028;
-    font-size:13px;
+nav a:hover{
+    background:#f9dce6;
+    transform:translateY(-2px);
 }
+
+/* HERO */
 
 .hero{
     text-align:center;
-    padding:55px 20px;
+    padding:70px 20px;
 }
 
 .hero h2{
-    color:#6b1028;
-    font-size:34px;
-    margin-bottom:15px;
+    font-size:38px;
+    color:#741633;
+    margin-bottom:18px;
 }
 
 .hero p{
-    max-width:680px;
+    max-width:700px;
     margin:auto;
-    line-height:1.6;
+    line-height:1.7;
     font-size:18px;
 }
 
+.main-button{
+    display:inline-block;
+    margin-top:25px;
+    background:linear-gradient(135deg,#741633,#a52b55);
+    color:white;
+    padding:14px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 7px 18px #d8a8b8;
+}
+
+/* SECTIONS */
+
 section{
-    max-width:1000px;
+    max-width:1050px;
     margin:auto;
-    padding:45px 20px;
+    padding:55px 20px;
 }
 
 section h2{
     text-align:center;
-    color:#6b1028;
+    color:#741633;
+    font-size:28px;
     margin-bottom:25px;
 }
 
-.box,.chat-box{
-    background:white;
+/* BOX */
+
+.box{
+    background:rgba(255,255,255,.9);
     padding:25px;
-    border-radius:20px;
-    box-shadow:0 4px 12px #ddd;
+    border-radius:25px;
+    box-shadow:0 7px 25px #eadde2;
+    border:1px solid #f5dfe6;
 }
 
+/* BUTTON */
+
 .button{
-    background:#6b1028;
-    color:white;
     border:none;
-    padding:11px 20px;
-    border-radius:22px;
+    background:linear-gradient(135deg,#741633,#a52b55);
+    color:white;
+    padding:11px 19px;
+    border-radius:25px;
     font-weight:bold;
     cursor:pointer;
     margin:5px;
+    transition:.2s;
 }
 
-.button:hover{background:#430817;}
+.button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px #dcb4c1;
+}
+
+.delete-button{
+    background:#eee;
+    color:#a00030;
+    border:1px solid #e5cbd3;
+    padding:7px 12px;
+    border-radius:15px;
+    cursor:pointer;
+    margin-top:10px;
+    font-size:12px;
+}
+
+/* INPUT */
 
 input,select{
-    padding:12px;
-    border:1px solid #cdbbc0;
-    border-radius:20px;
+    width:auto;
+    padding:12px 15px;
+    border:1px solid #dec7cf;
+    border-radius:25px;
     outline:none;
     margin:5px;
+    background:white;
 }
 
-input:focus,select:focus{
-    border-color:#6b1028;
+input:focus,
+select:focus{
+    border-color:#a52b55;
+    box-shadow:0 0 0 3px #f7dce5;
+}
+
+/* MEMORY */
+
+.memory-gallery{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.memory-card{
+    background:white;
+    padding:14px;
+    border-radius:22px;
+    box-shadow:0 7px 20px #eadde2;
+    overflow:hidden;
+    transition:.2s;
+}
+
+.memory-card:hover{
+    transform:translateY(-5px);
+}
+
+.memory-card img,
+.memory-card video{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:17px;
+    background:#eee;
+}
+
+.memory-card p{
+    margin-top:10px;
+    font-weight:bold;
+    word-break:break-word;
+}
+
+.memory-date{
+    font-size:11px;
+    color:#999;
+    margin-top:5px;
 }
 
 /* CHAT */
 
 .chat-box{
-    max-width:650px;
+    max-width:700px;
     margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:25px;
+    box-shadow:0 7px 25px #eadde2;
 }
 
 .chat-messages{
-    height:350px;
+    height:400px;
     overflow-y:auto;
-    padding:10px;
+    padding:15px;
+    background:#fff8fa;
+    border-radius:20px;
     margin-bottom:15px;
 }
 
 .message{
-    background:#f0e0e5;
-    padding:10px 14px;
-    border-radius:15px;
-    margin-bottom:10px;
-    width:fit-content;
+    background:#f5e1e8;
+    padding:12px 15px;
+    border-radius:18px;
+    margin-bottom:12px;
     max-width:85%;
     word-break:break-word;
 }
 
 .message small{
     display:block;
-    font-size:10px;
-    opacity:.7;
     margin-top:5px;
+    color:#987681;
+    font-size:10px;
 }
 
 .chat-input{
     display:flex;
-    gap:8px;
+    gap:5px;
 }
 
-.chat-input input{flex:1;}
-
-/* MEMORIES */
-
-.memory-gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    margin-top:20px;
-}
-
-.memory-card{
-    background:white;
-    padding:15px;
-    border-radius:20px;
-    box-shadow:0 4px 12px #ddd;
-}
-
-.memory-card img,
-.memory-card video{
-    width:100%;
-    max-height:280px;
-    object-fit:cover;
-    border-radius:15px;
-}
-
-.memory-card p{
-    margin-top:8px;
-    word-break:break-word;
+.chat-input input{
+    flex:1;
 }
 
 /* CARDS */
 
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns:
+        repeat(auto-fit,minmax(200px,1fr));
     gap:20px;
+    margin-top:20px;
 }
 
 .card{
     background:white;
     padding:25px;
-    border-radius:20px;
+    border-radius:22px;
     text-align:center;
-    box-shadow:0 4px 12px #ddd;
+    box-shadow:0 7px 20px #eadde2;
 }
 
 .card h3{
-    color:#6b1028;
+    color:#741633;
     margin-bottom:10px;
 }
 
+.card p{
+    color:#777;
+}
+
+/* CALL */
+
+.call-box{
+    background:white;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 7px 25px #eadde2;
+    text-align:center;
+}
+
+.room-code{
+    display:inline-block;
+    background:#f5e1e8;
+    color:#741633;
+    padding:12px 25px;
+    border-radius:15px;
+    font-size:22px;
+    font-weight:bold;
+    letter-spacing:4px;
+    margin:15px;
+}
+
+.video-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:20px;
+}
+
+video{
+    width:100%;
+    background:#222;
+    border-radius:18px;
+    min-height:180px;
+}
+
+/* FOOTER */
+
 footer{
-    background:#6b1028;
+    background:#3d0718;
     color:white;
     text-align:center;
-    padding:25px;
+    padding:35px 20px;
     margin-top:30px;
 }
 
-#uploadStatus{
-    margin-top:10px;
-    color:#6b1028;
-    font-weight:bold;
+footer p{
+    margin:6px;
 }
+
+/* MOBILE */
 
 @media(max-width:600px){
 
-    header h1{font-size:28px;}
+    header h1{
+        font-size:30px;
+    }
 
-    .hero h2{font-size:28px;}
+    .hero h2{
+        font-size:29px;
+    }
 
-    nav a{font-size:12px;}
+    nav a{
+        font-size:11px;
+        padding:8px 10px;
+    }
 
     .chat-input{
         flex-direction:column;
@@ -242,61 +402,82 @@ footer{
     .chat-input button{
         width:100%;
     }
+
+    .video-container{
+        grid-template-columns:1fr;
+    }
+
+    input,select{
+        width:100%;
+        margin:5px 0;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
     <h1>🍷 NLC Collection</h1>
-    <p>Where our memories stay forever.</p>
+
+    <p>
+        A little place for our biggest memories. ♡
+    </p>
+
 </header>
 
 <div id="firebaseStatus" class="status">
-    Connecting to Firebase...
+    🔄 Connecting...
 </div>
 
 <nav>
+
     <a href="#home">🏠 Home</a>
     <a href="#memories">📸 Memories</a>
     <a href="#chat">💬 Chat</a>
+    <a href="#calls">📞 Calls</a>
     <a href="#music">🎵 Music</a>
     <a href="#shows">🎬 Shows</a>
+
 </nav>
+
 
 <!-- HOME -->
 
 <div id="home" class="hero">
 
-    <h2>Welcome to NLC Collection! 🍷</h2>
+    <h2>
+        Welcome to NLC Collection! 💌
+    </h2>
 
     <p>
-        A free space where friends can save memories,
-        chat, share music, and recommend their favorite
-        K-dramas and anime.
+        A private little corner where we can
+        collect our pictures, videos, messages,
+        favorite songs, K-dramas and anime.
     </p>
 
-    <br>
-
-    <a href="#memories" class="button">
-        Start Making Memories ✨
+    <a href="#memories" class="main-button">
+        ✨ Open Our Memories
     </a>
 
 </div>
+
 
 <!-- MEMORIES -->
 
 <section id="memories">
 
-    <h2>📸 Our Memories</h2>
+    <h2>📸 Our Memory Wall</h2>
 
     <div class="box">
 
-        <h3>Save Pictures & Videos</h3>
+        <h3>☁️ Add a New Memory</h3>
 
-        <p style="margin:10px 0;">
-            Select one or more pictures or videos.
+        <p style="margin:10px 0 15px;">
+            Choose pictures or videos from your phone.
         </p>
 
         <input
@@ -306,30 +487,35 @@ footer{
             multiple
         >
 
-        <br>
-
         <button
             class="button"
             id="uploadButton">
-            Upload ☁️
+
+            Upload Memory ✨
+
         </button>
 
-        <p id="uploadStatus"></p>
+        <p
+            id="uploadStatus"
+            style="margin-top:10px;">
+        </p>
 
     </div>
 
     <div
         id="memoryGallery"
         class="memory-gallery">
+
     </div>
 
 </section>
+
 
 <!-- CHAT -->
 
 <section id="chat">
 
-    <h2>💬 NLC Chat</h2>
+    <h2>💬 Our Little Chat</h2>
 
     <div class="chat-box">
 
@@ -337,8 +523,8 @@ footer{
             id="chatMessages"
             class="chat-messages">
 
-            <p style="text-align:center;color:#888;">
-                Loading chat...
+            <p style="text-align:center;color:#aaa;">
+                Loading messages... 💌
             </p>
 
         </div>
@@ -348,14 +534,16 @@ footer{
             <input
                 id="messageInput"
                 type="text"
-                placeholder="Type a message..."
+                placeholder="Write something... 💭"
                 autocomplete="off"
             >
 
             <button
                 id="sendButton"
                 class="button">
-                Send
+
+                Send 💌
+
             </button>
 
         </div>
@@ -364,46 +552,162 @@ footer{
 
 </section>
 
+
+<!-- CALLS -->
+
+<section id="calls">
+
+    <h2>📞 Call Corner</h2>
+
+    <div class="call-box">
+
+        <p>
+            Create a room and share the code with your friend.
+        </p>
+
+        <button
+            id="createRoomButton"
+            class="button">
+
+            ✨ Create Room
+
+        </button>
+
+        <div
+            id="roomCode"
+            class="room-code">
+
+            ------
+
+        </div>
+
+        <br>
+
+        <input
+            id="joinRoomInput"
+            maxlength="6"
+            placeholder="Enter room code"
+        >
+
+        <button
+            id="joinRoomButton"
+            class="button">
+
+            Join Room
+
+        </button>
+
+        <br><br>
+
+        <button
+            id="voiceCallButton"
+            class="button">
+
+            📞 Voice
+
+        </button>
+
+        <button
+            id="videoCallButton"
+            class="button">
+
+            📹 Video
+
+        </button>
+
+        <button
+            id="hangupButton"
+            class="button">
+
+            ❌ End
+
+        </button>
+
+        <p
+            id="callStatus"
+            style="margin-top:15px;color:#741633;font-weight:bold;">
+
+            Not connected
+
+        </p>
+
+        <div class="video-container">
+
+            <div>
+
+                <p>You</p>
+
+                <video
+                    id="localVideo"
+                    autoplay
+                    muted
+                    playsinline>
+                </video>
+
+            </div>
+
+            <div>
+
+                <p>Friend</p>
+
+                <video
+                    id="remoteVideo"
+                    autoplay
+                    playsinline>
+                </video>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <!-- MUSIC -->
 
 <section id="music">
 
-    <h2>🎵 Shared Music</h2>
+    <h2>🎵 Our Soundtrack</h2>
 
     <div class="box">
 
         <input
             id="songInput"
-            type="text"
-            placeholder="Song title"
+            placeholder="Song title 🎶"
         >
 
         <button
             id="songButton"
             class="button">
+
             Add Song
+
         </button>
 
     </div>
 
-    <br>
+    <div
+        id="songList"
+        class="cards">
 
-    <div id="songList" class="cards"></div>
+    </div>
 
 </section>
+
 
 <!-- SHOWS -->
 
 <section id="shows">
 
-    <h2>🎬 K-Drama & Anime</h2>
+    <h2>🎬 Watchlist</h2>
 
     <div class="box">
 
         <input
             id="showInput"
-            type="text"
-            placeholder="Title"
+            placeholder="K-Drama or Anime title"
         >
 
         <select id="showType">
@@ -421,21 +725,33 @@ footer{
         <button
             id="showButton"
             class="button">
-            Add
+
+            Add to Watchlist
+
         </button>
 
     </div>
 
-    <br>
+    <div
+        id="showList"
+        class="cards">
 
-    <div id="showList" class="cards"></div>
+    </div>
 
 </section>
 
+
 <footer>
 
-    <p>Made with 🍷 for unforgettable memories.</p>
-    <p>© 2026 NLC Collection</p>
+    <p>🍷 NLC Collection</p>
+
+    <p>
+        Made for memories that deserve to stay. ♡
+    </p>
+
+    <p>
+        © 2026 NLC Collection
+    </p>
 
 </footer>
 
@@ -443,30 +759,30 @@ footer{
 <script type="module">
 
 /* =========================
-   FIREBASE IMPORTS
+   FIREBASE
 ========================= */
 
 import {
     initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
     getAuth,
     signInAnonymously,
     onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
     getDatabase,
     ref,
     push,
-    onValue
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+    onValue,
+    remove
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-
-/* =========================
-   FIREBASE CONFIG
-========================= */
 
 const firebaseConfig = {
 
@@ -493,12 +809,9 @@ const firebaseConfig = {
 
     measurementId:
     "G-Q1LBNYGYMY"
+
 };
 
-
-/* =========================
-   INITIALIZE FIREBASE
-========================= */
 
 const app =
 initializeApp(firebaseConfig);
@@ -514,15 +827,15 @@ getDatabase(app);
    CLOUDINARY
 ========================= */
 
-const CLOUDINARY_CLOUD_NAME =
+const cloudName =
 "tisxycv9";
 
-const CLOUDINARY_UPLOAD_PRESET =
+const uploadPreset =
 "nlc.upload";
 
 
 /* =========================
-   FIREBASE LOGIN
+   AUTH
 ========================= */
 
 signInAnonymously(auth)
@@ -532,16 +845,13 @@ signInAnonymously(auth)
     document.getElementById(
         "firebaseStatus"
     ).textContent =
-    "✓ Connected to Firebase";
+    "✓ NLC Collection is connected ♡";
 
 })
 
 .catch(error => {
 
-    console.error(
-        "Firebase Auth Error:",
-        error
-    );
+    console.error(error);
 
     document.getElementById(
         "firebaseStatus"
@@ -557,19 +867,13 @@ signInAnonymously(auth)
 ========================= */
 
 const messageInput =
-document.getElementById(
-    "messageInput"
-);
+document.getElementById("messageInput");
 
 const sendButton =
-document.getElementById(
-    "sendButton"
-);
+document.getElementById("sendButton");
 
 const chatMessages =
-document.getElementById(
-    "chatMessages"
-);
+document.getElementById("chatMessages");
 
 
 function sendMessage(){
@@ -578,7 +882,6 @@ function sendMessage(){
     messageInput.value.trim();
 
     if(!text) return;
-
 
     push(
         ref(db,"chat"),
@@ -602,8 +905,6 @@ function sendMessage(){
 
     .catch(error => {
 
-        console.error(error);
-
         alert(
             "Message error: " +
             error.message
@@ -614,19 +915,17 @@ function sendMessage(){
 }
 
 
-sendButton.addEventListener(
-    "click",
-    sendMessage
-);
+sendButton.onclick =
+sendMessage;
 
 
 messageInput.addEventListener(
     "keydown",
-    event => {
+    e => {
 
-        if(event.key === "Enter"){
+        if(e.key === "Enter"){
 
-            event.preventDefault();
+            e.preventDefault();
 
             sendMessage();
 
@@ -640,88 +939,103 @@ messageInput.addEventListener(
    LOAD CHAT
 ========================= */
 
-onAuthStateChanged(
-    auth,
-    user => {
+function loadChat(){
 
-        if(!user) return;
+    onValue(
+        ref(db,"chat"),
+        snapshot => {
 
+            chatMessages.innerHTML = "";
 
-        onValue(
-            ref(db,"chat"),
-            snapshot => {
-
-                chatMessages.innerHTML = "";
-
-
-                snapshot.forEach(
-                    child => {
-
-                        const data =
-                        child.val();
-
-
-                        const div =
-                        document.createElement(
-                            "div"
-                        );
-
-                        div.className =
-                        "message";
-
-
-                        const text =
-                        document.createElement(
-                            "div"
-                        );
-
-                        text.textContent =
-                        data.message || "";
-
-
-                        const time =
-                        document.createElement(
-                            "small"
-                        );
-
-                        time.textContent =
-                        data.time || "";
-
-
-                        div.appendChild(text);
-
-                        div.appendChild(time);
-
-                        chatMessages.appendChild(
-                            div
-                        );
-
-                    }
-                );
-
-
-                chatMessages.scrollTop =
-                chatMessages.scrollHeight;
-
-            },
-
-            error => {
-
-                console.error(error);
+            if(!snapshot.exists()){
 
                 chatMessages.innerHTML =
-                "<p>⚠️ Cannot load chat.</p>";
+                `<p style="text-align:center;color:#aaa;">
+                    No messages yet. Say hi! 💌
+                </p>`;
+
+                return;
 
             }
 
-        );
+            snapshot.forEach(child => {
 
-    }
-);
+                const data =
+                child.val();
+
+                const div =
+                document.createElement("div");
+
+                div.className =
+                "message";
+
+                const text =
+                document.createElement("div");
+
+                text.textContent =
+                data.message || "";
+
+                const time =
+                document.createElement("small");
+
+                time.textContent =
+                data.time || "";
+
+                const deleteButton =
+                document.createElement("button");
+
+                deleteButton.className =
+                "delete-button";
+
+                deleteButton.textContent =
+                "🗑 Delete";
+
+                deleteButton.onclick =
+                () => {
+
+                    if(
+                        confirm(
+                            "Delete this message?"
+                        )
+                    ){
+
+                        remove(
+                            ref(
+                                db,
+                                "chat/" +
+                                child.key
+                            )
+                        );
+
+                    }
+
+                };
+
+                div.appendChild(text);
+
+                div.appendChild(time);
+
+                div.appendChild(
+                    deleteButton
+                );
+
+                chatMessages.appendChild(
+                    div
+                );
+
+            });
+
+            chatMessages.scrollTop =
+            chatMessages.scrollHeight;
+
+        }
+    );
+
+}
 
 
 /* =========================
-   UPLOAD PICTURES & VIDEOS
+   CLOUDINARY UPLOAD
 ========================= */
 
 const memoryInput =
@@ -739,68 +1053,64 @@ document.getElementById(
     "uploadStatus"
 );
 
-const memoryGallery =
-document.getElementById(
-    "memoryGallery"
-);
 
-
-uploadButton.addEventListener(
-    "click",
-    uploadMemories
-);
+uploadButton.onclick =
+uploadMemories;
 
 
 async function uploadMemories(){
 
     const files =
-    Array.from(memoryInput.files);
+    Array.from(
+        memoryInput.files
+    );
 
-
-    if(files.length === 0){
+    if(!files.length){
 
         alert(
-            "Please select a picture or video first."
+            "Choose a picture or video first. 📸"
         );
 
         return;
 
     }
 
-
-    uploadButton.disabled = true;
+    uploadButton.disabled =
+    true;
 
     uploadStatus.textContent =
-    "Uploading... Please wait.";
+    "☁️ Uploading your memories...";
 
 
     try{
 
-        for(const file of files){
+        for(let i=0;i<files.length;i++){
 
+            const file =
+            files[i];
 
-            /* Cloudinary upload */
+            uploadStatus.textContent =
+            `☁️ Uploading ${i+1} of ${files.length}...`;
+
 
             const formData =
             new FormData();
-
 
             formData.append(
                 "file",
                 file
             );
 
-
             formData.append(
                 "upload_preset",
-                CLOUDINARY_UPLOAD_PRESET
+                uploadPreset
             );
 
 
             const response =
             await fetch(
 
-                `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/upload`,
+                `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`,
 
                 {
 
@@ -819,11 +1129,6 @@ async function uploadMemories(){
 
             if(!response.ok){
 
-                console.error(
-                    "Cloudinary error:",
-                    result
-                );
-
                 throw new Error(
                     result.error?.message ||
                     "Cloudinary upload failed."
@@ -832,24 +1137,24 @@ async function uploadMemories(){
             }
 
 
-            const url =
-            result.secure_url;
-
-
-            /* Save URL to Firebase */
-
             await push(
                 ref(db,"memories"),
                 {
 
-                    name:file.name,
+                    name:
+                    file.name,
 
-                    url:url,
+                    url:
+                    result.secure_url,
 
-                    type:file.type,
+                    type:
+                    file.type,
 
-                    time:
-                    new Date().toLocaleString()
+                    resourceType:
+                    result.resource_type,
+
+                    createdAt:
+                    Date.now()
 
                 }
             );
@@ -858,24 +1163,23 @@ async function uploadMemories(){
 
 
         uploadStatus.textContent =
-        "✓ Upload complete!";
-
+        "✨ Memory added successfully!";
 
         memoryInput.value = "";
-
 
     }
 
     catch(error){
 
-        console.error(
-            "Upload error:",
-            error
-        );
+        console.error(error);
 
         uploadStatus.textContent =
-        "⚠️ Upload failed: " +
-        error.message;
+        "❌ Upload failed.";
+
+        alert(
+            "Upload error:\n" +
+            error.message
+        );
 
     }
 
@@ -893,114 +1197,177 @@ async function uploadMemories(){
    LOAD MEMORIES
 ========================= */
 
-onAuthStateChanged(
-    auth,
-    user => {
+function loadMemories(){
 
-        if(!user) return;
-
-
-        onValue(
-            ref(db,"memories"),
-            snapshot => {
-
-                memoryGallery.innerHTML =
-                "";
+    const gallery =
+    document.getElementById(
+        "memoryGallery"
+    );
 
 
-                snapshot.forEach(
-                    child => {
+    onValue(
+        ref(db,"memories"),
+        snapshot => {
 
-                        const data =
-                        child.val();
+            gallery.innerHTML = "";
 
+            if(!snapshot.exists()){
 
-                        const card =
-                        document.createElement(
-                            "div"
-                        );
+                gallery.innerHTML =
+                `<div class="box">
+                    <p style="text-align:center;">
+                        No memories yet. 📸♡
+                    </p>
+                </div>`;
 
-                        card.className =
-                        "memory-card";
-
-
-                        if(
-                            data.type &&
-                            data.type.startsWith(
-                                "video/"
-                            )
-                        ){
-
-                            const video =
-                            document.createElement(
-                                "video"
-                            );
-
-                            video.src =
-                            data.url;
-
-                            video.controls =
-                            true;
-
-                            video.playsInline =
-                            true;
-
-                            card.appendChild(
-                                video
-                            );
-
-                        }
-
-                        else{
-
-                            const img =
-                            document.createElement(
-                                "img"
-                            );
-
-                            img.src =
-                            data.url;
-
-                            img.alt =
-                            data.name || "Memory";
-
-                            img.loading =
-                            "lazy";
-
-                            card.appendChild(
-                                img
-                            );
-
-                        }
-
-
-                        const name =
-                        document.createElement(
-                            "p"
-                        );
-
-                        name.textContent =
-                        data.name || "Memory";
-
-
-                        card.appendChild(
-                            name
-                        );
-
-
-                        memoryGallery.appendChild(
-                            card
-                        );
-
-                    }
-                );
+                return;
 
             }
 
-        );
 
-    }
-);
+            snapshot.forEach(child => {
+
+                const data =
+                child.val();
+
+                const card =
+                document.createElement(
+                    "div"
+                );
+
+                card.className =
+                "memory-card";
+
+
+                let media;
+
+
+                if(
+                    data.resourceType ===
+                    "video" ||
+                    data.type?.startsWith(
+                        "video/"
+                    )
+                ){
+
+                    media =
+                    document.createElement(
+                        "video"
+                    );
+
+                    media.controls =
+                    true;
+
+                    media.playsInline =
+                    true;
+
+                }
+
+                else{
+
+                    media =
+                    document.createElement(
+                        "img"
+                    );
+
+                    media.loading =
+                    "lazy";
+
+                }
+
+
+                media.src =
+                data.url;
+
+
+                const name =
+                document.createElement(
+                    "p"
+                );
+
+                name.textContent =
+                "♡ " +
+                (data.name ||
+                "Memory");
+
+
+                const date =
+                document.createElement(
+                    "div"
+                );
+
+                date.className =
+                "memory-date";
+
+                date.textContent =
+                data.createdAt
+                ? new Date(
+                    data.createdAt
+                  ).toLocaleString()
+                : "";
+
+
+                const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+                deleteButton.className =
+                "delete-button";
+
+                deleteButton.textContent =
+                "🗑 Remove";
+
+
+                deleteButton.onclick =
+                () => {
+
+                    if(
+                        confirm(
+                            "Remove this memory from NLC Collection?"
+                        )
+                    ){
+
+                        remove(
+                            ref(
+                                db,
+                                "memories/" +
+                                child.key
+                            )
+                        );
+
+                    }
+
+                };
+
+
+                card.appendChild(
+                    media
+                );
+
+                card.appendChild(
+                    name
+                );
+
+                card.appendChild(
+                    date
+                );
+
+                card.appendChild(
+                    deleteButton
+                );
+
+
+                gallery.appendChild(
+                    card
+                );
+
+            });
+
+        }
+    );
+
+}
 
 
 /* =========================
@@ -1012,59 +1379,50 @@ document.getElementById(
     "songInput"
 );
 
-const songButton =
 document.getElementById(
     "songButton"
-);
+).onclick = () => {
 
-const songList =
-document.getElementById(
-    "songList"
-);
+    const title =
+    songInput.value.trim();
 
+    if(!title) return;
 
-songButton.addEventListener(
-    "click",
-    () => {
+    push(
+        ref(db,"music"),
+        {
 
-        const song =
-        songInput.value.trim();
+            title:title,
 
-        if(!song) return;
+            createdAt:Date.now()
 
+        }
+    );
 
-        push(
-            ref(db,"music"),
-            {
+    songInput.value = "";
 
-                title:song,
-
-                time:
-                new Date().toLocaleString()
-
-            }
-        );
+};
 
 
-        songInput.value = "";
+function loadMusic(){
 
-    }
-);
-
-
-onValue(
-    ref(db,"music"),
-    snapshot => {
-
-        songList.innerHTML = "";
+    const list =
+    document.getElementById(
+        "songList"
+    );
 
 
-        snapshot.forEach(
-            child => {
+    onValue(
+        ref(db,"music"),
+        snapshot => {
+
+            list.innerHTML = "";
+
+
+            snapshot.forEach(child => {
 
                 const data =
                 child.val();
-
 
                 const card =
                 document.createElement(
@@ -1075,34 +1433,57 @@ onValue(
                 "card";
 
 
-                const title =
+                card.innerHTML =
+                `<h3>🎵 ${escapeHTML(
+                    data.title
+                )}</h3>
+                <p>Added to our soundtrack ♡</p>`;
+
+
+                const button =
                 document.createElement(
-                    "h3"
+                    "button"
                 );
 
-                title.textContent =
-                "🎵 " +
-                data.title;
+                button.className =
+                "delete-button";
+
+                button.textContent =
+                "🗑 Delete";
+
+
+                button.onclick =
+                () => {
+
+                    remove(
+                        ref(
+                            db,
+                            "music/" +
+                            child.key
+                        )
+                    );
+
+                };
 
 
                 card.appendChild(
-                    title
+                    button
                 );
 
-
-                songList.appendChild(
+                list.appendChild(
                     card
                 );
 
-            }
-        );
+            });
 
-    }
-);
+        }
+    );
+
+}
 
 
 /* =========================
-   K-DRAMA & ANIME
+   SHOWS
 ========================= */
 
 const showInput =
@@ -1115,63 +1496,55 @@ document.getElementById(
     "showType"
 );
 
-const showButton =
+
 document.getElementById(
     "showButton"
-);
+).onclick = () => {
 
-const showList =
-document.getElementById(
-    "showList"
-);
+    const title =
+    showInput.value.trim();
 
+    if(!title) return;
 
-showButton.addEventListener(
-    "click",
-    () => {
+    push(
+        ref(db,"shows"),
+        {
 
-        const title =
-        showInput.value.trim();
+            title:title,
 
+            type:
+            showType.value,
 
-        if(!title) return;
+            createdAt:
+            Date.now()
 
+        }
+    );
 
-        push(
-            ref(db,"shows"),
-            {
+    showInput.value = "";
 
-                title:title,
-
-                type:
-                showType.value,
-
-                time:
-                new Date().toLocaleString()
-
-            }
-        );
+};
 
 
-        showInput.value = "";
+function loadShows(){
 
-    }
-);
-
-
-onValue(
-    ref(db,"shows"),
-    snapshot => {
-
-        showList.innerHTML = "";
+    const list =
+    document.getElementById(
+        "showList"
+    );
 
 
-        snapshot.forEach(
-            child => {
+    onValue(
+        ref(db,"shows"),
+        snapshot => {
+
+            list.innerHTML = "";
+
+
+            snapshot.forEach(child => {
 
                 const data =
                 child.val();
-
 
                 const card =
                 document.createElement(
@@ -1182,45 +1555,281 @@ onValue(
                 "card";
 
 
-                const title =
+                card.innerHTML =
+                `<h3>
+                    ${
+                        data.type ===
+                        "Anime"
+                        ? "🇯🇵"
+                        : "🇰🇷"
+                    }
+                    ${escapeHTML(
+                        data.title
+                    )}
+                </h3>
+                <p>
+                    ${escapeHTML(
+                        data.type
+                    )}
+                </p>`;
+
+
+                const button =
                 document.createElement(
-                    "h3"
+                    "button"
                 );
 
-                title.textContent =
-                data.type === "Anime"
-                ? "🇯🇵 "
-                : "🇰🇷 ";
+                button.className =
+                "delete-button";
+
+                button.textContent =
+                "🗑 Delete";
 
 
-                title.textContent +=
-                data.title;
+                button.onclick =
+                () => {
 
+                    remove(
+                        ref(
+                            db,
+                            "shows/" +
+                            child.key
+                        )
+                    );
 
-                const type =
-                document.createElement(
-                    "p"
-                );
-
-                type.textContent =
-                data.type;
+                };
 
 
                 card.appendChild(
-                    title
+                    button
                 );
 
-                card.appendChild(
-                    type
-                );
-
-
-                showList.appendChild(
+                list.appendChild(
                     card
                 );
 
-            }
+            });
+
+        }
+    );
+
+}
+
+
+/* =========================
+   HTML ESCAPE
+========================= */
+
+function escapeHTML(text){
+
+    const div =
+    document.createElement(
+        "div"
+    );
+
+    div.textContent =
+    text || "";
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   CALL ROOM
+========================= */
+
+document.getElementById(
+    "createRoomButton"
+).onclick = () => {
+
+    const code =
+    Math.random()
+    .toString(36)
+    .substring(2,8)
+    .toUpperCase();
+
+    document.getElementById(
+        "roomCode"
+    ).textContent =
+    code;
+
+    document.getElementById(
+        "callStatus"
+    ).textContent =
+    "Room created: " + code;
+
+};
+
+
+document.getElementById(
+    "joinRoomButton"
+).onclick = () => {
+
+    const code =
+    document.getElementById(
+        "joinRoomInput"
+    ).value.trim().toUpperCase();
+
+    if(!code){
+
+        alert(
+            "Enter a room code."
         );
+
+        return;
+
+    }
+
+    document.getElementById(
+        "roomCode"
+    ).textContent =
+    code;
+
+    document.getElementById(
+        "callStatus"
+    ).textContent =
+    "Joined room " + code;
+
+};
+
+
+/* =========================
+   START LOCAL CAMERA
+========================= */
+
+document.getElementById(
+    "videoCallButton"
+).onclick = async () => {
+
+    try{
+
+        const stream =
+        await navigator.mediaDevices
+        .getUserMedia({
+
+            video:true,
+
+            audio:true
+
+        });
+
+
+        document.getElementById(
+            "localVideo"
+        ).srcObject =
+        stream;
+
+
+        document.getElementById(
+            "callStatus"
+        ).textContent =
+        "📹 Camera and microphone enabled.";
+
+    }
+
+    catch(error){
+
+        alert(
+            "Camera/microphone permission was not allowed."
+        );
+
+    }
+
+};
+
+
+document.getElementById(
+    "voiceCallButton"
+).onclick = async () => {
+
+    try{
+
+        const stream =
+        await navigator.mediaDevices
+        .getUserMedia({
+
+            video:false,
+
+            audio:true
+
+        });
+
+
+        document.getElementById(
+            "localVideo"
+        ).srcObject =
+        stream;
+
+
+        document.getElementById(
+            "callStatus"
+        ).textContent =
+        "📞 Microphone enabled.";
+
+    }
+
+    catch(error){
+
+        alert(
+            "Microphone permission was not allowed."
+        );
+
+    }
+
+};
+
+
+document.getElementById(
+    "hangupButton"
+).onclick = () => {
+
+    const video =
+    document.getElementById(
+        "localVideo"
+    );
+
+    if(video.srcObject){
+
+        video.srcObject
+        .getTracks()
+        .forEach(
+            track =>
+            track.stop()
+        );
+
+        video.srcObject =
+        null;
+
+    }
+
+    document.getElementById(
+        "callStatus"
+    ).textContent =
+    "Call ended.";
+
+};
+
+
+/* =========================
+   START EVERYTHING
+========================= */
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        if(user){
+
+            loadChat();
+
+            loadMemories();
+
+            loadMusic();
+
+            loadShows();
+
+        }
 
     }
 );
@@ -1228,4 +1837,4 @@ onValue(
 </script>
 
 </body>
-            </html>
+    </html>
