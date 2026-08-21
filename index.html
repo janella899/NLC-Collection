@@ -7,6 +7,11 @@
 <title>NLC Collection</title>
 
 <style>
+
+/* =====================================================
+   NLC COLLECTION — VINTAGE SCRAPBOOK DESIGN
+===================================================== */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -19,75 +24,136 @@ html{
 
 body{
     font-family:"Trebuchet MS",Arial,sans-serif;
-    background:
-        radial-gradient(circle at 15% 20%,rgba(107,16,40,.06) 0 2px,transparent 3px),
-        radial-gradient(circle at 80% 70%,rgba(107,16,40,.05) 0 2px,transparent 3px),
-        repeating-linear-gradient(
-            0deg,
-            rgba(107,16,40,.018) 0px,
-            rgba(107,16,40,.018) 1px,
-            transparent 1px,
-            transparent 5px
-        ),
-        #f8eee9;
+    background:#f8eee9;
     color:#4b3035;
     overflow-x:hidden;
 }
 
-/* =========================================
-   VINTAGE FLOATING DECOR
-========================================= */
+/* =====================================================
+   VINTAGE BACKGROUND
+===================================================== */
 
-.decor{
+body::before{
+    content:"";
     position:fixed;
+    inset:0;
     pointer-events:none;
-    z-index:1;
-    color:#6b1028;
-    opacity:.28;
-    font-family:Georgia,serif;
-    animation:float 6s ease-in-out infinite;
+    z-index:999;
+    opacity:.13;
+    background-image:
+        radial-gradient(#6b1028 1px,transparent 1px);
+    background-size:17px 17px;
+    mix-blend-mode:multiply;
 }
 
-.decor.one{
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:998;
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0 49%,
+            rgba(107,16,40,.025) 50%,
+            transparent 51%
+        );
+    background-size:9px 9px;
+}
+
+/* =====================================================
+   DECORATIVE VINTAGE OBJECTS
+===================================================== */
+
+.vintage-decor{
+    position:fixed;
+    z-index:1;
+    pointer-events:none;
+    color:#6b1028;
+    opacity:.17;
+    user-select:none;
+}
+
+.camera-doodle{
+    width:75px;
+    height:48px;
+    border:4px solid #6b1028;
+    border-radius:10px;
+    position:relative;
+}
+
+.camera-doodle::before{
+    content:"";
+    position:absolute;
+    width:25px;
+    height:9px;
+    border:4px solid #6b1028;
+    border-bottom:0;
+    top:-12px;
+    left:18px;
+    border-radius:5px 5px 0 0;
+}
+
+.camera-doodle::after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    border:4px solid #6b1028;
+    border-radius:50%;
+    left:23px;
+    top:10px;
+}
+
+.camera-one{
     top:12%;
     left:3%;
-    font-size:42px;
+    transform:rotate(-12deg);
 }
 
-.decor.two{
-    top:28%;
-    right:4%;
-    font-size:36px;
-    animation-delay:1s;
+.camera-two{
+    bottom:10%;
+    right:3%;
+    transform:rotate(10deg);
 }
 
-.decor.three{
-    bottom:18%;
-    left:4%;
-    font-size:40px;
-    animation-delay:2s;
+.note-doodle{
+    font-family:Georgia,serif;
+    font-size:65px;
+    transform:rotate(-10deg);
 }
 
-.decor.four{
-    bottom:9%;
-    right:6%;
-    font-size:32px;
-    animation-delay:3s;
+.note-one{
+    top:35%;
+    right:3%;
 }
 
-@keyframes float{
-    0%,100%{
-        transform:translateY(0) rotate(-5deg);
-    }
-
-    50%{
-        transform:translateY(-15px) rotate(5deg);
-    }
+.note-two{
+    bottom:27%;
+    left:3%;
+    transform:rotate(15deg);
 }
 
-/* =========================================
-   LANDING
-========================================= */
+.star-doodle{
+    font-size:55px;
+}
+
+.star-one{
+    top:5%;
+    right:8%;
+    transform:rotate(12deg);
+}
+
+.star-two{
+    bottom:5%;
+    left:10%;
+    transform:rotate(-15deg);
+}
+
+/* =====================================================
+   LANDING PAGE
+===================================================== */
 
 #landing{
     min-height:100vh;
@@ -96,213 +162,207 @@ body{
     justify-content:center;
     padding:25px;
     position:relative;
-    overflow:hidden;
-
     background:
-        radial-gradient(circle at 10% 20%,#f0d5da 0 5%,transparent 6%),
-        radial-gradient(circle at 90% 15%,#ead4c7 0 6%,transparent 7%),
-        radial-gradient(circle at 80% 85%,#efd9df 0 4%,transparent 5%),
+        radial-gradient(
+            circle at 15% 15%,
+            #f0d5d9 0 4%,
+            transparent 4.5%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            #ead4c7 0 5%,
+            transparent 5.5%
+        ),
         #f8eee9;
-
     transition:.8s ease;
 }
 
-#landing:before{
+#landing::before{
     content:"";
     position:absolute;
-    inset:20px;
-    border:1px solid rgba(107,16,40,.2);
+    inset:25px;
+    border:2px solid rgba(107,16,40,.25);
     pointer-events:none;
 }
 
-#landing:after{
-    content:"NLC • MEMORIES • MUSIC • STORIES • 2026";
+#landing::after{
+    content:"NLC • MEMORY ARCHIVE • 2026";
     position:absolute;
     bottom:35px;
-    left:0;
-    right:0;
-    text-align:center;
+    left:50%;
+    transform:translateX(-50%);
     letter-spacing:4px;
-    font-size:9px;
+    font-size:10px;
     color:#6b1028;
-    opacity:.45;
+    opacity:.55;
 }
 
 .landing-card{
     position:relative;
-    z-index:2;
-    width:min(680px,100%);
+    z-index:5;
+    width:min(680px,94%);
     background:#fffdf8;
-    padding:65px 40px 55px;
+    padding:70px 35px 55px;
     text-align:center;
-
-    border-radius:3px;
-
+    border-radius:4px;
     box-shadow:
-        0 20px 45px rgba(92,45,55,.18),
-        inset 0 0 0 2px #f2dfe0;
-
+        0 25px 50px rgba(92,45,55,.18),
+        0 0 0 1px #ead4d1;
     transform:rotate(-1deg);
-    animation:appear 1s ease;
-
-    border:1px solid #ead4d1;
+    animation:landingAppear 1s ease;
 }
 
-.landing-card:after{
+.landing-card::before{
     content:"";
     position:absolute;
-    bottom:-8px;
-    left:0;
-    right:0;
-    height:14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            transparent 6px,
-            #fffdf8 7px
-        ) 0 0/14px 14px repeat-x;
+    inset:13px;
+    border:1px solid #d9b6bc;
+    pointer-events:none;
 }
 
-.landing-card:before{
-    content:"";
+.landing-card::after{
+    content:"ARCHIVE No. 001";
     position:absolute;
-    top:15px;
-    left:15px;
-    width:35px;
-    height:35px;
-    border-left:2px solid #6b1028;
-    border-top:2px solid #6b1028;
-    opacity:.35;
+    top:24px;
+    right:25px;
+    font-size:9px;
+    letter-spacing:2px;
+    color:#6b1028;
+    opacity:.6;
 }
 
-@keyframes appear{
+@keyframes landingAppear{
     from{
         opacity:0;
-        transform:translateY(30px) rotate(-4deg);
+        transform:translateY(40px) rotate(-5deg);
     }
-
     to{
         opacity:1;
         transform:translateY(0) rotate(-1deg);
     }
 }
 
-/* =========================================
-   CAMERA
-========================================= */
+/* TAPE */
 
-.camera-icon{
-    width:74px;
-    height:48px;
-    border:3px solid #6b1028;
-    border-radius:8px;
-    margin:0 auto 22px;
+.tape{
+    position:absolute;
+    width:125px;
+    height:30px;
+    background:#e9d0ad;
+    opacity:.78;
+    transform:rotate(-6deg);
+    top:-15px;
+    left:50%;
+    margin-left:-62px;
+}
+
+/* CAMERA LOGO */
+
+.camera-logo{
+    width:95px;
+    height:62px;
+    margin:0 auto 25px;
+    border:5px solid #6b1028;
+    border-radius:12px;
     position:relative;
 }
 
-.camera-icon:before{
+.camera-logo::before{
     content:"";
     position:absolute;
-    width:25px;
-    height:25px;
-    border:3px solid #6b1028;
+    width:34px;
+    height:12px;
+    border:5px solid #6b1028;
+    border-bottom:0;
+    left:24px;
+    top:-16px;
+    border-radius:5px 5px 0 0;
+}
+
+.camera-logo::after{
+    content:"";
+    position:absolute;
+    width:27px;
+    height:27px;
+    border:5px solid #6b1028;
     border-radius:50%;
-    left:21px;
-    top:8px;
+    left:29px;
+    top:12px;
 }
-
-.camera-icon:after{
-    content:"";
-    position:absolute;
-    width:17px;
-    height:6px;
-    border:2px solid #6b1028;
-    border-bottom:none;
-    left:8px;
-    top:-8px;
-}
-
-/* =========================================
-   LANDING TEXT
-========================================= */
 
 .landing-card h1{
     font-family:Georgia,serif;
-    font-size:clamp(38px,8vw,65px);
+    font-size:clamp(40px,8vw,68px);
     color:#6b1028;
+    letter-spacing:2px;
     margin-bottom:12px;
-    letter-spacing:-1px;
 }
 
-.landing-card h1:after{
+.subtitle-line{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    color:#8c5260;
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.subtitle-line::before,
+.subtitle-line::after{
     content:"";
-    display:block;
-    width:100px;
+    width:50px;
     height:1px;
-    background:#6b1028;
-    margin:15px auto;
-    opacity:.45;
+    background:#c69aa3;
 }
 
 .landing-card p{
-    font-size:16px;
+    font-family:Georgia,serif;
+    font-size:17px;
     line-height:1.8;
     max-width:500px;
-    margin:0 auto 30px;
+    margin:0 auto 32px;
 }
 
-/* =========================================
-   ENTER BUTTON
-========================================= */
-
 .enter-btn{
-    position:relative;
-    border:1px solid #6b1028;
+    border:1px solid #4b081c;
     background:#6b1028;
     color:white;
-
-    padding:15px 30px 15px 48px;
-
+    padding:15px 30px;
     border-radius:2px;
-
     font-weight:bold;
     font-size:14px;
     letter-spacing:1px;
-
     cursor:pointer;
-
-    box-shadow:
-        0 8px 18px rgba(107,16,40,.25);
-
+    box-shadow:5px 5px 0 #d9b6bc;
     transition:.3s;
+    position:relative;
 }
 
-.enter-btn:before{
-    content:"◉";
-    position:absolute;
-    left:20px;
-    font-size:14px;
+.enter-btn::before{
+    content:"✦";
+    margin-right:9px;
 }
 
 .enter-btn:hover{
-    transform:translateY(-4px);
+    transform:translate(-3px,-3px);
+    box-shadow:8px 8px 0 #d9b6bc;
     background:#4b081c;
-    box-shadow:
-        0 12px 25px rgba(107,16,40,.3);
 }
 
 #landing.hide{
     opacity:0;
-    transform:scale(1.15);
+    transform:scale(1.12);
     pointer-events:none;
     position:absolute;
     width:100%;
 }
 
-/* =========================================
+/* =====================================================
    COLLECTION
-========================================= */
+===================================================== */
 
 #collection{
     display:none;
@@ -319,75 +379,70 @@ body{
         opacity:0;
         transform:translateY(25px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-/* =========================================
+/* =====================================================
    HEADER
-========================================= */
+===================================================== */
 
 header{
-    background:
-        linear-gradient(
-            rgba(107,16,40,.96),
-            rgba(107,16,40,.96)
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent 0 10px,
-            rgba(255,255,255,.04) 10px 11px
-        );
-
+    background:#6b1028;
     color:white;
-    padding:38px 20px 34px;
+    padding:42px 20px 48px;
     text-align:center;
     position:relative;
     overflow:hidden;
 }
 
-header:before{
+header::before{
     content:"";
     position:absolute;
-    left:5%;
-    right:5%;
-    top:14px;
-    border-top:1px solid rgba(255,255,255,.35);
-    border-bottom:1px solid rgba(255,255,255,.18);
-    height:6px;
+    width:240px;
+    height:240px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+    top:-130px;
+    left:-60px;
 }
 
-header:after{
-    content:"✦   ✧   ✦   ✧   ✦";
+header::after{
+    content:"";
     position:absolute;
-    bottom:10px;
-    left:0;
-    right:0;
-    font-size:11px;
-    letter-spacing:7px;
-    opacity:.5;
+    width:300px;
+    height:300px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:50%;
+    right:-100px;
+    bottom:-200px;
+}
+
+.header-small{
+    font-size:10px;
+    letter-spacing:5px;
+    opacity:.7;
+    margin-bottom:10px;
 }
 
 header h1{
     font-family:Georgia,serif;
-    font-size:clamp(30px,5vw,48px);
-    letter-spacing:1px;
+    font-size:clamp(34px,6vw,54px);
+    letter-spacing:2px;
 }
 
 header p{
-    margin-top:8px;
-    opacity:.85;
-    letter-spacing:2px;
-    font-size:12px;
-    text-transform:uppercase;
+    margin-top:9px;
+    font-family:Georgia,serif;
+    font-style:italic;
+    opacity:.9;
 }
 
-/* =========================================
+/* =====================================================
    STATUS
-========================================= */
+===================================================== */
 
 .status{
     text-align:center;
@@ -396,90 +451,61 @@ header p{
     letter-spacing:1px;
     background:#f3dfe3;
     color:#6b1028;
-    border-bottom:1px solid #e5c8ce;
+    border-bottom:1px solid #dfc3c9;
 }
 
-/* =========================================
+/* =====================================================
    NAVIGATION
-========================================= */
+===================================================== */
 
 nav{
     position:sticky;
     top:0;
     z-index:50;
-
     display:flex;
     justify-content:center;
-    gap:8px;
+    gap:7px;
     flex-wrap:wrap;
-
     padding:13px;
-
     background:rgba(255,253,248,.96);
-    backdrop-filter:blur(10px);
-
-    box-shadow:
-        0 4px 15px rgba(70,30,40,.12);
-
-    border-bottom:1px solid #ead5d7;
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #e3cdd0;
+    box-shadow:0 5px 15px rgba(70,30,40,.1);
 }
 
 nav button{
-    position:relative;
-
-    border:1px solid #e1c4c9;
-
-    background:#f7e9eb;
+    border:1px solid #d8b8be;
+    background:#fffaf7;
     color:#6b1028;
-
-    padding:10px 17px 10px 37px;
-
-    border-radius:3px;
-
+    padding:10px 17px;
+    border-radius:2px;
     font-weight:bold;
-    font-size:12px;
-    letter-spacing:.5px;
-
     cursor:pointer;
     transition:.25s;
+    font-family:Georgia,serif;
+    position:relative;
 }
 
-nav button:nth-child(1):before{
-    content:"⌂";
-}
-
-nav button:nth-child(2):before{
-    content:"▣";
-}
-
-nav button:nth-child(3):before{
-    content:"✉";
-}
-
-nav button:nth-child(4):before{
-    content:"♪";
-}
-
-nav button:nth-child(5):before{
-    content:"▣";
-}
-
-nav button:before{
+nav button::before{
+    content:"";
     position:absolute;
-    left:13px;
-    font-size:15px;
+    left:5px;
+    right:5px;
+    bottom:3px;
+    height:1px;
+    background:#d7b0b8;
+    opacity:.5;
 }
 
 nav button:hover{
     background:#6b1028;
     color:white;
-    transform:translateY(-2px);
-    box-shadow:0 5px 12px rgba(107,16,40,.2);
+    transform:translateY(-3px) rotate(-1deg);
 }
 
-/* =========================================
-   HOME
-========================================= */
+/* =====================================================
+   GENERAL SECTION
+===================================================== */
 
 #spaces{
     padding:65px 20px;
@@ -492,32 +518,28 @@ nav button:hover{
     margin-bottom:38px;
 }
 
+.title .eyebrow{
+    color:#9b6670;
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
 .title h2{
     font-family:Georgia,serif;
     color:#6b1028;
-    font-size:36px;
-}
-
-.title h2:before{
-    content:"—  ✦  ";
-    font-size:18px;
-}
-
-.title h2:after{
-    content:"  ✦  —";
-    font-size:18px;
+    font-size:39px;
+    margin:9px 0;
 }
 
 .title p{
-    margin-top:10px;
-    font-size:13px;
-    letter-spacing:1px;
-    opacity:.7;
+    font-family:Georgia,serif;
+    font-style:italic;
 }
 
-/* =========================================
-   SPACE CARDS
-========================================= */
+/* =====================================================
+   SCRAPBOOK SPACES
+===================================================== */
 
 .space-grid{
     display:grid;
@@ -527,58 +549,34 @@ nav button:hover{
 
 .space{
     position:relative;
-    min-height:220px;
+    min-height:230px;
     padding:30px 20px;
-
     background:#fffdf8;
-
-    border:1px solid #ead9d6;
-
-    border-radius:2px;
-
-    box-shadow:
-        0 10px 22px rgba(80,40,45,.12);
-
+    box-shadow:0 12px 25px rgba(80,40,45,.13);
     cursor:pointer;
     transition:.35s;
-
     overflow:hidden;
+    border:1px solid #eadbdd;
 }
 
-.space:after{
+.space::before{
     content:"";
     position:absolute;
-    bottom:0;
-    right:0;
-    border-style:solid;
-    border-width:0 0 35px 35px;
-    border-color:transparent transparent #ead9d6 transparent;
+    inset:10px;
+    border:1px dashed #d9bdc2;
+    pointer-events:none;
 }
 
-.space:before{
+.space::after{
+    content:"";
     position:absolute;
-    top:12px;
-    right:14px;
-    color:#6b1028;
-    font-family:Georgia,serif;
-    font-size:11px;
-    opacity:.45;
-}
-
-.space:nth-child(1):before{
-    content:"01";
-}
-
-.space:nth-child(2):before{
-    content:"02";
-}
-
-.space:nth-child(3):before{
-    content:"03";
-}
-
-.space:nth-child(4):before{
-    content:"04";
+    width:75px;
+    height:20px;
+    background:#efd8bd;
+    opacity:.6;
+    top:-9px;
+    left:50%;
+    transform:translateX(-50%) rotate(-3deg);
 }
 
 .space:nth-child(1){
@@ -598,112 +596,44 @@ nav button:hover{
 }
 
 .space:hover{
-    transform:translateY(-10px) rotate(0);
-    box-shadow:
-        0 18px 30px rgba(80,40,45,.18);
+    transform:translateY(-12px) rotate(0deg);
+    box-shadow:0 20px 35px rgba(80,40,45,.2);
 }
-
-/* =========================================
-   CARD SYMBOLS
-========================================= */
 
 .space-symbol{
-    width:58px;
-    height:48px;
-    margin-bottom:17px;
-    position:relative;
-    color:#6b1028;
-}
-
-.camera{
-    border:3px solid #6b1028;
-    border-radius:7px;
-}
-
-.camera:before{
-    content:"";
-    position:absolute;
-    width:19px;
-    height:19px;
-    border:3px solid #6b1028;
-    border-radius:50%;
-    left:17px;
-    top:11px;
-}
-
-.camera:after{
-    content:"";
-    position:absolute;
-    width:16px;
-    height:6px;
-    background:#6b1028;
-    left:7px;
-    top:-7px;
-}
-
-.envelope{
-    border:3px solid #6b1028;
-}
-
-.envelope:before,
-.envelope:after{
-    content:"";
-    position:absolute;
-    width:32px;
-    height:3px;
-    background:#6b1028;
-    top:20px;
-}
-
-.envelope:before{
-    transform:rotate(32deg);
-    left:0;
-}
-
-.envelope:after{
-    transform:rotate(-32deg);
-    right:0;
-}
-
-.music-note{
     font-family:Georgia,serif;
-    font-size:58px;
-    line-height:45px;
-}
-
-.music-note:before{
-    content:"♪";
-}
-
-.film{
-    border:3px solid #6b1028;
-    border-radius:3px;
-}
-
-.film:before{
-    content:"";
-    position:absolute;
-    inset:7px;
-    border-top:2px dashed #6b1028;
-    border-bottom:2px dashed #6b1028;
+    font-size:42px;
+    color:#6b1028;
+    position:relative;
+    z-index:2;
 }
 
 .space h3{
-    margin:8px 0;
+    margin:18px 0 8px;
     color:#6b1028;
     font-family:Georgia,serif;
     font-size:21px;
 }
 
 .space p{
-    font-size:12px;
-    line-height:1.7;
-    opacity:.75;
+    font-size:13px;
+    line-height:1.6;
+    position:relative;
+    z-index:2;
 }
 
-/* =========================================
-   SECTIONS
-========================================= */
+.space-number{
+    position:absolute;
+    right:16px;
+    bottom:13px;
+    font-size:9px;
+    letter-spacing:2px;
+    color:#9d777e;
+}
+
+/* =====================================================
+   PAGE SECTIONS
+===================================================== */
 
 .page-section{
     max-width:1080px;
@@ -720,66 +650,48 @@ nav button:hover{
 @keyframes slideIn{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(25px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-/* =========================================
+/* =====================================================
    PAPER
-========================================= */
+===================================================== */
 
 .paper{
-    background:
-        repeating-linear-gradient(
-            0deg,
-            rgba(107,16,40,.018) 0px,
-            rgba(107,16,40,.018) 1px,
-            transparent 1px,
-            transparent 6px
-        ),
-        #fffdf8;
-
-    padding:38px 30px;
-
-    border:1px solid #ead9d6;
-
-    border-radius:3px;
-
+    background:#fffdf8;
+    padding:42px 30px;
     box-shadow:
-        0 12px 30px rgba(70,35,40,.13);
-
+        0 15px 30px rgba(70,35,40,.13),
+        0 0 0 1px #eadbdd;
     position:relative;
+    border-radius:2px;
 }
 
-.paper:before{
+.paper::before{
     content:"";
     position:absolute;
-    top:-12px;
+    top:-10px;
     left:50%;
     width:110px;
-    height:25px;
-
+    height:24px;
     background:#efd8bd;
-
-    opacity:.75;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
+    opacity:.72;
+    transform:translateX(-50%) rotate(-2deg);
 }
 
-.paper:after{
-    content:"✦";
+.paper::after{
+    content:"NLC ARCHIVE";
     position:absolute;
     right:20px;
     top:18px;
-    color:#6b1028;
-    opacity:.35;
+    font-size:8px;
+    letter-spacing:2px;
+    color:#a57b83;
 }
 
 .page-title{
@@ -790,258 +702,207 @@ nav button:hover{
     margin-bottom:30px;
 }
 
-.page-title:before{
-    content:"「";
+.page-title::after{
+    content:"";
+    display:block;
+    width:90px;
+    height:1px;
+    background:#c89da6;
+    margin:12px auto;
 }
 
-.page-title:after{
-    content:"」";
-}
-
-/* =========================================
+/* =====================================================
    BUTTONS
-========================================= */
+===================================================== */
 
 .btn{
-    position:relative;
-
-    border:1px solid #6b1028;
-
+    border:1px solid #4b081c;
     background:#6b1028;
     color:white;
-
-    padding:11px 18px 11px 39px;
-
+    padding:11px 19px;
     border-radius:2px;
-
     cursor:pointer;
     font-weight:bold;
-
     margin:4px;
-
     transition:.25s;
-
-    box-shadow:
-        0 5px 12px rgba(107,16,40,.16);
-}
-
-.btn:before{
-    content:"♪";
-    position:absolute;
-    left:15px;
-    font-family:Georgia,serif;
-    font-size:16px;
+    box-shadow:3px 3px 0 #d9b6bc;
 }
 
 .btn:hover{
     background:#450817;
-    transform:translateY(-3px);
+    transform:translate(-2px,-2px);
+    box-shadow:5px 5px 0 #d9b6bc;
 }
 
-/* =========================================
-   UPLOAD
-========================================= */
+.delete-btn{
+    background:#b94b61;
+    padding:7px 12px;
+    border-radius:2px;
+    color:white;
+    border:none;
+    cursor:pointer;
+    margin-top:10px;
+    font-size:11px;
+}
+
+.delete-btn:hover{
+    background:#8e3045;
+}
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+input,select{
+    border:1px solid #d7bfc3;
+    background:#fffdfa;
+    padding:12px 14px;
+    border-radius:2px;
+    outline:none;
+    margin:5px;
+    max-width:100%;
+    color:#4b3035;
+}
+
+input:focus,select:focus{
+    border-color:#6b1028;
+    box-shadow:0 0 0 3px #f3dfe3;
+}
+
+/* =====================================================
+   MEMORIES
+===================================================== */
 
 .upload-area{
     text-align:center;
-    padding:35px 20px;
-
-    border:2px dashed #cda7b0;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(107,16,40,.04) 1px,
-            transparent 1px
-        ) 0 0/12px 12px;
-
-    border-radius:3px;
-
+    padding:30px 20px;
+    border:2px dashed #d1aab2;
+    background:#fff7f8;
     position:relative;
 }
 
-.upload-area:before{
-    content:"PHOTO ARCHIVE";
+.upload-area::before{
+    content:"PHOTO BOOTH";
     position:absolute;
-    top:10px;
-    left:15px;
-
+    top:8px;
+    left:12px;
     font-size:8px;
-    letter-spacing:3px;
-
-    color:#6b1028;
-    opacity:.5;
+    letter-spacing:2px;
+    color:#a77c85;
 }
 
 .upload-area h3{
     font-family:Georgia,serif;
     color:#6b1028;
-    font-size:22px;
+    font-size:23px;
 }
 
-/* =========================================
-   INPUTS
-========================================= */
-
-input,
-select{
-    border:1px solid #d7bfc3;
-    background:#fffdf8;
-
-    padding:12px 14px;
-
-    border-radius:2px;
-
-    outline:none;
-
-    margin:5px;
-
-    max-width:100%;
-
-    color:#4b3035;
+.upload-area p{
+    margin:12px;
+    font-size:13px;
 }
 
-input:focus,
-select:focus{
-    border-color:#6b1028;
-
-    box-shadow:
-        0 0 0 3px rgba(107,16,40,.08);
+#uploadStatus{
+    margin-top:10px;
+    font-size:13px;
 }
-
-/* =========================================
-   MEMORIES
-========================================= */
 
 .memory-gallery{
     display:grid;
-    grid-template-columns:
-        repeat(auto-fill,minmax(220px,1fr));
-
-    gap:25px;
-
-    margin-top:35px;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:30px;
+    margin-top:40px;
 }
 
 .memory-card{
     background:#fffdf8;
-
-    padding:13px;
-
-    border-radius:2px;
-
-    border:1px solid #e5d4d0;
-
-    box-shadow:
-        0 7px 18px rgba(70,35,40,.15);
-
+    padding:13px 13px 18px;
+    box-shadow:0 10px 20px rgba(70,35,40,.15);
     transition:.3s;
-
     position:relative;
 }
 
-.memory-card:before{
-    content:"PHOTO";
+.memory-card::before{
+    content:"";
     position:absolute;
-    top:5px;
-    right:8px;
-
-    font-size:7px;
-    letter-spacing:2px;
-
-    color:#6b1028;
-    opacity:.5;
+    width:65px;
+    height:18px;
+    top:-9px;
+    left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+    background:#efd8bd;
+    opacity:.7;
 }
 
 .memory-card:nth-child(even){
-    transform:rotate(1.5deg);
+    transform:rotate(2deg);
 }
 
 .memory-card:nth-child(odd){
-    transform:rotate(-1.5deg);
+    transform:rotate(-2deg);
 }
 
 .memory-card:hover{
-    transform:
-        translateY(-7px)
-        rotate(0);
+    transform:translateY(-9px) rotate(0);
+    box-shadow:0 18px 30px rgba(70,35,40,.22);
 }
 
 .memory-card img,
 .memory-card video{
     width:100%;
-    max-height:300px;
+    height:240px;
     object-fit:cover;
-    border-radius:2px;
+    border-radius:1px;
+    filter:sepia(.12);
 }
 
 .memory-card p{
     margin-top:12px;
-    font-size:12px;
+    font-family:Georgia,serif;
+    font-size:13px;
     word-break:break-word;
+    text-align:center;
 }
 
-/* =========================================
+.memory-card p::before{
+    content:"— ";
+    color:#a46c76;
+}
+
+/* =====================================================
    CHAT
-========================================= */
+===================================================== */
 
 .chat-messages{
     height:400px;
     overflow-y:auto;
-
-    padding:20px;
-
+    padding:25px;
     background:
         repeating-linear-gradient(
-            0deg,
-            #f9eef1 0px,
-            #f9eef1 30px,
-            #eadadd 31px
+            to bottom,
+            #f9eef1 0,
+            #f9eef1 31px,
+            #ead7db 32px
         );
-
-    border:1px solid #dfc6ca;
-
-    border-radius:3px;
-
-    margin-bottom:15px;
+    border:1px solid #dec5ca;
+    margin-bottom:18px;
 }
 
 .message{
-    position:relative;
-
     background:#fffdf8;
-
     padding:14px 17px;
-
     border-radius:2px;
-
-    margin-bottom:18px;
-
+    margin-bottom:15px;
     max-width:85%;
-
-    box-shadow:
-        0 3px 8px rgba(70,35,40,.08);
-
-    word-break:break-word;
-
+    box-shadow:3px 4px 0 #e1c8cd;
     border-left:4px solid #6b1028;
-}
-
-.message:after{
-    content:"";
-    position:absolute;
-    bottom:-7px;
-    left:12px;
-
-    border-width:7px 7px 0 0;
-    border-style:solid;
-    border-color:#fffdf8 transparent transparent transparent;
+    word-break:break-word;
 }
 
 .message small{
     display:block;
     margin-top:7px;
-    opacity:.5;
+    opacity:.55;
     font-size:9px;
     letter-spacing:.5px;
 }
@@ -1055,124 +916,96 @@ select:focus{
     flex:1;
 }
 
-/* =========================================
+/* =====================================================
    MUSIC / SHOWS
-========================================= */
+===================================================== */
 
 .cards{
     display:grid;
-    grid-template-columns:
-        repeat(auto-fill,minmax(200px,1fr));
-
-    gap:20px;
-
-    margin-top:30px;
+    grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+    gap:25px;
+    margin-top:35px;
 }
 
 .item-card{
     background:#fffdf8;
-
-    padding:25px 18px;
-
-    border:1px solid #ead9d6;
-
-    border-radius:2px;
-
-    box-shadow:
-        0 7px 17px rgba(70,35,40,.1);
-
+    padding:28px 20px;
+    border:1px solid #eadbdd;
+    box-shadow:0 9px 18px rgba(70,35,40,.1);
     text-align:center;
-
-    transition:.3s;
-
     position:relative;
+    transition:.3s;
+}
+
+.item-card::before{
+    content:"";
+    position:absolute;
+    top:9px;
+    left:10px;
+    width:22px;
+    height:22px;
+    border-left:1px solid #c89da6;
+    border-top:1px solid #c89da6;
+}
+
+.item-card::after{
+    content:"";
+    position:absolute;
+    bottom:9px;
+    right:10px;
+    width:22px;
+    height:22px;
+    border-right:1px solid #c89da6;
+    border-bottom:1px solid #c89da6;
 }
 
 .item-card:hover{
-    transform:translateY(-6px) rotate(-1deg);
+    transform:translateY(-7px) rotate(-1deg);
+    box-shadow:0 16px 25px rgba(70,35,40,.16);
 }
 
-.item-card:before{
-    content:"ARCHIVE";
-    position:absolute;
-    top:10px;
-    left:12px;
-
-    font-size:7px;
-    letter-spacing:2px;
-
+.item-symbol{
+    font-family:Georgia,serif;
+    font-size:38px;
     color:#6b1028;
-    opacity:.45;
+    margin-bottom:12px;
 }
 
 .item-card h3{
     color:#6b1028;
-    margin:12px 0 8px;
+    margin-bottom:8px;
     font-family:Georgia,serif;
 }
 
-/* =========================================
-   DELETE
-========================================= */
-
-.delete-btn{
-    background:#b94b61;
-
-    padding:7px 12px;
-
-    border-radius:2px;
-
-    color:white;
-
-    border:none;
-
-    cursor:pointer;
-
-    margin-top:10px;
-
-    font-size:11px;
-
-    transition:.25s;
-}
-
-.delete-btn:hover{
-    background:#8e3045;
-    transform:translateY(-2px);
-}
-
-/* =========================================
+/* =====================================================
    FOOTER
-========================================= */
+===================================================== */
 
 footer{
-    position:relative;
-
     background:#6b1028;
-
     color:white;
-
     text-align:center;
-
-    padding:35px 20px;
-
-    margin-top:40px;
+    padding:38px 20px;
+    margin-top:30px;
+    position:relative;
 }
 
-footer:before{
-    content:"✦  •  NLC ARCHIVES  •  ✦";
+footer::before{
+    content:"✦   •   ✦   •   ✦";
     display:block;
-
-    font-size:9px;
-    letter-spacing:4px;
-
-    opacity:.6;
-
+    opacity:.5;
+    letter-spacing:8px;
     margin-bottom:12px;
 }
 
-/* =========================================
+footer p:first-of-type{
+    font-family:Georgia,serif;
+    font-style:italic;
+}
+
+/* =====================================================
    MOBILE
-========================================= */
+===================================================== */
 
 @media(max-width:800px){
 
@@ -1180,30 +1013,37 @@ footer:before{
         grid-template-columns:repeat(2,1fr);
     }
 
+    .vintage-decor{
+        opacity:.1;
+    }
 }
 
 @media(max-width:600px){
 
-    #landing:before{
-        inset:10px;
+    #landing::before{
+        inset:12px;
     }
 
     .landing-card{
-        padding:55px 22px 45px;
+        padding:60px 22px 45px;
     }
 
     .landing-card h1{
-        font-size:42px;
+        font-size:39px;
     }
 
     .space-grid{
         grid-template-columns:1fr 1fr;
-        gap:14px;
+        gap:15px;
     }
 
     .space{
-        min-height:185px;
-        padding:20px 13px;
+        min-height:190px;
+        padding:25px 13px;
+    }
+
+    .space-symbol{
+        font-size:34px;
     }
 
     .space h3{
@@ -1214,23 +1054,6 @@ footer:before{
         font-size:11px;
     }
 
-    nav{
-        gap:5px;
-    }
-
-    nav button{
-        font-size:10px;
-        padding:8px 10px 8px 28px;
-    }
-
-    nav button:before{
-        left:9px;
-    }
-
-    .paper{
-        padding:30px 15px;
-    }
-
     .chat-input{
         flex-direction:column;
     }
@@ -1239,28 +1062,77 @@ footer:before{
         width:100%;
     }
 
-    .decor{
-        opacity:.15;
+    nav{
+        gap:5px;
     }
+
+    nav button{
+        font-size:10px;
+        padding:8px 10px;
+    }
+
+    .paper{
+        padding:35px 15px 25px;
+    }
+
+    .page-title{
+        font-size:28px;
+    }
+
+    .memory-gallery{
+        grid-template-columns:1fr;
+    }
+
 }
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+    width:9px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f3dfe3;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#8e4657;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#6b1028;
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================================
-     VINTAGE BACKGROUND DECOR
-========================================= -->
 
-<div class="decor one">◎</div>
-<div class="decor two">♪</div>
-<div class="decor three">▤</div>
-<div class="decor four">✦</div>
+<!-- =====================================================
+     VINTAGE BACKGROUND DECORATIONS
+===================================================== -->
+
+<div class="vintage-decor camera-doodle camera-one"></div>
+
+<div class="vintage-decor camera-doodle camera-two"></div>
+
+<div class="vintage-decor note-doodle note-one">♪</div>
+
+<div class="vintage-decor note-doodle note-two">♫</div>
+
+<div class="vintage-decor star-doodle star-one">✦</div>
+
+<div class="vintage-decor star-doodle star-two">✧</div>
 
 
-<!-- =========================================
+<!-- =====================================================
      LANDING PAGE
-========================================= -->
+===================================================== -->
 
 <div id="landing">
 
@@ -1268,21 +1140,25 @@ footer:before{
 
         <div class="tape"></div>
 
-        <div class="camera-icon"></div>
+        <div class="camera-logo"></div>
+
+        <div class="subtitle-line">
+            THE MEMORY ARCHIVE
+        </div>
 
         <h1>NLC Collection</h1>
 
         <p>
-            A tiny scrapbook for the people,
-            moments, songs and stories
-            we never want to forget.
+            A little corner made for the photographs,
+            conversations, songs, stories and moments
+            that deserve to stay with us.
         </p>
 
         <button
             class="enter-btn"
             onclick="enterCollection()">
 
-            Enter Our Collection
+            ENTER THE COLLECTION
 
         </button>
 
@@ -1291,17 +1167,24 @@ footer:before{
 </div>
 
 
-<!-- =========================================
-     COLLECTION
-========================================= -->
+<!-- =====================================================
+     MAIN COLLECTION
+===================================================== -->
 
 <div id="collection">
 
+
 <header>
+
+    <div class="header-small">
+        EST. 2026 • PERSONAL MEMORY ARCHIVE
+    </div>
 
     <h1>NLC Collection</h1>
 
-    <p>Our Little Corner of Memories</p>
+    <p>
+        our little corner of memories
+    </p>
 
 </header>
 
@@ -1310,43 +1193,43 @@ footer:before{
     id="firebaseStatus"
     class="status">
 
-    Connecting...
+    Connecting to the archive...
 
 </div>
 
 
-<!-- =========================================
+<!-- =====================================================
      NAVIGATION
-========================================= -->
+===================================================== -->
 
 <nav>
 
     <button onclick="showSpace('spaces')">
-        Home
+        ▱ Home
     </button>
 
     <button onclick="showSpace('memories')">
-        Memories
+        ◉ Memories
     </button>
 
     <button onclick="showSpace('chat')">
-        Little Chat
+        ♧ Chat
     </button>
 
     <button onclick="showSpace('music')">
-        Playlist
+        ♪ Music
     </button>
 
     <button onclick="showSpace('shows')">
-        Watch List
+        ✦ Shows
     </button>
 
 </nav>
 
 
-<!-- =========================================
+<!-- =====================================================
      HOME
-========================================= -->
+===================================================== -->
 
 <section
     id="spaces"
@@ -1354,10 +1237,14 @@ footer:before{
 
     <div class="title">
 
+        <div class="eyebrow">
+            WELCOME TO OUR ARCHIVE
+        </div>
+
         <h2>Our Little Spaces</h2>
 
         <p>
-            A collection of moments worth keeping.
+            Choose a page and leave something behind.
         </p>
 
     </div>
@@ -1365,85 +1252,103 @@ footer:before{
 
     <div class="space-grid">
 
-        <!-- MEMORY -->
 
         <div
             class="space"
             onclick="showSpace('memories')">
 
-            <div class="space-symbol camera"></div>
+            <div class="space-symbol">
+                ◉
+            </div>
 
             <h3>Memory Wall</h3>
 
             <p>
-                Pictures and videos
-                we want to keep forever.
+                A collection of photographs and
+                videos from moments worth remembering.
             </p>
+
+            <div class="space-number">
+                NO. 01
+            </div>
 
         </div>
 
-
-        <!-- CHAT -->
 
         <div
             class="space"
             onclick="showSpace('chat')">
 
-            <div class="space-symbol envelope"></div>
+            <div class="space-symbol">
+                ♧
+            </div>
 
             <h3>Little Chat</h3>
 
             <p>
-                Leave messages
-                and little notes for each other.
+                Messages, thoughts and little notes
+                we want to leave for each other.
             </p>
+
+            <div class="space-number">
+                NO. 02
+            </div>
 
         </div>
 
-
-        <!-- MUSIC -->
 
         <div
             class="space"
             onclick="showSpace('music')">
 
-            <div class="space-symbol music-note"></div>
+            <div class="space-symbol">
+                ♪
+            </div>
 
             <h3>Our Playlist</h3>
 
             <p>
-                Songs that remind us
-                of our favorite memories.
+                Songs that became part of our
+                memories and stories.
             </p>
+
+            <div class="space-number">
+                NO. 03
+            </div>
 
         </div>
 
-
-        <!-- SHOWS -->
 
         <div
             class="space"
             onclick="showSpace('shows')">
 
-            <div class="space-symbol film"></div>
+            <div class="space-symbol">
+                ✦
+            </div>
 
             <h3>Watch List</h3>
 
             <p>
-                K-dramas and anime
-                we want to watch together.
+                K-dramas and anime that we
+                recommend to one another.
             </p>
 
+            <div class="space-number">
+                NO. 04
+            </div>
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================================
+<!-- =====================================================
      MEMORIES
-========================================= -->
+===================================================== -->
 
 <section
     id="memories"
@@ -1458,10 +1363,12 @@ footer:before{
 
         <div class="upload-area">
 
-            <h3>Pin a New Memory</h3>
+            <h3>
+                Pin a New Memory
+            </h3>
 
-            <p style="margin:12px;">
-                Add pictures or videos
+            <p>
+                Add photographs or videos
                 to our shared scrapbook.
             </p>
 
@@ -1477,7 +1384,7 @@ footer:before{
                 class="btn"
                 onclick="uploadMemories()">
 
-                Upload Memory
+                ◉  Upload Memory
 
             </button>
 
@@ -1497,9 +1404,9 @@ footer:before{
 </section>
 
 
-<!-- =========================================
+<!-- =====================================================
      CHAT
-========================================= -->
+===================================================== -->
 
 <section
     id="chat"
@@ -1526,13 +1433,13 @@ footer:before{
             <input
                 id="messageInput"
                 type="text"
-                placeholder="Write a little note...">
+                placeholder="Write something...">
 
             <button
                 class="btn"
                 onclick="sendMessage()">
 
-                Send
+                Send ♧
 
             </button>
 
@@ -1543,9 +1450,9 @@ footer:before{
 </section>
 
 
-<!-- =========================================
+<!-- =====================================================
      MUSIC
-========================================= -->
+===================================================== -->
 
 <section
     id="music"
@@ -1569,7 +1476,7 @@ footer:before{
                 class="btn"
                 onclick="addSong()">
 
-                Add Song
+                ♪  Add Song
 
             </button>
 
@@ -1587,9 +1494,9 @@ footer:before{
 </section>
 
 
-<!-- =========================================
+<!-- =====================================================
      SHOWS
-========================================= -->
+===================================================== -->
 
 <section
     id="shows"
@@ -1626,7 +1533,7 @@ footer:before{
                 class="btn"
                 onclick="addShow()">
 
-                Add
+                ✦  Add
 
             </button>
 
@@ -1644,29 +1551,29 @@ footer:before{
 </section>
 
 
-<!-- =========================================
+<!-- =====================================================
      FOOTER
-========================================= -->
+===================================================== -->
 
 <footer>
 
     <p>
-        Made for memories that deserve
-        to stay in the archive.
+        A collection of moments worth keeping.
     </p>
 
-    <p style="margin-top:8px;">
-        © 2026 NLC Collection
+    <p style="margin-top:8px;font-size:11px;">
+        NLC COLLECTION • 2026
     </p>
 
 </footer>
 
+
 </div>
 
 
-<!-- =========================================
-     FIREBASE
-========================================= -->
+<!-- =====================================================
+     FIREBASE + CLOUDINARY
+===================================================== -->
 
 <script type="module">
 
@@ -1689,9 +1596,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
-/* =========================================
+/* =====================================================
    FIREBASE CONFIG
-========================================= */
+===================================================== */
 
 const firebaseConfig = {
 
@@ -1731,9 +1638,9 @@ const db =
 getDatabase(app);
 
 
-/* =========================================
+/* =====================================================
    CLOUDINARY
-========================================= */
+===================================================== */
 
 const CLOUD_NAME =
 "tisxycv9";
@@ -1742,9 +1649,9 @@ const UPLOAD_PRESET =
 "nlc.upload";
 
 
-/* =========================================
+/* =====================================================
    LOGIN
-========================================= */
+===================================================== */
 
 signInAnonymously(auth)
 
@@ -1753,7 +1660,7 @@ signInAnonymously(auth)
     document.getElementById(
         "firebaseStatus"
     ).textContent =
-    "CONNECTED • NLC ARCHIVE ONLINE";
+    "CONNECTED • NLC MEMORY ARCHIVE";
 
 })
 
@@ -1764,14 +1671,14 @@ signInAnonymously(auth)
     document.getElementById(
         "firebaseStatus"
     ).textContent =
-    "FIREBASE CONNECTION ERROR";
+    "CONNECTION ERROR";
 
 });
 
 
-/* =========================================
-   ENTER
-========================================= */
+/* =====================================================
+   ENTER COLLECTION
+===================================================== */
 
 window.enterCollection =
 function(){
@@ -1789,9 +1696,9 @@ function(){
 };
 
 
-/* =========================================
+/* =====================================================
    PAGE SWITCHER
-========================================= */
+===================================================== */
 
 window.showSpace =
 function(id){
@@ -1822,9 +1729,9 @@ function(id){
 };
 
 
-/* =========================================
+/* =====================================================
    CHAT
-========================================= */
+===================================================== */
 
 window.sendMessage =
 function(){
@@ -1912,7 +1819,6 @@ function loadChat(){
                 const data =
                 child.val();
 
-
                 const box =
                 document.createElement("div");
 
@@ -1941,7 +1847,7 @@ function loadChat(){
                 "delete-btn";
 
                 deleteButton.textContent =
-                "Delete";
+                "Remove";
 
 
                 deleteButton.onclick =
@@ -1989,9 +1895,9 @@ function loadChat(){
 }
 
 
-/* =========================================
+/* =====================================================
    CLOUDINARY UPLOAD
-========================================= */
+===================================================== */
 
 window.uploadMemories =
 async function(){
@@ -2120,9 +2026,9 @@ async function(){
 };
 
 
-/* =========================================
+/* =====================================================
    LOAD MEMORIES
-========================================= */
+===================================================== */
 
 function loadMemories(){
 
@@ -2207,7 +2113,7 @@ function loadMemories(){
 
                     if(
                         confirm(
-                            "Remove this memory?"
+                            "Remove this memory from NLC Collection?"
                         )
                     ){
 
@@ -2243,9 +2149,9 @@ function loadMemories(){
 }
 
 
-/* =========================================
+/* =====================================================
    MUSIC
-========================================= */
+===================================================== */
 
 window.addSong =
 function(){
@@ -2304,14 +2210,14 @@ function loadMusic(){
                 "item-card";
 
 
-                const note =
+                const symbol =
                 document.createElement("div");
 
-                note.className =
-                "music-note";
+                symbol.className =
+                "item-symbol";
 
-                note.style.margin =
-                "0 auto";
+                symbol.textContent =
+                "♪";
 
 
                 const title =
@@ -2330,7 +2236,7 @@ function loadMusic(){
                 "delete-btn";
 
                 button.textContent =
-                "Delete";
+                "Remove";
 
 
                 button.onclick =
@@ -2347,7 +2253,7 @@ function loadMusic(){
                 };
 
 
-                card.appendChild(note);
+                card.appendChild(symbol);
 
                 card.appendChild(title);
 
@@ -2364,9 +2270,9 @@ function loadMusic(){
 }
 
 
-/* =========================================
+/* =====================================================
    SHOWS
-========================================= */
+===================================================== */
 
 window.addShow =
 function(){
@@ -2432,14 +2338,14 @@ function loadShows(){
                 "item-card";
 
 
-                const film =
+                const symbol =
                 document.createElement("div");
 
-                film.className =
-                "film";
+                symbol.className =
+                "item-symbol";
 
-                film.style.margin =
-                "0 auto";
+                symbol.textContent =
+                "✦";
 
 
                 const title =
@@ -2465,7 +2371,7 @@ function loadShows(){
                 "delete-btn";
 
                 button.textContent =
-                "Delete";
+                "Remove";
 
 
                 button.onclick =
@@ -2482,7 +2388,7 @@ function loadShows(){
                 };
 
 
-                card.appendChild(film);
+                card.appendChild(symbol);
 
                 card.appendChild(title);
 
@@ -2501,9 +2407,9 @@ function loadShows(){
 }
 
 
-/* =========================================
+/* =====================================================
    AUTH READY
-========================================= */
+===================================================== */
 
 onAuthStateChanged(
     auth,
@@ -2525,4 +2431,4 @@ onAuthStateChanged(
 </script>
 
 </body>
-   </html>
+    </html>
