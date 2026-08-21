@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NLC Collection ♡</title>
 
 <style>
@@ -18,449 +19,660 @@ html{
 
 body{
     font-family:"Trebuchet MS",Arial,sans-serif;
-    background:#fff7fa;
-    color:#4b2935;
-    min-height:100vh;
+    background:#f8eee9;
+    color:#4b3035;
     overflow-x:hidden;
 }
 
-/* FLOATING DECORATIONS */
+/* =========================
+   FLOATING DECORATIONS
+========================= */
 
 .decor{
     position:fixed;
     pointer-events:none;
     z-index:0;
     animation:float 5s ease-in-out infinite;
-    opacity:.7;
 }
 
-.d1{top:12%;left:6%;font-size:25px;}
-.d2{top:25%;right:7%;font-size:22px;animation-delay:1s;}
-.d3{bottom:15%;left:8%;font-size:20px;animation-delay:2s;}
-.d4{bottom:25%;right:8%;font-size:25px;animation-delay:3s;}
+.decor.one{
+    top:12%;
+    left:4%;
+    font-size:28px;
+}
+
+.decor.two{
+    top:28%;
+    right:5%;
+    font-size:25px;
+    animation-delay:1s;
+}
+
+.decor.three{
+    bottom:15%;
+    left:6%;
+    font-size:22px;
+    animation-delay:2s;
+}
+
+.decor.four{
+    bottom:8%;
+    right:7%;
+    font-size:30px;
+    animation-delay:3s;
+}
 
 @keyframes float{
     0%,100%{transform:translateY(0) rotate(-5deg);}
-    50%{transform:translateY(-15px) rotate(7deg);}
+    50%{transform:translateY(-14px) rotate(5deg);}
 }
 
-/* LANDING */
+/* =========================
+   LANDING PAGE
+========================= */
 
 #landing{
-    position:fixed;
-    inset:0;
-    z-index:100;
+    min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
     padding:25px;
     background:
-        radial-gradient(circle at 20% 20%,#ffe2ec,transparent 30%),
-        radial-gradient(circle at 80% 80%,#eadcff,transparent 30%),
-        #fff8fb;
+        radial-gradient(circle at 20% 20%,#f5d9df 0 5%,transparent 6%),
+        radial-gradient(circle at 80% 30%,#ead4c7 0 5%,transparent 6%),
+        #f8eee9;
     transition:.8s ease;
 }
 
-#landing.hide{
-    opacity:0;
-    visibility:hidden;
-    transform:scale(1.08);
-}
-
 .landing-card{
-    width:min(430px,100%);
-    text-align:center;
-    padding:38px 24px;
-    border-radius:35px;
-    background:rgba(255,255,255,.82);
-    box-shadow:0 20px 60px rgba(110,55,80,.15);
-    border:2px solid #fff;
-    animation:pop .9s ease;
-}
-
-@keyframes pop{
-    from{opacity:0;transform:translateY(30px) scale(.9);}
-    to{opacity:1;transform:none;}
-}
-
-.logo{
-    font-size:58px;
-    margin-bottom:8px;
-    animation:bounce 2.5s infinite;
-}
-
-@keyframes bounce{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-8px);}
-}
-
-.landing-card h1{
-    font-family:Georgia,serif;
-    font-size:35px;
-    color:#7b3150;
-}
-
-.landing-card p{
-    margin:12px auto 25px;
-    line-height:1.6;
-    color:#765866;
-}
-
-.enter-btn{
-    border:0;
-    padding:14px 25px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#8d3c61,#c66b91);
-    color:white;
-    font-size:15px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 8px 20px rgba(141,60,97,.25);
-    transition:.3s;
-}
-
-.enter-btn:hover{
-    transform:translateY(-3px) scale(1.03);
-}
-
-/* MAIN */
-
-#app{
-    display:none;
-    min-height:100vh;
-}
-
-#app.show{
-    display:block;
-    animation:fadeIn .7s ease;
-}
-
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-header{
-    text-align:center;
-    padding:28px 18px 20px;
-    background:linear-gradient(135deg,#fff0f5,#f5edff);
-}
-
-header h1{
-    font-family:Georgia,serif;
-    color:#7b3150;
-    font-size:28px;
-}
-
-header p{
-    font-size:13px;
-    margin-top:5px;
-    color:#806572;
-}
-
-/* SPACE MENU */
-
-#spaces{
-    max-width:850px;
-    margin:auto;
-    padding:28px 18px;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.section-title h2{
-    font-family:Georgia,serif;
-    color:#71334c;
-    font-size:25px;
-}
-
-.section-title p{
-    font-size:13px;
-    color:#92727e;
-    margin-top:5px;
-}
-
-.space-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:13px;
-}
-
-.space{
     position:relative;
-    border:0;
-    padding:22px 12px;
-    min-height:145px;
-    border-radius:25px;
-    cursor:pointer;
-    color:#583543;
-    transition:.3s;
-    box-shadow:0 8px 20px rgba(100,60,80,.1);
-    overflow:hidden;
+    z-index:2;
+    width:min(650px,100%);
+    background:#fffdf8;
+    padding:55px 35px;
+    text-align:center;
+    border-radius:28px;
+    box-shadow:
+        0 15px 35px rgba(92,45,55,.15),
+        inset 0 0 0 3px #f2dfe0;
+    transform:rotate(-1deg);
+    animation:appear 1s ease;
 }
 
-.space:hover{
-    transform:translateY(-5px) rotate(-1deg);
-}
-
-.space:nth-child(1){background:#ffe2eb;}
-.space:nth-child(2){background:#e9e1ff;}
-.space:nth-child(3){background:#fff0c9;}
-.space:nth-child(4){background:#dff4ed;}
-
-.space .emoji{
-    font-size:38px;
-    display:block;
-    margin-bottom:8px;
-}
-
-.space strong{
-    display:block;
-    font-size:16px;
-}
-
-.space small{
-    display:block;
-    margin-top:5px;
-    opacity:.7;
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(30px) rotate(-3deg);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) rotate(-1deg);
+    }
 }
 
 .tape{
     position:absolute;
-    width:55px;
-    height:15px;
-    background:rgba(255,255,255,.55);
-    top:7px;
+    width:110px;
+    height:28px;
+    background:#efd8bd;
+    opacity:.8;
+    transform:rotate(-8deg);
+    top:-12px;
     left:50%;
-    transform:translateX(-50%) rotate(-3deg);
+    margin-left:-55px;
 }
 
-/* CONTENT SCREENS */
+.landing-card h1{
+    font-family:Georgia,serif;
+    font-size:clamp(38px,8vw,65px);
+    color:#6b1028;
+    margin-bottom:10px;
+}
 
-.screen{
+.landing-card p{
+    font-size:17px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.enter-btn{
+    border:none;
+    background:#6b1028;
+    color:white;
+    padding:15px 28px;
+    border-radius:30px;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 8px 18px rgba(107,16,40,.25);
+    transition:.3s;
+}
+
+.enter-btn:hover{
+    transform:translateY(-4px) scale(1.03);
+    background:#4b081c;
+}
+
+#landing.hide{
+    opacity:0;
+    transform:scale(1.15);
+    pointer-events:none;
+    position:absolute;
+    width:100%;
+}
+
+/* =========================
+   COLLECTION
+========================= */
+
+#collection{
     display:none;
-    max-width:800px;
-    margin:auto;
-    padding:25px 18px 50px;
+    min-height:100vh;
+    animation:collectionIn 1s ease;
 }
 
-.screen.active{
+#collection.show{
     display:block;
-    animation:slideIn .5s ease;
+}
+
+@keyframes collectionIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* HEADER */
+
+header{
+    background:#6b1028;
+    color:white;
+    padding:28px 20px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+header h1{
+    font-family:Georgia,serif;
+    font-size:clamp(30px,5vw,48px);
+}
+
+header p{
+    margin-top:6px;
+    opacity:.9;
+}
+
+/* STATUS */
+
+.status{
+    text-align:center;
+    padding:8px;
+    font-size:12px;
+    background:#f3dfe3;
+    color:#6b1028;
+}
+
+/* NAV */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    padding:12px;
+    background:rgba(255,253,248,.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 3px 12px rgba(70,30,40,.1);
+}
+
+nav button{
+    border:none;
+    background:#f2dfe2;
+    color:#6b1028;
+    padding:9px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
+
+nav button:hover{
+    background:#6b1028;
+    color:white;
+    transform:translateY(-2px);
+}
+
+/* =========================
+   LITTLE SPACES
+========================= */
+
+#spaces{
+    padding:55px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.title h2{
+    font-family:Georgia,serif;
+    color:#6b1028;
+    font-size:35px;
+}
+
+.title p{
+    margin-top:8px;
+}
+
+.space-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.space{
+    position:relative;
+    min-height:190px;
+    padding:25px 18px;
+    border-radius:20px;
+    background:#fffdf8;
+    box-shadow:0 8px 20px rgba(80,40,45,.12);
+    cursor:pointer;
+    transition:.35s;
+    overflow:hidden;
+}
+
+.space:nth-child(1){
+    transform:rotate(-2deg);
+}
+
+.space:nth-child(2){
+    transform:rotate(1.5deg);
+}
+
+.space:nth-child(3){
+    transform:rotate(-1deg);
+}
+
+.space:nth-child(4){
+    transform:rotate(2deg);
+}
+
+.space:hover{
+    transform:translateY(-9px) rotate(0);
+    box-shadow:0 15px 28px rgba(80,40,45,.18);
+}
+
+.space .emoji{
+    font-size:42px;
+}
+
+.space h3{
+    margin:13px 0 7px;
+    color:#6b1028;
+}
+
+.space p{
+    font-size:13px;
+    line-height:1.5;
+}
+
+.sticker{
+    position:absolute;
+    right:12px;
+    top:10px;
+    font-size:22px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.page-section{
+    max-width:1050px;
+    margin:auto;
+    padding:50px 20px;
+    display:none;
+}
+
+.page-section.active{
+    display:block;
+    animation:slideIn .6s ease;
 }
 
 @keyframes slideIn{
-    from{opacity:0;transform:translateX(25px);}
-    to{opacity:1;transform:none;}
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-.back{
-    border:0;
-    background:#f0e1e8;
-    color:#71334c;
-    padding:9px 15px;
-    border-radius:20px;
-    cursor:pointer;
-    margin-bottom:18px;
-    font-weight:bold;
+.paper{
+    background:#fffdf8;
+    padding:28px;
+    border-radius:22px;
+    box-shadow:0 8px 22px rgba(70,35,40,.12);
+    position:relative;
 }
 
-.screen h2{
-    font-family:Georgia,serif;
+.paper:before{
+    content:"";
+    position:absolute;
+    top:10px;
+    left:50%;
+    width:90px;
+    height:20px;
+    background:#efd8bd;
+    opacity:.7;
+    transform:translateX(-50%) rotate(-2deg);
+}
+
+.page-title{
     text-align:center;
-    color:#71334c;
-    margin-bottom:18px;
+    font-family:Georgia,serif;
+    color:#6b1028;
+    font-size:32px;
+    margin-bottom:25px;
 }
 
-.box{
-    background:white;
-    padding:20px;
-    border-radius:25px;
-    box-shadow:0 8px 25px rgba(90,50,70,.1);
-    margin-bottom:18px;
-}
+/* =========================
+   BUTTONS
+========================= */
 
-input,select{
-    width:100%;
-    padding:12px 14px;
-    border:1px solid #ead4dc;
-    border-radius:20px;
-    margin:5px 0;
-    outline:none;
-    font-family:inherit;
-}
-
-button{
-    font-family:inherit;
-}
-
-.action{
-    border:0;
-    background:#823b5a;
+.btn{
+    border:none;
+    background:#6b1028;
     color:white;
     padding:11px 18px;
     border-radius:22px;
     cursor:pointer;
     font-weight:bold;
-    margin-top:7px;
+    margin:4px;
+    transition:.25s;
 }
 
-.action:hover{
-    background:#642c45;
+.btn:hover{
+    background:#450817;
+    transform:translateY(-2px);
 }
 
-/* CHAT */
+.delete-btn{
+    background:#b94b61;
+    padding:7px 12px;
+    border-radius:18px;
+    color:white;
+    border:none;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+.delete-btn:hover{
+    background:#8e3045;
+}
+
+/* =========================
+   MEMORIES
+========================= */
+
+.upload-area{
+    text-align:center;
+    padding:25px;
+    border:2px dashed #d7aeb8;
+    border-radius:18px;
+    background:#fff7f8;
+}
+
+input,select{
+    border:1px solid #d7bfc3;
+    background:white;
+    padding:11px 14px;
+    border-radius:20px;
+    outline:none;
+    margin:5px;
+    max-width:100%;
+}
+
+input:focus,select:focus{
+    border-color:#6b1028;
+}
+
+#uploadStatus{
+    margin-top:10px;
+    font-size:13px;
+}
+
+.memory-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:22px;
+    margin-top:28px;
+}
+
+.memory-card{
+    background:#fffdf8;
+    padding:14px;
+    border-radius:8px;
+    box-shadow:0 6px 18px rgba(70,35,40,.15);
+    transition:.3s;
+}
+
+.memory-card:nth-child(even){
+    transform:rotate(1deg);
+}
+
+.memory-card:nth-child(odd){
+    transform:rotate(-1deg);
+}
+
+.memory-card:hover{
+    transform:translateY(-5px) rotate(0);
+}
+
+.memory-card img,
+.memory-card video{
+    width:100%;
+    max-height:300px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+.memory-card p{
+    margin-top:9px;
+    font-size:13px;
+    word-break:break-word;
+}
+
+/* =========================
+   CHAT
+========================= */
 
 .chat-messages{
-    height:380px;
+    height:400px;
     overflow-y:auto;
-    padding:8px;
-    background:#fffafd;
-    border-radius:18px;
-    margin-bottom:10px;
+    padding:15px;
+    background:#f9eef1;
+    border-radius:16px;
+    margin-bottom:15px;
 }
 
 .message{
-    background:#f3e3ea;
-    padding:10px 13px;
-    border-radius:16px;
-    margin:7px 0;
+    background:white;
+    padding:12px 15px;
+    border-radius:17px;
+    margin-bottom:12px;
     max-width:85%;
+    box-shadow:0 3px 8px rgba(70,35,40,.08);
     word-break:break-word;
 }
 
 .message small{
     display:block;
-    margin-top:4px;
-    font-size:9px;
+    margin-top:5px;
     opacity:.55;
+    font-size:10px;
 }
 
-/* MEMORIES */
-
-.upload-note{
-    font-size:12px;
-    color:#876a76;
-    line-height:1.5;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-}
-
-.memory{
-    background:white;
-    padding:9px;
-    border-radius:20px;
-    box-shadow:0 7px 20px rgba(90,50,70,.1);
-    animation:pop .5s ease;
-}
-
-.memory img,
-.memory video{
-    width:100%;
-    height:190px;
-    object-fit:cover;
-    border-radius:14px;
-}
-
-.memory p{
-    font-size:11px;
-    margin:7px 3px;
-    word-break:break-word;
-}
-
-.delete{
-    border:0;
-    background:#f7dce5;
-    color:#873b59;
-    padding:6px 10px;
-    border-radius:15px;
-    font-size:11px;
-    cursor:pointer;
-}
-
-/* MUSIC / SHOWS */
-
-.item{
-    background:white;
-    padding:18px;
-    border-radius:20px;
-    box-shadow:0 7px 20px rgba(90,50,70,.08);
-    margin-bottom:10px;
+.chat-input{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
+    gap:8px;
 }
 
-.item strong{
-    color:#71334c;
+.chat-input input{
+    flex:1;
 }
+
+/* =========================
+   MUSIC / SHOWS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+    gap:18px;
+    margin-top:25px;
+}
+
+.item-card{
+    background:#fffdf8;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 6px 15px rgba(70,35,40,.1);
+    text-align:center;
+}
+
+.item-card h3{
+    color:#6b1028;
+    margin-bottom:8px;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
+    background:#6b1028;
+    color:white;
     text-align:center;
     padding:25px;
-    color:#987784;
-    font-size:11px;
+    margin-top:30px;
 }
 
-@media(max-width:480px){
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
     .space-grid{
-        gap:10px;
-    }
-
-    .space{
-        min-height:130px;
-        padding:18px 10px;
-    }
-
-    .space .emoji{
-        font-size:32px;
-    }
-
-    .gallery{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .memory img,
-    .memory video{
-        height:150px;
+}
+
+@media(max-width:600px){
+
+    .landing-card{
+        padding:45px 22px;
     }
+
+    .space-grid{
+        grid-template-columns:1fr 1fr;
+        gap:13px;
+    }
+
+    .space{
+        min-height:165px;
+        padding:18px 12px;
+    }
+
+    .space .emoji{
+        font-size:34px;
+    }
+
+    .space h3{
+        font-size:16px;
+    }
+
+    .space p{
+        font-size:11px;
+    }
+
+    .chat-input{
+        flex-direction:column;
+    }
+
+    .chat-input .btn{
+        width:100%;
+    }
+
+    nav{
+        gap:5px;
+    }
+
+    nav button{
+        font-size:11px;
+        padding:8px 10px;
+    }
+
+    .paper{
+        padding:20px 15px;
+    }
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="decor d1">🌷</div>
-<div class="decor d2">♡</div>
-<div class="decor d3">✨</div>
-<div class="decor d4">🎀</div>
+<!-- FLOATING DECOR -->
 
-<!-- LANDING -->
+<div class="decor one">♡</div>
+<div class="decor two">✿</div>
+<div class="decor three">🧸</div>
+<div class="decor four">♡</div>
+
+
+<!-- =========================
+     LANDING
+========================= -->
 
 <div id="landing">
 
     <div class="landing-card">
 
-        <div class="logo">🍷</div>
+        <div class="tape"></div>
+
+        <div style="font-size:45px;">🍷</div>
 
         <h1>NLC Collection</h1>
 
         <p>
-            Three friends.<br>
-            Countless memories.<br>
-            One little corner of the internet. ♡
+            A tiny scrapbook for the people,
+            moments, songs and stories
+            we never want to forget. ♡
         </p>
 
-        <button class="enter-btn" onclick="enterCollection()">
+        <button
+            class="enter-btn"
+            onclick="enterCollection()">
+
             Enter Our Collection ✨
+
         </button>
 
     </div>
@@ -468,181 +680,371 @@ footer{
 </div>
 
 
-<!-- APP -->
+<!-- =========================
+     MAIN COLLECTION
+========================= -->
 
-<div id="app">
+<div id="collection">
 
 <header>
-    <h1>♡ NLC Collection ♡</h1>
-    <p>Our little corner of memories</p>
+
+    <h1>🍷 NLC Collection</h1>
+
+    <p>Our little corner of memories ♡</p>
+
 </header>
 
 
-<!-- SPACES -->
+<div
+    id="firebaseStatus"
+    class="status">
 
-<div id="spaces">
+    Connecting...
 
-    <div class="section-title">
-        <h2>Our Little Spaces 🌷</h2>
-        <p>Choose a little space to explore</p>
+</div>
+
+
+<nav>
+
+    <button onclick="showSpace('spaces')">
+        🏠 Home
+    </button>
+
+    <button onclick="showSpace('memories')">
+        📸 Memories
+    </button>
+
+    <button onclick="showSpace('chat')">
+        💌 Chat
+    </button>
+
+    <button onclick="showSpace('music')">
+        🎵 Music
+    </button>
+
+    <button onclick="showSpace('shows')">
+        🎬 Shows
+    </button>
+
+</nav>
+
+
+<!-- =========================
+     LITTLE SPACES
+========================= -->
+
+<section
+    id="spaces"
+    class="page-section active">
+
+    <div class="title">
+
+        <h2>Our Little Spaces ♡</h2>
+
+        <p>
+            Pick a little space to explore.
+        </p>
+
     </div>
+
 
     <div class="space-grid">
 
-        <button class="space" onclick="openScreen('memories')">
-            <span class="tape"></span>
-            <span class="emoji">📸</span>
-            <strong>Memory Box</strong>
-            <small>Our pictures & videos</small>
-        </button>
+        <div
+            class="space"
+            onclick="showSpace('memories')">
 
-        <button class="space" onclick="openScreen('chat')">
-            <span class="tape"></span>
-            <span class="emoji">💌</span>
-            <strong>Secret Chat</strong>
-            <small>Little messages for us</small>
-        </button>
+            <span class="sticker">📌</span>
 
-        <button class="space" onclick="openScreen('music')">
-            <span class="tape"></span>
-            <span class="emoji">🎧</span>
-            <strong>Our Playlist</strong>
-            <small>Songs we love</small>
-        </button>
+            <div class="emoji">📸</div>
 
-        <button class="space" onclick="openScreen('shows')">
-            <span class="tape"></span>
-            <span class="emoji">🎬</span>
-            <strong>Watch List</strong>
-            <small>K-Dramas & anime</small>
-        </button>
+            <h3>Memory Wall</h3>
+
+            <p>
+                Pictures and videos
+                we want to keep forever.
+            </p>
+
+        </div>
+
+
+        <div
+            class="space"
+            onclick="showSpace('chat')">
+
+            <span class="sticker">💗</span>
+
+            <div class="emoji">💌</div>
+
+            <h3>Little Chat</h3>
+
+            <p>
+                Leave messages
+                for each other.
+            </p>
+
+        </div>
+
+
+        <div
+            class="space"
+            onclick="showSpace('music')">
+
+            <span class="sticker">🎧</span>
+
+            <div class="emoji">🎵</div>
+
+            <h3>Our Playlist</h3>
+
+            <p>
+                Songs that remind us
+                of our memories.
+            </p>
+
+        </div>
+
+
+        <div
+            class="space"
+            onclick="showSpace('shows')">
+
+            <span class="sticker">⭐</span>
+
+            <div class="emoji">🎬</div>
+
+            <h3>Watch List</h3>
+
+            <p>
+                K-dramas and anime
+                we recommend.
+            </p>
+
+        </div>
 
     </div>
 
-</div>
+</section>
 
 
-<!-- MEMORIES -->
+<!-- =========================
+     MEMORIES
+========================= -->
 
-<section id="memories" class="screen">
+<section
+    id="memories"
+    class="page-section">
 
-<button class="back" onclick="backToSpaces()">← Little Spaces</button>
+    <div class="paper">
 
-<h2>📸 Memory Box</h2>
+        <h2 class="page-title">
+            📸 Our Memory Wall
+        </h2>
 
-<div class="box">
 
-<h3>Keep a memory ♡</h3>
+        <div class="upload-area">
 
-<p class="upload-note">
-Choose pictures or videos and upload them to our shared memory box.
-</p>
+            <h3>Pin a new memory ♡</h3>
 
-<input
-    type="file"
-    id="memoryInput"
-    accept="image/*,video/*"
-    multiple
->
+            <p style="margin:10px;">
+                Upload pictures or videos
+                to our shared scrapbook.
+            </p>
 
-<button class="action" onclick="uploadMemories()">
-    ☁️ Save Memory
-</button>
+            <input
+                type="file"
+                id="memoryInput"
+                accept="image/*,video/*"
+                multiple>
 
-<p id="uploadStatus" class="upload-note"></p>
+            <br>
 
-</div>
+            <button
+                class="btn"
+                onclick="uploadMemories()">
 
-<div id="gallery" class="gallery"></div>
+                ☁️ Upload Memory
+
+            </button>
+
+            <p id="uploadStatus"></p>
+
+        </div>
+
+
+        <div
+            id="memoryGallery"
+            class="memory-gallery">
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- CHAT -->
+<!-- =========================
+     CHAT
+========================= -->
 
-<section id="chat" class="screen">
+<section
+    id="chat"
+    class="page-section">
 
-<button class="back" onclick="backToSpaces()">← Little Spaces</button>
+    <div class="paper">
 
-<h2>💌 Secret Chat</h2>
-
-<div class="box">
-
-<div id="chatMessages" class="chat-messages">
-    <p style="text-align:center">Loading our little chat... ♡</p>
-</div>
-
-<input
-    id="messageInput"
-    placeholder="Write something... ♡"
->
-
-<button class="action" onclick="sendMessage()">
-    Send 💗
-</button>
-
-</div>
-
-</section>
+        <h2 class="page-title">
+            💌 Our Little Chat
+        </h2>
 
 
-<!-- MUSIC -->
+        <div
+            id="chatMessages"
+            class="chat-messages">
 
-<section id="music" class="screen">
+            Loading messages...
 
-<button class="back" onclick="backToSpaces()">← Little Spaces</button>
+        </div>
 
-<h2>🎧 Our Playlist</h2>
 
-<div class="box">
+        <div class="chat-input">
 
-<input id="songInput" placeholder="Song title">
+            <input
+                id="messageInput"
+                type="text"
+                placeholder="Write something cute...">
 
-<button class="action" onclick="addSong()">
-    Add Song 🎵
-</button>
+            <button
+                class="btn"
+                onclick="sendMessage()">
 
-</div>
+                Send 💗
 
-<div id="songList"></div>
+            </button>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- SHOWS -->
+<!-- =========================
+     MUSIC
+========================= -->
 
-<section id="shows" class="screen">
+<section
+    id="music"
+    class="page-section">
 
-<button class="back" onclick="backToSpaces()">← Little Spaces</button>
+    <div class="paper">
 
-<h2>🎬 Watch List</h2>
+        <h2 class="page-title">
+            🎵 Our Playlist
+        </h2>
 
-<div class="box">
 
-<input id="showInput" placeholder="K-Drama or anime title">
+        <div style="text-align:center;">
 
-<select id="showType">
-    <option>K-Drama 🇰🇷</option>
-    <option>Anime 🇯🇵</option>
-</select>
+            <input
+                id="songInput"
+                type="text"
+                placeholder="Song title">
 
-<button class="action" onclick="addShow()">
-    Add to List ✨
-</button>
+            <button
+                class="btn"
+                onclick="addSong()">
 
-</div>
+                Add Song 🎧
 
-<div id="showList"></div>
+            </button>
+
+        </div>
+
+
+        <div
+            id="songList"
+            class="cards">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SHOWS
+========================= -->
+
+<section
+    id="shows"
+    class="page-section">
+
+    <div class="paper">
+
+        <h2 class="page-title">
+            🎬 Our Watch List
+        </h2>
+
+
+        <div style="text-align:center;">
+
+            <input
+                id="showInput"
+                type="text"
+                placeholder="Title">
+
+            <select id="showType">
+
+                <option value="K-Drama">
+                    🇰🇷 K-Drama
+                </option>
+
+                <option value="Anime">
+                    🇯🇵 Anime
+                </option>
+
+            </select>
+
+
+            <button
+                class="btn"
+                onclick="addShow()">
+
+                Add ⭐
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="showList"
+            class="cards">
+
+        </div>
+
+    </div>
 
 </section>
 
 
 <footer>
-    Made with ♡ by NLC
+
+    <p>Made with 🍷 and lots of memories ♡</p>
+
+    <p style="margin-top:6px;">
+        © 2026 NLC Collection
+    </p>
+
 </footer>
 
 </div>
 
+
+<!-- =========================
+     FIREBASE + CLOUDINARY
+========================= -->
 
 <script type="module">
 
@@ -652,238 +1054,352 @@ import {
 
 import {
     getAuth,
-    signInAnonymously
+    signInAnonymously,
+    onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
     getDatabase,
     ref,
     push,
-    onValue,
-    remove
+    remove,
+    onValue
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
-/* FIREBASE */
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
 const firebaseConfig = {
 
-    apiKey:"AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
+    apiKey:
+    "AIzaSyAaRHUXY2E1Wke2mTjH1hazkdZc0nxxD1M",
 
-    authDomain:"nlc--collection.firebaseapp.com",
+    authDomain:
+    "nlc--collection.firebaseapp.com",
 
     databaseURL:
     "https://nlc--collection-default-rtdb.firebaseio.com",
 
-    projectId:"nlc--collection",
+    projectId:
+    "nlc--collection",
 
     storageBucket:
     "nlc--collection.firebasestorage.app",
 
-    messagingSenderId:"765940335630",
+    messagingSenderId:
+    "765940335630",
 
     appId:
-    "1:765940335630:web:0c37f0e3762ebcf80ee85f"
+    "1:765940335630:web:0c37f0e3762ebcf80ee85f",
 
+    measurementId:
+    "G-Q1LBNYGYMY"
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const auth =
+getAuth(app);
 
-const db = getDatabase(app);
+const db =
+getDatabase(app);
 
 
-/* LOGIN */
+/* =========================
+   CLOUDINARY
+========================= */
+
+const CLOUD_NAME =
+"tisxycv9";
+
+const UPLOAD_PRESET =
+"nlc.upload";
+
+
+/* =========================
+   LOGIN
+========================= */
 
 signInAnonymously(auth)
+
+.then(() => {
+
+    document.getElementById(
+        "firebaseStatus"
+    ).textContent =
+    "✓ Connected to NLC Collection ♡";
+
+})
+
 .catch(error => {
 
-    console.error("Firebase error:",error);
+    console.error(error);
+
+    document.getElementById(
+        "firebaseStatus"
+    ).textContent =
+    "⚠️ Firebase connection error";
 
 });
 
 
-/* PAGE NAVIGATION */
+/* =========================
+   ENTER COLLECTION
+========================= */
 
-window.enterCollection = function(){
+window.enterCollection =
+function(){
 
     document
     .getElementById("landing")
     .classList.add("hide");
 
     document
-    .getElementById("app")
+    .getElementById("collection")
     .classList.add("show");
 
-};
-
-
-window.openScreen = function(id){
-
-    document
-    .getElementById("spaces")
-    .style.display="none";
-
-    document
-    .querySelectorAll(".screen")
-    .forEach(screen=>{
-        screen.classList.remove("active");
-    });
-
-    document
-    .getElementById(id)
-    .classList.add("active");
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    window.scrollTo(0,0);
 
 };
 
 
-window.backToSpaces = function(){
+/* =========================
+   PAGE SWITCHER
+========================= */
+
+window.showSpace =
+function(id){
 
     document
-    .querySelectorAll(".screen")
-    .forEach(screen=>{
-        screen.classList.remove("active");
+    .querySelectorAll(".page-section")
+    .forEach(section => {
+
+        section.classList.remove("active");
+
     });
 
-    document
-    .getElementById("spaces")
-    .style.display="block";
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    const selected =
+    document.getElementById(id);
+
+    if(selected){
+
+        selected.classList.add("active");
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
 
 };
 
 
-/* CHAT */
+/* =========================
+   CHAT
+========================= */
 
-window.sendMessage = function(){
+window.sendMessage =
+function(){
 
     const input =
-    document.getElementById("messageInput");
+    document.getElementById(
+        "messageInput"
+    );
 
     const text =
     input.value.trim();
 
-    if(!text)return;
+    if(!text) return;
+
 
     push(
         ref(db,"chat"),
         {
+
             message:text,
-            time:new Date().toLocaleString()
+
+            time:
+            new Date().toLocaleString()
+
         }
+
     )
-    .then(()=>{
+
+    .then(() => {
+
         input.value="";
+
     })
-    .catch(error=>{
-        alert("Message error: "+error.message);
+
+    .catch(error => {
+
+        alert(
+            "Message error: "+
+            error.message
+        );
+
     });
 
 };
 
 
-onValue(
-    ref(db,"chat"),
-    snapshot=>{
+/* ENTER TO SEND */
 
-        const box =
-        document.getElementById("chatMessages");
+document
+.getElementById("messageInput")
+.addEventListener(
+    "keydown",
+    event => {
 
-        box.innerHTML="";
+        if(event.key === "Enter"){
 
-        snapshot.forEach(child=>{
+            event.preventDefault();
 
-            const data=child.val();
+            window.sendMessage();
 
-            const div =
-            document.createElement("div");
-
-            div.className="message";
-
-            const text =
-            document.createElement("div");
-
-            text.textContent =
-            data.message || "";
-
-            const time =
-            document.createElement("small");
-
-            time.textContent =
-            data.time || "";
-
-            const del =
-            document.createElement("button");
-
-            del.className="delete";
-
-            del.textContent="Delete";
-
-            del.onclick=()=>{
-                if(confirm("Delete this message?")){
-                    remove(
-                        ref(db,"chat/"+child.key)
-                    );
-                }
-            };
-
-            div.appendChild(text);
-            div.appendChild(time);
-            div.appendChild(del);
-
-            box.appendChild(div);
-
-        });
-
-        box.scrollTop=box.scrollHeight;
+        }
 
     }
 );
 
 
-/* CLOUDINARY */
+/* LOAD CHAT */
 
-const CLOUD_NAME="tisxycv9";
+function loadChat(){
 
-const UPLOAD_PRESET="nlc.upload";
+    onValue(
+        ref(db,"chat"),
+        snapshot => {
+
+            const container =
+            document.getElementById(
+                "chatMessages"
+            );
+
+            container.innerHTML="";
 
 
-window.uploadMemories = async function(){
+            snapshot.forEach(child => {
+
+                const data =
+                child.val();
+
+                const box =
+                document.createElement("div");
+
+                box.className =
+                "message";
+
+
+                const text =
+                document.createElement("div");
+
+                text.textContent =
+                data.message || "";
+
+
+                const time =
+                document.createElement("small");
+
+                time.textContent =
+                data.time || "";
+
+
+                const deleteButton =
+                document.createElement("button");
+
+                deleteButton.className =
+                "delete-btn";
+
+                deleteButton.textContent =
+                "Delete 🗑️";
+
+
+                deleteButton.onclick =
+                () => {
+
+                    if(
+                        confirm(
+                            "Delete this message?"
+                        )
+                    ){
+
+                        remove(
+                            ref(
+                                db,
+                                "chat/" +
+                                child.key
+                            )
+                        );
+
+                    }
+
+                };
+
+
+                box.appendChild(text);
+
+                box.appendChild(time);
+
+                box.appendChild(
+                    deleteButton
+                );
+
+                container.appendChild(box);
+
+            });
+
+
+            container.scrollTop =
+            container.scrollHeight;
+
+        }
+
+    );
+
+}
+
+
+/* =========================
+   CLOUDINARY UPLOAD
+========================= */
+
+window.uploadMemories =
+async function(){
 
     const input =
-    document.getElementById("memoryInput");
+    document.getElementById(
+        "memoryInput"
+    );
 
     const files =
     Array.from(input.files);
 
     const status =
-    document.getElementById("uploadStatus");
-
-    const gallery =
-    document.getElementById("gallery");
+    document.getElementById(
+        "uploadStatus"
+    );
 
 
     if(!files.length){
 
-        alert("Choose a picture or video first. ♡");
+        alert(
+            "Choose a picture or video first ♡"
+        );
 
         return;
 
     }
 
 
-    status.textContent="Uploading... ☁️";
+    status.textContent =
+    "Uploading... ☁️";
 
 
     try{
@@ -906,55 +1422,73 @@ window.uploadMemories = async function(){
 
             const response =
             await fetch(
+
                 `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`,
+
                 {
+
                     method:"POST",
+
                     body:formData
+
                 }
+
             );
-
-
-            if(!response.ok){
-
-                throw new Error(
-                    "Cloudinary upload failed."
-                );
-
-            }
 
 
             const data =
             await response.json();
 
 
+            if(!response.ok){
+
+                throw new Error(
+                    data.error?.message ||
+                    "Cloudinary upload failed."
+                );
+
+            }
+
+
             await push(
                 ref(db,"memories"),
                 {
+
                     name:file.name,
+
                     url:data.secure_url,
-                    type:file.type,
-                    time:new Date().toLocaleString()
+
+                    type:
+                    file.type.startsWith("video")
+                    ? "video"
+                    : "image",
+
+                    time:
+                    new Date().toLocaleString()
+
                 }
             );
 
         }
 
 
-        status.textContent=
-        "♡ Memory saved!";
-
         input.value="";
 
+        status.textContent =
+        "✓ Memories uploaded! ♡";
 
-    }catch(error){
+
+    }
+
+    catch(error){
 
         console.error(error);
 
-        status.textContent=
+        status.textContent =
         "⚠️ Upload failed.";
 
         alert(
-            "Upload failed:\n"+
+            "Upload error:\n" +
             error.message
         );
 
@@ -963,258 +1497,398 @@ window.uploadMemories = async function(){
 };
 
 
-/* LOAD MEMORIES */
+/* =========================
+   LOAD MEMORIES
+========================= */
 
-onValue(
-    ref(db,"memories"),
-    snapshot=>{
+function loadMemories(){
 
-        const gallery =
-        document.getElementById("gallery");
+    onValue(
+        ref(db,"memories"),
+        snapshot => {
 
-        gallery.innerHTML="";
+            const gallery =
+            document.getElementById(
+                "memoryGallery"
+            );
 
-        snapshot.forEach(child=>{
-
-            const data =
-            child.val();
-
-            const card =
-            document.createElement("div");
-
-            card.className="memory";
+            gallery.innerHTML="";
 
 
-            let media;
+            snapshot.forEach(child => {
+
+                const data =
+                child.val();
 
 
-            if(
-                data.type &&
-                data.type.startsWith("video")
-            ){
+                const card =
+                document.createElement("div");
 
-                media =
-                document.createElement("video");
-
-                media.controls=true;
-
-            }else{
-
-                media =
-                document.createElement("img");
-
-            }
+                card.className =
+                "memory-card";
 
 
-            media.src=data.url;
+                let media;
 
-
-            const name =
-            document.createElement("p");
-
-            name.textContent =
-            data.name || "Memory";
-
-
-            const del =
-            document.createElement("button");
-
-            del.className="delete";
-
-            del.textContent="Remove from collection";
-
-
-            del.onclick=()=>{
 
                 if(
-                    confirm(
-                        "Remove this memory from the collection?"
-                    )
+                    data.type === "video"
                 ){
 
-                    remove(
-                        ref(
-                            db,
-                            "memories/"+child.key
-                        )
+                    media =
+                    document.createElement(
+                        "video"
                     );
+
+                    media.controls=true;
 
                 }
 
-            };
+                else{
+
+                    media =
+                    document.createElement(
+                        "img"
+                    );
+
+                    media.loading="lazy";
+
+                }
 
 
-            card.appendChild(media);
-
-            card.appendChild(name);
-
-            card.appendChild(del);
-
-            gallery.appendChild(card);
-
-        });
-
-    }
-);
+                media.src =
+                data.url;
 
 
-/* MUSIC */
+                const name =
+                document.createElement("p");
 
-window.addSong=function(){
+                name.textContent =
+                data.name || "Memory ♡";
+
+
+                const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+                deleteButton.className =
+                "delete-btn";
+
+                deleteButton.textContent =
+                "Remove 🗑️";
+
+
+                deleteButton.onclick =
+                () => {
+
+                    if(
+                        confirm(
+                            "Remove this memory from NLC Collection?"
+                        )
+                    ){
+
+                        /*
+                         * This removes the Firebase
+                         * record.
+                         *
+                         * The Cloudinary original remains
+                         * because deleting it requires a
+                         * secure server-side API.
+                         */
+
+                        remove(
+                            ref(
+                                db,
+                                "memories/" +
+                                child.key
+                            )
+                        );
+
+                    }
+
+                };
+
+
+                card.appendChild(media);
+
+                card.appendChild(name);
+
+                card.appendChild(
+                    deleteButton
+                );
+
+                gallery.appendChild(card);
+
+            });
+
+        }
+
+    );
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+window.addSong =
+function(){
 
     const input =
-    document.getElementById("songInput");
+    document.getElementById(
+        "songInput"
+    );
 
-    const title =
+    const text =
     input.value.trim();
 
-    if(!title)return;
+    if(!text)return;
+
 
     push(
         ref(db,"music"),
         {
-            title:title
+
+            title:text
+
         }
+
     );
+
 
     input.value="";
 
 };
 
 
-onValue(
-    ref(db,"music"),
-    snapshot=>{
+function loadMusic(){
 
-        const list =
-        document.getElementById("songList");
+    onValue(
+        ref(db,"music"),
+        snapshot => {
 
-        list.innerHTML="";
+            const list =
+            document.getElementById(
+                "songList"
+            );
 
-        snapshot.forEach(child=>{
+            list.innerHTML="";
 
-            const data=child.val();
 
-            const item =
-            document.createElement("div");
+            snapshot.forEach(child => {
 
-            item.className="item";
+                const data =
+                child.val();
 
-            item.innerHTML=
-            `<strong>🎵 ${escapeHTML(data.title)}</strong>`;
 
-            const del =
-            document.createElement("button");
+                const card =
+                document.createElement("div");
 
-            del.className="delete";
+                card.className =
+                "item-card";
 
-            del.textContent="Delete";
 
-            del.onclick=()=>{
-                remove(
-                    ref(db,"music/"+child.key)
+                card.innerHTML =
+                `<div style="font-size:35px">
+                    🎵
+                 </div>
+                 <h3></h3>`;
+
+
+                card
+                .querySelector("h3")
+                .textContent =
+                data.title;
+
+
+                const button =
+                document.createElement(
+                    "button"
                 );
-            };
 
-            item.appendChild(del);
+                button.className =
+                "delete-btn";
 
-            list.appendChild(item);
-
-        });
-
-    }
-);
+                button.textContent =
+                "Delete 🗑️";
 
 
-/* SHOWS */
+                button.onclick =
+                () => {
 
-window.addShow=function(){
+                    remove(
+                        ref(
+                            db,
+                            "music/" +
+                            child.key
+                        )
+                    );
+
+                };
+
+
+                card.appendChild(button);
+
+                list.appendChild(card);
+
+            });
+
+        }
+
+    );
+
+}
+
+
+/* =========================
+   SHOWS
+========================= */
+
+window.addShow =
+function(){
 
     const input =
-    document.getElementById("showInput");
+    document.getElementById(
+        "showInput"
+    );
 
     const type =
-    document.getElementById("showType");
+    document.getElementById(
+        "showType"
+    ).value;
 
     const title =
     input.value.trim();
 
     if(!title)return;
 
+
     push(
         ref(db,"shows"),
         {
+
             title:title,
-            type:type.value
+
+            type:type
+
         }
+
     );
+
 
     input.value="";
 
 };
 
 
-onValue(
-    ref(db,"shows"),
-    snapshot=>{
+function loadShows(){
 
-        const list =
-        document.getElementById("showList");
+    onValue(
+        ref(db,"shows"),
+        snapshot => {
 
-        list.innerHTML="";
+            const list =
+            document.getElementById(
+                "showList"
+            );
 
-        snapshot.forEach(child=>{
+            list.innerHTML="";
 
-            const data=child.val();
 
-            const item =
-            document.createElement("div");
+            snapshot.forEach(child => {
 
-            item.className="item";
+                const data =
+                child.val();
 
-            const title =
-            document.createElement("strong");
 
-            title.textContent =
-            `${data.type} — ${data.title}`;
+                const card =
+                document.createElement("div");
 
-            const del =
-            document.createElement("button");
+                card.className =
+                "item-card";
 
-            del.className="delete";
 
-            del.textContent="Delete";
+                card.innerHTML =
+                `<div style="font-size:35px">
+                    🎬
+                 </div>
+                 <h3></h3>
+                 <p></p>`;
 
-            del.onclick=()=>{
-                remove(
-                    ref(db,"shows/"+child.key)
+
+                card
+                .querySelector("h3")
+                .textContent =
+                data.title;
+
+
+                card
+                .querySelector("p")
+                .textContent =
+                data.type;
+
+
+                const button =
+                document.createElement(
+                    "button"
                 );
-            };
 
-            item.appendChild(title);
+                button.className =
+                "delete-btn";
 
-            item.appendChild(del);
+                button.textContent =
+                "Delete 🗑️";
 
-            list.appendChild(item);
 
-        });
+                button.onclick =
+                () => {
+
+                    remove(
+                        ref(
+                            db,
+                            "shows/" +
+                            child.key
+                        )
+                    );
+
+                };
+
+
+                card.appendChild(button);
+
+                list.appendChild(card);
+
+            });
+
+        }
+
+    );
+
+}
+
+
+/* =========================
+   AUTH READY
+========================= */
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        if(!user)return;
+
+        loadChat();
+
+        loadMemories();
+
+        loadMusic();
+
+        loadShows();
 
     }
 );
-
-
-/* BASIC HTML ESCAPE */
-
-function escapeHTML(text){
-
-    const div =
-    document.createElement("div");
-
-    div.textContent=text;
-
-    return div.innerHTML;
-
-}
 
 </script>
 
